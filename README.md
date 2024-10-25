@@ -1,1 +1,1 @@
-- [ ] Trying to deploy working GitHub Pages Workflow
+- [x] Trying to deploy working GitHub Pages Workflow
