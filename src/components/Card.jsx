@@ -4,7 +4,7 @@ import { Typography, TextField, Button, Box } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-export default function Card({ card, nextCard, prevCard, onCardCompletion }) {
+export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
   const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 
@@ -79,7 +79,13 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion }) {
       </Typography>
 
       <Box mt={2}>
-        <Button variant="contained" color="secondary" onClick={prevCard} style={{ marginRight: '1rem' }}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={prevCard}
+          style={{ marginRight: '1rem' }}
+          disabled={currentCardIndex === 0 && !unlockedCards.includes(totalCards - 1)}
+        >
           Previous
         </Button>
         <Button variant="contained" color="primary" onClick={nextCard} disabled={!allCorrect}>

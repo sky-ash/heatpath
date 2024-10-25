@@ -18,8 +18,14 @@ export default function Lecture() {
   const lecture = parsedLectureContent.lectures[id - 1];
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [viewedCards, setViewedCards] = useState(Array(lecture.cards.length).fill(false));
-  const [unlockedCards, setUnlockedCards] = useState([0]); // Initially, only the first card is unlocked
+  const [viewedCards, setViewedCards] = useState(() => {
+    const savedViewedCards = JSON.parse(localStorage.getItem(`viewedCards-${id}`));
+    return savedViewedCards || Array(lecture.cards.length).fill(false);
+  });
+  const [unlockedCards, setUnlockedCards] = useState(() => {
+    const savedUnlockedCards = JSON.parse(localStorage.getItem(`unlockedCards-${id}`));
+    return savedUnlockedCards || [0]; // Initially, only the first card is unlocked
+  });
   const [allCorrect, setAllCorrect] = useState(false);
 
   useEffect(() => {
@@ -32,6 +38,14 @@ export default function Lecture() {
     });
     setAllCorrect(allViewed && allWordsCorrect);
   }, [viewedCards, lecture.cards]);
+
+  useEffect(() => {
+    localStorage.setItem(`viewedCards-${id}`, JSON.stringify(viewedCards));
+  }, [viewedCards, id]);
+
+  useEffect(() => {
+    localStorage.setItem(`unlockedCards-${id}`, JSON.stringify(unlockedCards));
+  }, [unlockedCards, id]);
 
   const handleNextCard = () => {
     const nextIndex = (currentCardIndex + 1) % lecture.cards.length;
@@ -74,6 +88,9 @@ export default function Lecture() {
             nextCard={handleNextCard}
             prevCard={handlePrevCard}
             onCardCompletion={() => handleCardCompletion(currentCardIndex)}
+            currentCardIndex={currentCardIndex}
+            unlockedCards={unlockedCards}
+            totalCards={lecture.cards.length}
           />
           <Box mt={2}>
             <Button
@@ -87,7 +104,7 @@ export default function Lecture() {
           </Box>
         </>
       ) : (
-        <Quiz quiz={lecture.quiz} />
+        <Quiz quiz={lecture.quiz} lectureId={id} />
       )}
     </Container>
   );
