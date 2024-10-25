@@ -80,6 +80,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
+dist
 
 # Gatsby files
 .cache/
@@ -110,6 +111,9 @@ typings/
 
 # testing
 /coverage
+
+# production
+/build
 
 # misc
 .DS_Store
