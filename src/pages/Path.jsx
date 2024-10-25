@@ -1,7 +1,7 @@
 // src/pages/Path.js
 
 // Import necessary components
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Card, CardContent, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,13 +12,22 @@ import parsedLectureContent from '../data/parsedLectureContent.json';
 export default function Path() {
 
   // State to keep track of unlocked lectures
-  const unlockedLectures = localStorage.getItem('unlockedLectures') ? JSON.parse(localStorage.getItem('unlockedLectures')) : [1];
+  const [unlockedLectures, setUnlockedLectures] = useState(1);
+
+  useEffect(() => {
+    const storedUnlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures'));
+    if (storedUnlockedLectures) {
+      setUnlockedLectures(storedUnlockedLectures);
+    } else {
+      localStorage.setItem('unlockedLectures', JSON.stringify(1));
+    }
+  }, []);
 
   // useNavigate-hook from React to navigate on Button-Click
   const navigate = useNavigate();
   const handleLectureClick = (id) => {
     // Only navigate to the lecture if it is unlocked (otherwise Button won't be clickable)
-    if (unlockedLectures.includes(id)) {
+    if (id <= unlockedLectures) {
       navigate(`/lecture/${id}`); // Redirect to the lecture page
     }
   };
@@ -46,11 +55,11 @@ export default function Path() {
             <Button
               variant="contained"
               color="primary"
-              disabled={!unlockedLectures.includes(index + 1)}
+              disabled={index + 1 > unlockedLectures}
               onClick={() => handleLectureClick(index + 1)}
             >
               {/* If the lecture is unlocked, show "Start Lecture", otherwise "Locked" */}
-              {unlockedLectures.includes(index + 1) ? 'Start Lecture' : 'Locked'}
+              {index + 1 <= unlockedLectures ? 'Start Lecture' : 'Locked'}
             </Button>
 
           </CardContent>

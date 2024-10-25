@@ -7,12 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Quiz({ quiz, lectureId, handleReviewCards }) {
   const [selectedAnswers, setSelectedAnswers] = useState(Array(quiz.length).fill(null));
-  
-  // const [savedAnswers, setSavedAnswers] = useState(() => {
-  //   const savedAnswers = JSON.parse(localStorage.getItem(`quizAnswers-${lectureId}`));
-  //   return savedAnswers || Array(quiz.length).fill(null);
-  // });
-  
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(() => {
@@ -22,12 +16,13 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   localStorage.setItem(`quizAnswers-${lectureId}`, JSON.stringify(selectedAnswers));
-  // }, [selectedAnswers, lectureId]);
-
   useEffect(() => {
     localStorage.setItem(`quizScore-${lectureId}`, JSON.stringify(score));
+    if (score >= 80) {
+      const unlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures')) || 1;
+      const nextLectureId = Math.max(unlockedLectures, parseInt(lectureId) + 1);
+      localStorage.setItem('unlockedLectures', JSON.stringify(nextLectureId));
+    }
   }, [score, lectureId]);
 
   const handleAnswerSelect = (e) => {
