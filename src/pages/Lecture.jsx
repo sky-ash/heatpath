@@ -53,12 +53,14 @@ export default function Lecture() {
         {lecture.title}
       </Typography>
       {!showQuiz ? (
+        // Render the Card component (Card.jsx) with the current card (based on the currentCardIndex)
         <Card
           card={lecture.cards[currentCardIndex]}
           nextCard={handleNextCard}
           prevCard={handlePrevCard}
         />
       ) : (
+        // Render the Quiz component (Quiz.jsx) after the cards
         <Quiz quiz={lecture.quiz} />
       )}
     </Container>
