@@ -12,8 +12,8 @@ import parsedLectureContent from '../data/parsedLectureContent.json';
 export default function Path() {
 
   // State to keep track of unlocked lectures
-  const [unlockedLectures, setUnlockedLectures] = useState([1]); // Initially, only Lecture 1 is unlocked
-  
+  const unlockedLectures = localStorage.getItem('unlockedLectures') ? JSON.parse(localStorage.getItem('unlockedLectures')) : [1];
+
   // useNavigate-hook from React to navigate on Button-Click
   const navigate = useNavigate();
   const handleLectureClick = (id) => {
@@ -49,10 +49,10 @@ export default function Path() {
               disabled={!unlockedLectures.includes(index + 1)}
               onClick={() => handleLectureClick(index + 1)}
             >
-
               {/* If the lecture is unlocked, show "Start Lecture", otherwise "Locked" */}
               {unlockedLectures.includes(index + 1) ? 'Start Lecture' : 'Locked'}
             </Button>
+
           </CardContent>
         </Card>
       ))}

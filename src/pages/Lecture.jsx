@@ -3,7 +3,7 @@
 // Import necessary components
 import React, { useState, useEffect } from 'react';
 import { Container, Button, Typography, Box } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // Import the parsed lecture content from json file
 import parsedLectureContent from '../data/parsedLectureContent.json';
@@ -16,6 +16,7 @@ import Quiz from '../components/Quiz';
 export default function Lecture() {
   const { id } = useParams(); // Get lecture ID from the URL
   const lecture = parsedLectureContent.lectures[id - 1];
+
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
   const [viewedCards, setViewedCards] = useState(() => {
@@ -75,6 +76,14 @@ export default function Lecture() {
     setShowQuiz(true);
   };
 
+  const handleResetLecture = () => {
+    setCurrentCardIndex(0);
+    setShowQuiz(false);
+    setAllCorrect(false);
+    setViewedCards(Array(lecture.cards.length).fill(false));
+    setUnlockedCards([0]);
+  };
+
   // Render the Lecture-Page
   return (
     <Container maxWidth="md" style={{ marginTop: '2rem' }}>
@@ -105,7 +114,7 @@ export default function Lecture() {
           </Box>
         </>
       ) : (
-        <Quiz quiz={lecture.quiz} lectureId={id} parsedLectureContent={parsedLectureContent} />
+        <Quiz quiz={lecture.quiz} lectureId={id} parsedLectureContent={parsedLectureContent} onResetLecture={handleResetLecture} />
       )}
     </Container>
   );

@@ -13,12 +13,6 @@ export default function Start() {
 
   const handleDeleteCachedData = () => {
     localStorage.clear();
-    // Optionally, you can also clear cookies if needed
-    document.cookie.split(";").forEach((c) => {
-      document.cookie = c
-        .replace(/^ +/, "")
-        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-    });
     alert('Cached data deleted');
   };
 

@@ -5,7 +5,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNavigate } from 'react-router-dom';
 
-export default function Quiz({ quiz, lectureId, parsedLectureContent }) {
+export default function Quiz({ quiz, lectureId, parsedLectureContent, onResetLecture }) {
   const [selectedAnswers, setSelectedAnswers] = useState(() => {
     const savedAnswers = JSON.parse(localStorage.getItem(`quizAnswers-${lectureId}`));
     return savedAnswers || Array(quiz.length).fill(null);
@@ -38,6 +38,13 @@ export default function Quiz({ quiz, lectureId, parsedLectureContent }) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       calculateScore();
+      if (score >= 80) {
+        const unlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures')) || [];
+        if (!unlockedLectures.includes(parseInt(lectureId) + 1)) {
+          unlockedLectures.push(parseInt(lectureId) + 1);
+          localStorage.setItem('unlockedLectures', JSON.stringify(unlockedLectures));
+        }
+      }
       setShowResult(true); // Show results after the last question
     }
   };
@@ -55,6 +62,12 @@ export default function Quiz({ quiz, lectureId, parsedLectureContent }) {
   const handleNextLecture = () => {
     const nextLectureId = parseInt(lectureId) + 1;
     if (nextLectureId <= parsedLectureContent.lectures.length) {
+      // Reset the state for the new lecture
+      localStorage.removeItem(`viewedCards-${nextLectureId}`);
+      localStorage.removeItem(`unlockedCards-${nextLectureId}`);
+      localStorage.removeItem(`quizAnswers-${nextLectureId}`);
+      localStorage.removeItem(`quizScore-${nextLectureId}`);
+      onResetLecture();
       navigate(`/lecture/${nextLectureId}`);
     } else {
       alert('Congratulations, you have completed all lectures!');
@@ -62,6 +75,7 @@ export default function Quiz({ quiz, lectureId, parsedLectureContent }) {
   };
 
   const handleReviewCards = () => {
+    onResetLecture();
     navigate(`/lecture/${lectureId}`);
   };
 
