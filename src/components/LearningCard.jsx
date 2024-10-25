@@ -1,69 +1,26 @@
 // src/components/LearningCard.js
 import React, { useState, useEffect } from 'react';
-import { Typography, Chip, Button, Box } from '@mui/material';
-import { useDrag, useDrop } from 'react-dnd';
-
-const ItemTypes = {
-  WORD: 'word',
-};
-
-function DraggableWord({ word }) {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: ItemTypes.WORD,
-    item: { word },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  }));
-
-  return (
-    <Chip
-      ref={drag}
-      label={word}
-      color="primary"
-      style={{ margin: '0.5rem', opacity: isDragging ? 0.5 : 1 }}
-    />
-  );
-}
-
-function DropZone({ index, acceptWord, currentWord }) {
-  const [{ isOver }, drop] = useDrop(() => ({
-    accept: ItemTypes.WORD,
-    drop: (item) => acceptWord(index, item.word),
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
-    }),
-  }));
-
-  return (
-    <Chip
-      ref={drop}
-      label={currentWord || '____'}
-      style={{
-        margin: '0 0.5rem',
-        backgroundColor: isOver ? 'lightblue' : 'lightgray',
-      }}
-    />
-  );
-}
+import { Typography, TextField, Button, Box } from '@mui/material';
 
 export default function LearningCard({ card, nextCard, prevCard }) {
   const [answers, setAnswers] = useState([]);
+  const [correctness, setCorrectness] = useState([]);
 
   useEffect(() => {
-    const initialAnswers = Array(card.words.length).fill(null);
+    const initialAnswers = Array(card.sentence.filter(part => part === '___').length).fill('');
+    const initialCorrectness = Array(card.sentence.filter(part => part === '___').length).fill(null);
     setAnswers(initialAnswers);
-  }, [card.words.length]);
+    setCorrectness(initialCorrectness);
+  }, [card.sentence]);
 
-  const acceptWord = (index, word) => {
+  const handleInputChange = (index, value) => {
     const newAnswers = [...answers];
-    newAnswers[index] = word;
+    newAnswers[index] = value;
     setAnswers(newAnswers);
-  };
 
-  const checkCorrectness = (answer, correctWord) => {
-    if (!answer) return 'default';
-    return answer === correctWord ? 'success' : 'error';
+    const newCorrectness = [...correctness];
+    newCorrectness[index] = value === card.correctWords[index];
+    setCorrectness(newCorrectness);
   };
 
   return (
@@ -74,31 +31,27 @@ export default function LearningCard({ card, nextCard, prevCard }) {
 
       <Typography variant="body1" component="div" style={{ marginBottom: '1rem' }}>
         {card.sentence.map((part, index) => {
-          const isDropZone = part === '___';
-          const wordIndex = isDropZone
-            ? answers.findIndex((_, i) => answers[i] === null)
-            : null;
+          const isInputField = part === '___';
+          const inputFieldIndex = card.sentence.slice(0, index).filter(p => p === '___').length;
 
           return (
             <React.Fragment key={index}>
-              {!isDropZone && part}
-              {isDropZone && (
-                <DropZone
-                  index={wordIndex}
-                  acceptWord={acceptWord}
-                  currentWord={answers[wordIndex]}
+              {!isInputField && part}
+              {isInputField && (
+                <TextField
+                  variant="outlined"
+                  size="small"
+                  value={answers[inputFieldIndex]}
+                  onChange={(e) => handleInputChange(inputFieldIndex, e.target.value)}
+                  error={correctness[inputFieldIndex] === false}
+                  helperText={correctness[inputFieldIndex] === false ? 'Incorrect' : ''}
+                  style={{ margin: '0 0.5rem' }}
                 />
               )}
             </React.Fragment>
           );
         })}
       </Typography>
-
-      <Box>
-        {card.words.map((word, i) => (
-          <DraggableWord key={i} word={word} />
-        ))}
-      </Box>
 
       <Box mt={2}>
         <Button variant="contained" color="secondary" onClick={prevCard} style={{ marginRight: '1rem' }}>
