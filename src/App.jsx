@@ -12,7 +12,7 @@ import Navigation from './components/Navigation';
 // The main App component
 export default function App() {
   return (
-    <Router>
+    <Router basename="/heatpath">
       <Container maxWidth="sm" style={{ marginTop: '2rem', paddingBottom: '4rem' }}>
         <Routes>
           <Route path="/" element={<Start />} />
