@@ -4,7 +4,7 @@ import { Typography, TextField, Button, Box } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-export default function Card({ card, nextCard, prevCard }) {
+export default function Card({ card, nextCard, prevCard, onCardCompletion }) {
   const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 
@@ -32,6 +32,11 @@ export default function Card({ card, nextCard, prevCard }) {
     setCorrectness(newCorrectness);
 
     localStorage.setItem(`answers-${card.sentence.join(' ')}`, JSON.stringify(newAnswers));
+
+    // Check if all answers are correct and call onCardCompletion
+    if (newCorrectness.every(c => c === true)) {
+      onCardCompletion();
+    }
   };
 
   const allCorrect = correctness.every(c => c === true);

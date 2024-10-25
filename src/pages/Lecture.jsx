@@ -1,9 +1,9 @@
 // src/pages/Lecture.js
 
 // Import necessary components
-import React, { useState } from 'react';
-import { Container, Button, Typography } from '@mui/material';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Container, Button, Typography, Box } from '@mui/material';
+import { useParams } from 'react-router-dom';
 
 // Import the parsed lecture content from json file
 import parsedLectureContent from '../data/parsedLectureContent.json';
@@ -18,32 +18,47 @@ export default function Lecture() {
   const lecture = parsedLectureContent.lectures[id - 1];
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
+  const [viewedCards, setViewedCards] = useState(Array(lecture.cards.length).fill(false));
+  const [unlockedCards, setUnlockedCards] = useState([0]); // Initially, only the first card is unlocked
+  const [allCorrect, setAllCorrect] = useState(false);
 
-  // Show Next and Previous Cards using the currentCardIndex
-  // Next Card: Go to the next card if there is one. If there is no next card, show the quiz
-  
-  // [[ FUTURE IMPLEMENTATION: Card-Carousel
-  // Currently, if there is no next Card it shows the quiz. 
-  // In the future, there will be a button to show the quiz after finishing all cards. 
-  // When clicking on "Next" on the last card then, it will show the first card again. ]]
+  useEffect(() => {
+    // Check if all cards have been viewed and all words are correct
+    const allViewed = viewedCards.every(viewed => viewed);
+    const allWordsCorrect = viewedCards.every((viewed, index) => {
+      const card = lecture.cards[index];
+      const savedAnswers = JSON.parse(localStorage.getItem(`answers-${card.sentence.join(' ')}`)) || [];
+      return savedAnswers.every((answer, i) => answer === card.words[i]);
+    });
+    setAllCorrect(allViewed && allWordsCorrect);
+  }, [viewedCards, lecture.cards]);
+
   const handleNextCard = () => {
-    if (currentCardIndex < lecture.cards.length - 1) {
-      setCurrentCardIndex(currentCardIndex + 1);
-    } else {
-      setShowQuiz(true); // Show the quiz after the cards
+    const nextIndex = (currentCardIndex + 1) % lecture.cards.length;
+    if (unlockedCards.includes(nextIndex) || currentCardIndex === lecture.cards.length - 1) {
+      setCurrentCardIndex(nextIndex);
+      const newViewedCards = [...viewedCards];
+      newViewedCards[nextIndex] = true;
+      setViewedCards(newViewedCards);
     }
   };
 
-  // Previous Card: Go to the previous card if there is one.
-  // [[ FUTURE IMPLEMENTATION: Card-Carousel
-  // Currently, if it already is at the first card, it does nothing.
-  // In the future, this button should show the last card when clicking on "Previous" on the first card,
-  // but only if this card is is already unlocked (if all Cards before it are completed) 
-  // and otherwise the button will be locked (same as next-button behavior before putting in the right words). ]]
   const handlePrevCard = () => {
-    if (currentCardIndex > 0) {
-      setCurrentCardIndex(currentCardIndex - 1);
+    const prevIndex = (currentCardIndex - 1 + lecture.cards.length) % lecture.cards.length;
+    if (currentCardIndex === 0 && !unlockedCards.includes(lecture.cards.length - 1)) {
+      return; // Lock the previous button on the first card if the last card is not unlocked
     }
+    setCurrentCardIndex(prevIndex);
+  };
+
+  const handleCardCompletion = (index) => {
+    if (!unlockedCards.includes(index + 1) && index < lecture.cards.length - 1) {
+      setUnlockedCards([...unlockedCards, index + 1]);
+    }
+  };
+
+  const handleStartQuiz = () => {
+    setShowQuiz(true);
   };
 
   // Render the Lecture-Page
@@ -53,14 +68,25 @@ export default function Lecture() {
         {lecture.title}
       </Typography>
       {!showQuiz ? (
-        // Render the Card component (Card.jsx) with the current card (based on the currentCardIndex)
-        <Card
-          card={lecture.cards[currentCardIndex]}
-          nextCard={handleNextCard}
-          prevCard={handlePrevCard}
-        />
+        <>
+          <Card
+            card={lecture.cards[currentCardIndex]}
+            nextCard={handleNextCard}
+            prevCard={handlePrevCard}
+            onCardCompletion={() => handleCardCompletion(currentCardIndex)}
+          />
+          <Box mt={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleStartQuiz}
+              disabled={!allCorrect}
+            >
+              Start Quiz
+            </Button>
+          </Box>
+        </>
       ) : (
-        // Render the Quiz component (Quiz.jsx) after the cards
         <Quiz quiz={lecture.quiz} />
       )}
     </Container>

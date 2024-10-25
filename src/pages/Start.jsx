@@ -1,38 +1,43 @@
 // src/pages/Start.js
 
-// Import the necessary components
 import React from 'react';
-import { Container, Typography, Button } from '@mui/material';
+import { Container, Typography, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-// The Start component
 export default function Start() {
-  // useNavigate-hook from React to navigate on Button-Click
   const navigate = useNavigate();
+
   const handleGetStarted = () => {
-    navigate('/path'); // Redirect to the Path-Page (Lecture Overview)
+    navigate('/path');
   };
 
-  // Render the Start-Page
-  return (
-    
-    // MUI Container Component for Styling
-    <Container maxWidth="sm" style={{ textAlign: 'center', marginTop: '2rem' }}>
+  const handleDeleteCachedData = () => {
+    localStorage.clear();
+    // Optionally, you can also clear cookies if needed
+    document.cookie.split(";").forEach((c) => {
+      document.cookie = c
+        .replace(/^ +/, "")
+        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+    alert('Cached data deleted');
+  };
 
-      {/* Heading */}
+  return (
+    <Container maxWidth="sm" style={{ textAlign: 'center', marginTop: '2rem' }}>
       <Typography variant="h2" gutterBottom>
         Welcome to Heat Path
       </Typography>
-
-      {/* Subheading */}
       <Typography variant="body1" component="p">
         Learn about the health risks of climate change through interactive lectures and quizzes.
       </Typography>
-
-      {/* Button to "start the App" */}
-      <Button variant="contained" color="primary" onClick={handleGetStarted}>
-        Get Started
-      </Button>
+      <Box mt={2}>
+        <Button variant="contained" color="primary" onClick={handleGetStarted} style={{ marginRight: '1rem' }}>
+          Get Started
+        </Button>
+        <Button variant="contained" color="secondary" onClick={handleDeleteCachedData}>
+          Delete Cached Data
+        </Button>
+      </Box>
     </Container>
   );
 }
