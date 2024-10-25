@@ -36,7 +36,7 @@ export default function Path() {
   return (
 
     // MUI Container Component for Styling
-    <Container maxWidth="md" style={{ marginTop: '2rem' }}>
+    <Container maxWidth="sm" className="container">
 
       {/* Heading */}
       <Typography variant="h4" gutterBottom>
@@ -45,7 +45,7 @@ export default function Path() {
 
       {/* Map over the lectures and render a Card for each */}
       {parsedLectureContent.lectures.map((lecture, index) => (
-        <Card key={index} style={{ margin: '1rem 0' }}>
+        <Card key={index} className="card">
           <CardContent>
 
             {/* Lecture Title */}

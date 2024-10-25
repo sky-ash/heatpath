@@ -9,6 +9,7 @@ import App from './App';
 import { CssBaseline } from '@mui/material';
 import '@fontsource/roboto';
 
+import './styles/global.css'; // Import the global CSS file
 
 // Render the app
 const container = document.getElementById('root');

@@ -17,7 +17,7 @@ export default function Start() {
   };
 
   return (
-    <Container maxWidth="sm" style={{ textAlign: 'center', marginTop: '2rem' }}>
+    <Container maxWidth="sm" className="container">
       <Typography variant="h2" gutterBottom>
         Welcome to Heat Path
       </Typography>

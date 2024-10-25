@@ -82,7 +82,7 @@ export default function Lecture() {
 
   // Render the Lecture-Page
   return (
-    <Container maxWidth="md" style={{ marginTop: '2rem' }}>
+    <Container maxWidth="sm" className="container">
       <Typography variant="h4" gutterBottom>
         {lecture.title}
       </Typography>

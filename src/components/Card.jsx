@@ -4,7 +4,7 @@ import { Typography, TextField, Button, Box } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards, parsedLectureContent }) {
+export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
   const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 
@@ -17,10 +17,6 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
       initialAnswers[index] = answer;
       initialCorrectness[index] = answer === card.words[index];
     });
-
-    if (card.words.length === 0) {
-      onCardCompletion();
-    }
 
     setAnswers(initialAnswers);
     setCorrectness(initialCorrectness);
@@ -46,7 +42,7 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
   const allCorrect = correctness.every(c => c === true);
 
   return (
-    <Box>
+    <Box className="card">
       <Typography variant="h6" gutterBottom>
         {card.title}
       </Typography>
@@ -82,20 +78,16 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
         Fill out the following words in the empty fields: {card.words.join(', ')}
       </Typography>
 
-      <Box mt={2}>
+      <Box mt={2} display="flex" justifyContent="space-between">
         <Button
           variant="contained"
           color="secondary"
           onClick={prevCard}
-          style={{ marginRight: '1rem' }}
           disabled={currentCardIndex === 0 && !unlockedCards.includes(totalCards - 1)}
         >
           Previous
         </Button>
-        <Button variant="contained" 
-          color="primary" 
-          onClick={nextCard} 
-          disabled={!allCorrect}>
+        <Button variant="contained" color="primary" onClick={nextCard} disabled={!allCorrect}>
           Next
         </Button>
       </Box>

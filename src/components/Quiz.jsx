@@ -55,7 +55,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
   };
 
   return (
-    <Box>
+    <Box className="container">
       {!showResult ? (
         <>
           <Typography variant="h6" gutterBottom>
