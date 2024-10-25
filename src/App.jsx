@@ -7,7 +7,6 @@ import { Container } from '@mui/material';
 import Home from './pages/Home';
 import Path from './pages/Path';
 import Lecture from './pages/Lecture';
-import Quiz from './pages/Quiz';
 
 // The main App component
 export default function App() {
@@ -18,7 +17,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/path" element={<Path />} />
           <Route path="/lecture/:id" element={<Lecture />} />
-          <Route path="/quiz/:id" element={<Quiz />} />
         </Routes>
       </Container>
     </Router>
