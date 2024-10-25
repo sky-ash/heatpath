@@ -5,11 +5,14 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNavigate } from 'react-router-dom';
 
-export default function Quiz({ quiz, lectureId, parsedLectureContent, onResetLecture }) {
-  const [selectedAnswers, setSelectedAnswers] = useState(() => {
-    const savedAnswers = JSON.parse(localStorage.getItem(`quizAnswers-${lectureId}`));
-    return savedAnswers || Array(quiz.length).fill(null);
-  });
+export default function Quiz({ quiz, lectureId, handleReviewCards }) {
+  const [selectedAnswers, setSelectedAnswers] = useState(Array(quiz.length).fill(null));
+  
+  // const [savedAnswers, setSavedAnswers] = useState(() => {
+  //   const savedAnswers = JSON.parse(localStorage.getItem(`quizAnswers-${lectureId}`));
+  //   return savedAnswers || Array(quiz.length).fill(null);
+  // });
+  
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(() => {
@@ -19,9 +22,9 @@ export default function Quiz({ quiz, lectureId, parsedLectureContent, onResetLec
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    localStorage.setItem(`quizAnswers-${lectureId}`, JSON.stringify(selectedAnswers));
-  }, [selectedAnswers, lectureId]);
+  // useEffect(() => {
+  //   localStorage.setItem(`quizAnswers-${lectureId}`, JSON.stringify(selectedAnswers));
+  // }, [selectedAnswers, lectureId]);
 
   useEffect(() => {
     localStorage.setItem(`quizScore-${lectureId}`, JSON.stringify(score));
@@ -38,13 +41,6 @@ export default function Quiz({ quiz, lectureId, parsedLectureContent, onResetLec
       setCurrentQuestion(currentQuestion + 1);
     } else {
       calculateScore();
-      if (score >= 80) {
-        const unlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures')) || [];
-        if (!unlockedLectures.includes(parseInt(lectureId) + 1)) {
-          unlockedLectures.push(parseInt(lectureId) + 1);
-          localStorage.setItem('unlockedLectures', JSON.stringify(unlockedLectures));
-        }
-      }
       setShowResult(true); // Show results after the last question
     }
   };
@@ -59,24 +55,8 @@ export default function Quiz({ quiz, lectureId, parsedLectureContent, onResetLec
     setScore((correctAnswers / quiz.length) * 100);
   };
 
-  const handleNextLecture = () => {
-    const nextLectureId = parseInt(lectureId) + 1;
-    if (nextLectureId <= parsedLectureContent.lectures.length) {
-      // Reset the state for the new lecture
-      localStorage.removeItem(`viewedCards-${nextLectureId}`);
-      localStorage.removeItem(`unlockedCards-${nextLectureId}`);
-      localStorage.removeItem(`quizAnswers-${nextLectureId}`);
-      localStorage.removeItem(`quizScore-${nextLectureId}`);
-      onResetLecture();
-      navigate(`/lecture/${nextLectureId}`);
-    } else {
-      alert('Congratulations, you have completed all lectures!');
-    }
-  };
-
-  const handleReviewCards = () => {
-    onResetLecture();
-    navigate(`/lecture/${lectureId}`);
+  const handleReturnToPath = () => {
+    navigate('/path');
   };
 
   return (
@@ -128,8 +108,8 @@ export default function Quiz({ quiz, lectureId, parsedLectureContent, onResetLec
               <Typography variant="h6" color="primary" gutterBottom>
                 Congratulations! You passed the quiz.
               </Typography>
-              <Button variant="contained" color="primary" onClick={handleNextLecture}>
-                Go to Next Lecture
+              <Button variant="contained" color="secondary" onClick={handleReturnToPath} style={{ marginLeft: '1rem' }}>
+                Return to Path
               </Button>
             </>
           ) : (

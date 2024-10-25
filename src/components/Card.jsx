@@ -18,6 +18,10 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
       initialCorrectness[index] = answer === card.words[index];
     });
 
+    if (card.words.length === 0) {
+      onCardCompletion();
+    }
+
     setAnswers(initialAnswers);
     setCorrectness(initialCorrectness);
   }, [card.sentence, card.words]);
@@ -88,7 +92,10 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
         >
           Previous
         </Button>
-        <Button variant="contained" color="primary" onClick={nextCard} disabled={!allCorrect}>
+        <Button variant="contained" 
+          color="primary" 
+          onClick={nextCard} 
+          disabled={!allCorrect}>
           Next
         </Button>
       </Box>

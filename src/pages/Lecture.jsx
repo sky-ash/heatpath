@@ -16,7 +16,6 @@ import Quiz from '../components/Quiz';
 export default function Lecture() {
   const { id } = useParams(); // Get lecture ID from the URL
   const lecture = parsedLectureContent.lectures[id - 1];
-
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
   const [viewedCards, setViewedCards] = useState(() => {
@@ -76,12 +75,9 @@ export default function Lecture() {
     setShowQuiz(true);
   };
 
-  const handleResetLecture = () => {
+  const handleReviewCards = () => {
     setCurrentCardIndex(0);
     setShowQuiz(false);
-    setAllCorrect(false);
-    setViewedCards(Array(lecture.cards.length).fill(false));
-    setUnlockedCards([0]);
   };
 
   // Render the Lecture-Page
@@ -114,7 +110,7 @@ export default function Lecture() {
           </Box>
         </>
       ) : (
-        <Quiz quiz={lecture.quiz} lectureId={id} parsedLectureContent={parsedLectureContent} onResetLecture={handleResetLecture} />
+        <Quiz quiz={lecture.quiz} lectureId={id} handleReviewCards={handleReviewCards} />
       )}
     </Container>
   );
