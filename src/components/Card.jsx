@@ -5,37 +5,27 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
-  
-  const [answers, setAnswers] = useState(() => {
-    const savedAnswers = JSON.parse(localStorage.getItem(`answers-${card.sentence.join(' ')}`)) || [];
-    return savedAnswers;
-  });
-
-  const [correctness, setCorrectness] = useState([...answers.map((a, i) => a === card.words[i])]);
-
-//  const checkCorrectness = (answer, index) => {
-//    return answer === card.words[index];
-//    }
-//  };
-//
+  const [answers, setAnswers] = useState([]);
+  const [correctness, setCorrectness] = useState([]);
 
   useEffect(() => {
-    const newCorrectness = answers.map((a, i) => a === card.words[i]);
-    setCorrectness(newCorrectness);
+    const savedAnswers = JSON.parse(localStorage.getItem(`answers-${card.sentence.join(' ')}`)) || [];
+    const initialAnswers = Array(card.words.length).fill('');
+    const initialCorrectness = Array(card.words.length).fill(null);
 
-    cardCompletion();
+    savedAnswers.forEach((answer, index) => {
+      initialAnswers[index] = answer;
+      initialCorrectness[index] = answer === card.words[index];
+    });
 
-  }, [answers, card.words]);
-
-  
-  const cardCompletion = () => {
-    if (card.words.length === 0) {
+    // Check if all answers are correct and call onCardCompletion
+    if (initialCorrectness.every(c => c === true)) {
       onCardCompletion();
-    } else if (correctness.every(c => c === true)) {
-      onCardCompletion();
-    } 
-  };
+    }
 
+    setAnswers(initialAnswers);
+    setCorrectness(initialCorrectness);
+  }, [card.sentence, card.words]);
 
   const handleInputChange = (index, value) => {
     const newAnswers = [...answers];
@@ -48,7 +38,10 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
 
     localStorage.setItem(`answers-${card.sentence.join(' ')}`, JSON.stringify(newAnswers));
 
-    cardCompletion();
+    // Check if all answers are correct and call onCardCompletion
+    if (newCorrectness.every(c => c === true)) {
+      onCardCompletion();
+    }
   };
 
   const allCorrect = correctness.every(c => c === true);
