@@ -11,11 +11,6 @@ export default function Start() {
     navigate('/path');
   };
 
-  const handleDeleteCachedData = () => {
-    localStorage.clear();
-    alert('Cached data deleted');
-  };
-
   return (
     <Container maxWidth="sm" className="container">
       <Typography variant="h2" gutterBottom>
@@ -27,9 +22,6 @@ export default function Start() {
       <Box mt={2}>
         <Button variant="contained" color="primary" onClick={handleGetStarted} style={{ marginRight: '1rem' }}>
           Get Started
-        </Button>
-        <Button variant="contained" color="secondary" onClick={handleDeleteCachedData}>
-          Delete Cached Data
         </Button>
       </Box>
     </Container>

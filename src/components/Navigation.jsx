@@ -1,8 +1,9 @@
 // src/components/Navigation.jsx
 
 import React from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Button, IconButton } from '@mui/material';
 import { useLocation, Link } from 'react-router-dom';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 export default function Navigation() {
   const location = useLocation();
@@ -19,7 +20,7 @@ export default function Navigation() {
       bgcolor="background.paper"
       p={2}
       display="flex"
-      justifyContent="space-around"
+      justifyContent="space-between"
       boxShadow={3}
     >
       <Link to="/" style={{ textDecoration: 'none' }}>
@@ -31,6 +32,11 @@ export default function Navigation() {
         <Button variant="contained" color="primary">
           Path
         </Button>
+      </Link>
+      <Link to="/settings" style={{ textDecoration: 'none' }}>
+        <IconButton color="primary">
+          <SettingsIcon />
+        </IconButton>
       </Link>
     </Box>
   );
