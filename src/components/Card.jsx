@@ -4,7 +4,7 @@ import { Typography, TextField, Button, Box } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
+export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards, parsedLectureContent }) {
   const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 

@@ -91,6 +91,7 @@ export default function Lecture() {
             currentCardIndex={currentCardIndex}
             unlockedCards={unlockedCards}
             totalCards={lecture.cards.length}
+            parsedLectureContent={parsedLectureContent}
           />
           <Box mt={2}>
             <Button
@@ -104,7 +105,7 @@ export default function Lecture() {
           </Box>
         </>
       ) : (
-        <Quiz quiz={lecture.quiz} lectureId={id} />
+        <Quiz quiz={lecture.quiz} lectureId={id} parsedLectureContent={parsedLectureContent} />
       )}
     </Container>
   );

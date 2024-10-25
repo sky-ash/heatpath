@@ -5,7 +5,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNavigate } from 'react-router-dom';
 
-export default function Quiz({ quiz, lectureId }) {
+export default function Quiz({ quiz, lectureId, parsedLectureContent }) {
   const [selectedAnswers, setSelectedAnswers] = useState(() => {
     const savedAnswers = JSON.parse(localStorage.getItem(`quizAnswers-${lectureId}`));
     return savedAnswers || Array(quiz.length).fill(null);
