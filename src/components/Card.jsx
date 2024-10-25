@@ -1,10 +1,10 @@
-// src/components/LearningCard.js
+// src/components/Card.js
 import React, { useState, useEffect } from 'react';
 import { Typography, TextField, Button, Box } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-export default function LearningCard({ card, nextCard, prevCard }) {
+export default function Card({ card, nextCard, prevCard }) {
   const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 
