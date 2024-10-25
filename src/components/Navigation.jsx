@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Box, Button } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Navigation() {
   const location = useLocation();
@@ -22,12 +22,16 @@ export default function Navigation() {
       justifyContent="space-around"
       boxShadow={3}
     >
-      <Button variant="contained" color="primary" href="/">
-        Home
-      </Button>
-      <Button variant="contained" color="primary" href="/path">
-        Path
-      </Button>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <Button variant="contained" color="primary">
+          Home
+        </Button>
+      </Link>
+      <Link to="/path" style={{ textDecoration: 'none' }}>
+        <Button variant="contained" color="primary">
+          Path
+        </Button>
+      </Link>
     </Box>
   );
 }
