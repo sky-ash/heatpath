@@ -3,17 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Switch, Button, Box } from '@mui/material';
 
-export default function Settings() {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    return savedMode ? JSON.parse(savedMode) : false;
-  });
-
-  useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-    document.body.style.backgroundColor = darkMode ? '#121212' : '#ffffff';
-  }, [darkMode]);
-
+export default function Settings({ darkMode, setDarkMode }) {
   const handleDeleteCachedData = () => {
     localStorage.clear();
     alert('Cached data deleted');

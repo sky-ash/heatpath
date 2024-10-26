@@ -1,10 +1,12 @@
 // src/components/Card.js
+
 import React, { useState, useEffect } from 'react';
-import { Typography, TextField, Button, Box } from '@mui/material';
+import { Box, Typography, TextField, Button } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
+
   const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 
@@ -47,7 +49,7 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
   const allCorrect = correctness.every(c => c === true);
 
   return (
-    <Box className="card">
+    <Box className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
       <Typography variant="h6" gutterBottom>
         {card.title}
       </Typography>
