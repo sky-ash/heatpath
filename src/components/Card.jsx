@@ -7,7 +7,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
 
-  const [answers, setAnswers] = useState([]);
+    const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 
   useEffect(() => {
