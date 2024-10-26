@@ -1,6 +1,6 @@
 # .github/workflows/pages.yml
 
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages (install and build with Node.js v18)
 
 on:
   push:
