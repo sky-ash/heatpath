@@ -4,6 +4,7 @@ import { Typography, Button, Box, Radio, RadioGroup, FormControlLabel, FormContr
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNavigate } from 'react-router-dom';
+import { ReplayIcon, TurnLeft } from '@mui/icons-material';
 
 export default function Quiz({ quiz, lectureId, handleReviewCards }) {
   const [selectedAnswers, setSelectedAnswers] = useState(Array(quiz.length).fill(null));
@@ -92,17 +93,13 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
         </Typography>
 
         {score >= 80 ? (
-        <>
-          <Typography variant="h6" color="primary" gutterBottom>
-            Congratulations! You passed the quiz.
-          </Typography>
-        </>
+        <Typography variant="h6" color="primary" gutterBottom>
+          Congratulations! You passed the quiz.
+        </Typography>
         ) : (
-        <>
-          <Typography variant="h6" color="error" gutterBottom>
-            Unfortunately, you didn't pass. Please try again.
-          </Typography>
-        </>
+        <Typography variant="h6" color="error" gutterBottom>
+          Unfortunately, you didn't pass. Please try again.
+        </Typography>
         )}
         
         <Box mt={2}>
@@ -110,39 +107,37 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
             
             <Box key={index} 
                  display="flex" 
-                 alignItems="center">
-
-              <Typography variant="body1"
-                          style={{marginBottom: '0.5rem' }}>
-                - {q.question}: {selectedAnswers[index]}
-              </Typography>
+                 alignItems="center"
+                 style={{marginBottom: '1rem' }}>
 
             {selectedAnswers[index] === q.correctAnswer ? (
-              <CheckCircleIcon style={{ color: 'green', marginLeft: '0.5rem' }} />
+              <CheckCircleIcon style={{ color: 'green', marginLeft: '1rem', marginRight: '1.5rem' }} />
             ) : (
-              <CancelIcon style={{ color: 'red', marginLeft: '0.5rem' }} />
+              <CancelIcon style={{ color: 'red', marginLeft: '1rem', marginRight: '1.5rem' }} />
             )}
+
+              <Typography variant="body1">
+                {q.question}: {selectedAnswers[index]}
+              </Typography>
 
             </Box>
           ))}
         </Box>
 
         {score >= 80 ? (
-        <>
-          <Button variant="contained" 
-                  color="primary" 
-                  onClick={handleReturnToPath}>
-            Return to Path
-          </Button>
-        </>
+        <Button variant="contained" 
+                color="primary" 
+                onClick={handleReturnToPath}
+                endIcon={<TurnLeft />}>
+          Return to Path
+        </Button>
         ) : (
-        <>
-          <Button variant="contained" 
-                  color="primary" 
-                  onClick={handleReviewCards}>
-            Review Cards
-          </Button>
-        </>
+        <Button variant="contained" 
+                color="primary" 
+                onClick={handleReviewCards}
+                endIcon={<ReplayIcon />}>
+          Review Cards
+        </Button>
         )}
       </Box>
     )}
