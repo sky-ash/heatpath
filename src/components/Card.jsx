@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
 
@@ -50,14 +49,6 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
   const allCorrect = correctness.every(c => c === true);
 
   return (
-    <Box display="flex" justifyContent="space-between" alignItems="center">
-      <Button
-        color="secondary"
-        onClick={prevCard}
-        disabled={currentCardIndex === 0 && !unlockedCards.includes(totalCards - 1)}
-        startIcon={<ChevronLeft />}>
-      </Button>
-
     <Box className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
       <Typography variant="h6" gutterBottom>
         {card.title}
@@ -94,13 +85,19 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
         Fill out the following words in the empty fields: {card.words.join(', ')}
       </Typography>
 
-    </Box>
-    
-      <Button color="primary" 
-              onClick={nextCard} 
-              disabled={!allCorrect}
-              endIcon={<ChevronRight />}>
-      </Button>
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={prevCard}
+          disabled={currentCardIndex === 0 && !unlockedCards.includes(totalCards - 1)}
+        >
+          Previous
+        </Button>
+        <Button variant="contained" color="primary" onClick={nextCard} disabled={!allCorrect}>
+          Next
+        </Button>
+      </Box>
     </Box>
   );
 }
