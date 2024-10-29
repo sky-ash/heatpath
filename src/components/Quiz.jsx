@@ -56,69 +56,96 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
 
   return (
     <Box className="container">
-      {!showResult ? (
-        <>
-          <Typography variant="h6" gutterBottom>
-            {quiz[currentQuestion].question}
-          </Typography>
-          <FormControl component="fieldset">
-            <RadioGroup value={selectedAnswers[currentQuestion] || ''} onChange={handleAnswerSelect}>
-              {quiz[currentQuestion].options.map((option, i) => (
-                <FormControlLabel
-                  key={i}
-                  value={option}
-                  control={<Radio />}
-                  label={option}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
-          <Box mt={2}>
-            <Button variant="contained" color="primary" onClick={handleNextQuestion}>
-              {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit Quiz'}
-            </Button>
-          </Box>
-        </>
-      ) : (
-        <Box>
-          <Typography variant="h5" gutterBottom>
-            Your Score: {score}%
-          </Typography>
-          <Box mt={2}>
-            {quiz.map((q, index) => (
-              <Box key={index} display="flex" alignItems="center">
-                <Typography variant="body1">
-                  {q.question}: {selectedAnswers[index]}
-                </Typography>
-                {selectedAnswers[index] === q.correctAnswer ? (
-                  <CheckCircleIcon style={{ color: 'green', marginLeft: '0.5rem' }} />
-                ) : (
-                  <CancelIcon style={{ color: 'red', marginLeft: '0.5rem' }} />
-                )}
-              </Box>
+      {!showResult ? ( 
+      <>
+        <Typography variant="h6" gutterBottom>
+          
+          {quiz[currentQuestion].question}
+
+        </Typography>
+        <FormControl component="fieldset">
+        <RadioGroup value={selectedAnswers[currentQuestion] || ''} onChange={handleAnswerSelect}>
+
+          {quiz[currentQuestion].options.map((option, i) => (
+              <FormControlLabel
+                key={i}
+                value={option}
+                control={<Radio />}
+                label={option}
+              />
             ))}
-          </Box>
-          {score >= 80 ? (
-            <>
-              <Typography variant="h6" color="primary" gutterBottom>
-                Congratulations! You passed the quiz.
+
+        </RadioGroup>
+        </FormControl>
+        <Box mt={2}>
+        <Button variant="contained" color="primary" onClick={handleNextQuestion}>
+
+          {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit Quiz'}
+        
+        </Button>
+        </Box> 
+      </>
+      ) : (
+      <Box>
+        <Typography variant="h5" gutterBottom>
+          Your Score: {score}%
+        </Typography>
+
+        {score >= 80 ? (
+        <>
+          <Typography variant="h6" color="primary" gutterBottom>
+            Congratulations! You passed the quiz.
+          </Typography>
+        </>
+        ) : (
+        <>
+          <Typography variant="h6" color="error" gutterBottom>
+            Unfortunately, you didn't pass. Please try again.
+          </Typography>
+        </>
+        )}
+        
+        <Box mt={2}>
+          {quiz.map((q, index) => (
+            
+            <Box key={index} 
+                 display="flex" 
+                 alignItems="center">
+
+              <Typography variant="body1"
+                          style={{marginBottom: '0.5rem' }}>
+                - {q.question}: {selectedAnswers[index]}
               </Typography>
-              <Button variant="contained" color="secondary" onClick={handleReturnToPath} style={{ marginLeft: '1rem' }}>
-                Return to Path
-              </Button>
-            </>
-          ) : (
-            <>
-              <Typography variant="h6" color="error" gutterBottom>
-                Unfortunately, you didn't pass. Please try again.
-              </Typography>
-              <Button variant="contained" color="primary" onClick={handleReviewCards}>
-                Review Cards
-              </Button>
-            </>
-          )}
+
+            {selectedAnswers[index] === q.correctAnswer ? (
+              <CheckCircleIcon style={{ color: 'green', marginLeft: '0.5rem' }} />
+            ) : (
+              <CancelIcon style={{ color: 'red', marginLeft: '0.5rem' }} />
+            )}
+
+            </Box>
+          ))}
         </Box>
-      )}
-    </Box>
+
+        {score >= 80 ? (
+        <>
+          <Button variant="contained" 
+                  color="primary" 
+                  onClick={handleReturnToPath}>
+            Return to Path
+          </Button>
+        </>
+        ) : (
+        <>
+          <Button variant="contained" 
+                  color="primary" 
+                  onClick={handleReviewCards}>
+            Review Cards
+          </Button>
+        </>
+        )}
+      </Box>
+    )}
+  </Box>
   );
 }
