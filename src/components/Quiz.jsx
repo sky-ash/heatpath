@@ -4,7 +4,8 @@ import { Typography, Button, Box, Radio, RadioGroup, FormControlLabel, FormContr
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNavigate } from 'react-router-dom';
-import { ReplayIcon, TurnLeft } from '@mui/icons-material';
+import { Replay, TurnLeft } from '@mui/icons-material';
+import { right, bottom, left, top, position, display } from '@mui/system';
 
 export default function Quiz({ quiz, lectureId, handleReviewCards }) {
   const [selectedAnswers, setSelectedAnswers] = useState(Array(quiz.length).fill(null));
@@ -56,7 +57,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
   };
 
   return (
-    <Box className="container">
+    <Box>
       {!showResult ? ( 
       <>
         <Typography variant="h6" gutterBottom>
@@ -64,6 +65,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
           {quiz[currentQuestion].question}
 
         </Typography>
+
         <FormControl component="fieldset">
         <RadioGroup value={selectedAnswers[currentQuestion] || ''} onChange={handleAnswerSelect}>
 
@@ -78,8 +80,11 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
 
         </RadioGroup>
         </FormControl>
-        <Box mt={2}>
-        <Button variant="contained" color="primary" onClick={handleNextQuestion}>
+
+        <Box>
+        <Button variant="contained" 
+                color="primary" 
+                onClick={handleNextQuestion}>
 
           {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit Quiz'}
         
@@ -102,13 +107,13 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
         </Typography>
         )}
         
-        <Box mt={2}>
+        <Box mt={2} className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
           {quiz.map((q, index) => (
             
             <Box key={index} 
                  display="flex" 
                  alignItems="center"
-                 style={{marginBottom: '1rem' }}>
+                 sx={{marginBottom: '1rem', marginTop: '1rem' }}>
 
             {selectedAnswers[index] === q.correctAnswer ? (
               <CheckCircleIcon style={{ color: 'green', marginLeft: '1rem', marginRight: '1.5rem' }} />
@@ -135,10 +140,11 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
         <Button variant="contained" 
                 color="primary" 
                 onClick={handleReviewCards}
-                endIcon={<ReplayIcon />}>
+                endIcon={<Replay />}>
           Review Cards
         </Button>
         )}
+
       </Box>
     )}
   </Box>
