@@ -24,7 +24,9 @@ export default function App() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <Router basename="/heatpath">
-        <Container maxWidth="md" style={{ marginTop: '2rem', paddingBottom: '4rem' }}>
+        <Container maxWidth="md" 
+                   // style={{ marginTop: '2rem' }}
+                   >
           <Routes>
             <Route path="/" element={<Start />} />
             <Route path="/path" element={<Path />} />
