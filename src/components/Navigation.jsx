@@ -1,9 +1,11 @@
 // src/components/Navigation.jsx
 
 import React from 'react';
-import { Box, Button, IconButton } from '@mui/material';
+import { Box, Fab, Button, IconButton, AppBar, Toolbar } from '@mui/material';
 import { useLocation, Link } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
+import HomeIcon from '@mui/icons-material/Home';
+import AppsIcon from '@mui/icons-material/Apps';
 
 export default function Navigation() {
   const location = useLocation();
@@ -11,33 +13,54 @@ export default function Navigation() {
     return null; // Do not render the footer on the home page
   }
 
+  /*
+  const StyledFab = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: '0 auto',
+  });
+  */
+  
   return (
-    <Box
+    <AppBar
       position="fixed"
-      bottom={0}
-      left={0}
-      right={0}
+      sx={{
+        top: 'auto',
+        bottom: 0,
+      }}
       bgcolor="background.paper"
       p={2}
-      display="flex"
-      justifyContent="space-between"
-      boxShadow={3}
     >
-      <Link to="/" style={{ textDecoration: 'none' }}>
-        <Button variant="contained" color="primary">
-          Home
-        </Button>
+      <Link to="/path">
+        <Fab color="primary"
+             sx={{ position: 'absolute',
+                   zIndex: 1,
+                   top: -20,
+                   left: 0,
+                   right: 0,
+                   margin: '0 auto'}}>
+          <AppsIcon />
+        </Fab>
       </Link>
-      <Link to="/path" style={{ textDecoration: 'none' }}>
-        <Button variant="contained" color="primary">
-          Path
-        </Button>
-      </Link>
-      <Link to="/settings" style={{ textDecoration: 'none' }}>
+
+      <Toolbar>
+        <Link to="/" sx={{alignItems: 'flex-start'}}>
+        <IconButton color="primary">
+          <HomeIcon />
+        </IconButton>
+        </Link>
+
+        <Box sx={{flexGrow: 1}} />
+
+        <Link to="/settings" sx={{alignItems: 'flex-end'}}>
         <IconButton color="primary">
           <SettingsIcon />
         </IconButton>
-      </Link>
-    </Box>
+        </Link>
+      </Toolbar>
+    </AppBar>
   );
 }

@@ -7,7 +7,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
 
-    const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
         Fill out the following words in the empty fields: {card.words.join(', ')}
       </Typography>
 
-      <Box mt={2} display="flex" justifyContent="space-between">
+      <Box display="flex" justifyContent="space-between" alignItems="center">
         <Button
           variant="contained"
           color="secondary"

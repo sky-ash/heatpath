@@ -82,7 +82,7 @@ export default function Lecture() {
 
   // Render the Lecture-Page
   return (
-    <Container maxWidth="sm" className="container">
+    <Container maxWidth="sm" minHeight="700px" className="container">
       <Typography variant="h4" gutterBottom>
         {lecture.title}
       </Typography>
@@ -103,8 +103,7 @@ export default function Lecture() {
               variant="contained"
               color="primary"
               onClick={handleStartQuiz}
-              disabled={!allCorrect}
-            >
+              disabled={!allCorrect}>
               Start Quiz
             </Button>
           </Box>
