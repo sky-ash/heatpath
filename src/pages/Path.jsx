@@ -36,10 +36,21 @@ export default function Path() {
   return (
 
     // MUI Container Component for Styling
-    <Container maxWidth="sm" className="container">
+    <Container maxWidth="sm" 
+               className="container"
+               sx={{ display: 'flex',
+                     flexDirection: 'column',
+                     height: '100vh',
+                     textAlign: 'center',
+                     justifyContent: 'space-evenly', // 'space-between', 'space-around'
+               }}>
 
-      {/* Heading */}
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom 
+                  sx={{
+                    position: 'relative',
+                    top: '0',
+                  }}
+                  >
         Learning Path
       </Typography>
 
