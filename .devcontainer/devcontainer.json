@@ -9,6 +9,7 @@
     "postAttachCommand": {
       "server": "npm start"
     },
+    /* 
     "customizations": {
       "codespaces": {
         "openFiles": [
@@ -16,11 +17,14 @@
         ]
       }
     },
+    */
+    /* 
     "portsAttributes": {
       "3000": {
         "label": "Application",
         "onAutoForward": "openPreview"
       }
     },
+    */
     "forwardPorts": [3000]
   }
