@@ -12,14 +12,10 @@ export default function Start() {
   };
 
   return (
-    <Container maxWidth="sm" 
-               className="container"
-               sx={{ display: 'flex',
-                     flexDirection: 'column',
-                     height: '100vh',
-                     textAlign: 'center',
+    <Container className="container"
+               sx={{ textAlign: 'center',
                      justifyContent: 'space-evenly', // 'space-between', 'space-around'
-               }}>
+                  }}>
       
       <Box>
         <Typography variant="h2" 

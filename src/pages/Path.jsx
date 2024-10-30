@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card, CardContent, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
+import Navigation from '../components/Navigation';
+
 // Import the parsed lecture content from json file
 import parsedLectureContent from '../data/parsedLectureContent.json';
 
@@ -34,23 +36,12 @@ export default function Path() {
 
   // Render the Path-Page
   return (
-
-    // MUI Container Component for Styling
-    <Container maxWidth="sm" 
-               className="container"
-               sx={{ display: 'flex',
-                     flexDirection: 'column',
-                     height: '100vh',
-                     textAlign: 'center',
+    <Container className="container"
+               sx={{ textAlign: 'center',
                      justifyContent: 'space-evenly', // 'space-between', 'space-around'
-               }}>
+                  }}>
 
-      <Typography variant="h4" gutterBottom 
-                  sx={{
-                    position: 'relative',
-                    top: '0',
-                  }}
-                  >
+      <Typography variant="h4" gutterBottom>
         Learning Path
       </Typography>
 
@@ -59,23 +50,22 @@ export default function Path() {
         <Card key={index} className="card">
           <CardContent>
 
-            {/* Lecture Title */}
-            <Typography variant="h6">{lecture.title}</Typography>
+            <Typography variant="h6">
+              {lecture.title}
+            </Typography>
 
-            {/* MUI Button Component (+ logic) to navigate to the lecture */}
-            <Button
-              variant="contained"
-              color="primary"
-              disabled={index + 1 > unlockedLectures}
-              onClick={() => handleLectureClick(index + 1)}
-            >
-              {/* If the lecture is unlocked, show "Start Lecture", otherwise "Locked" */}
+            <Button variant="contained"
+                    color="primary"
+                    disabled={index + 1 > unlockedLectures}
+                    onClick={() => handleLectureClick(index + 1)}>
               {index + 1 <= unlockedLectures ? 'Start Lecture' : 'Locked'}
             </Button>
 
           </CardContent>
         </Card>
       ))}
+
+      <Navigation />
     </Container>
   );
 }
