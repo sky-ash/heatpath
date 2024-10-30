@@ -7,7 +7,6 @@ import Start from './pages/Start';
 import Path from './pages/Path';
 import Lecture from './pages/Lecture';
 import Settings from './pages/Settings';
-import Navigation from './components/Navigation';
 import { lightTheme, darkTheme } from './theme';
 
 export default function App() {
@@ -24,15 +23,12 @@ export default function App() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <Router basename="/heatpath">
-        <Container maxWidth="sm" style={{ marginTop: '2rem', paddingBottom: '4rem' }}>
-          <Routes>
-            <Route path="/" element={<Start />} />
-            <Route path="/path" element={<Path />} />
-            <Route path="/lecture/:id" element={<Lecture />} />
-            <Route path="/settings" element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />} />
-          </Routes>
-        </Container>
-        <Navigation />
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/path" element={<Path />} />
+          <Route path="/lecture/:id" element={<Lecture />} />
+          <Route path="/settings" element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />} />
+        </Routes>
       </Router>
     </ThemeProvider>
   );

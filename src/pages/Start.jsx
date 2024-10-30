@@ -12,18 +12,36 @@ export default function Start() {
   };
 
   return (
-    <Container maxWidth="sm" className="container">
-      <Typography variant="h2" gutterBottom>
-        Welcome to Heat Path
-      </Typography>
-      <Typography variant="body1" component="p">
-        Learn about the health risks of climate change through interactive lectures and quizzes.
-      </Typography>
-      <Box mt={2}>
-        <Button variant="contained" color="primary" onClick={handleGetStarted} style={{ marginRight: '1rem' }}>
-          Get Started
+    <Container className="container"
+               sx={{ textAlign: 'center',
+                     justifyContent: 'space-evenly', // 'space-between', 'space-around'
+                  }}>
+      
+      <Box>
+        <Typography variant="h2" 
+                    gutterBottom>
+          Welcome to Heat Path
+        </Typography>
+        <Typography variant="subtitle1"
+                    gutterBottom>
+          Learn about the health risks of climate change through interactive lectures and quizzes.
+        </Typography>
+      </Box>
+
+      <Box>
+        <Button variant="contained" 
+                color="primary" 
+                onClick={handleGetStarted} 
+                sx={{ width: '80%',
+                      maxWidth: '220px',
+                      height: '50px',
+                      fontWeight: 'bold',
+                      fontSize: '18px'
+                    }}> 
+            Start
         </Button>
       </Box>
+
     </Container>
   );
 }

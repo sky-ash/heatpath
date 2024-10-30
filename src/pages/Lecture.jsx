@@ -11,6 +11,8 @@ import parsedLectureContent from '../data/parsedLectureContent.json';
 // Import the Card and Quiz components
 import Card from '../components/Card';
 import Quiz from '../components/Quiz';
+import Navigation from '../components/Navigation';
+
 
 // The Lecture component
 export default function Lecture() {
@@ -80,12 +82,16 @@ export default function Lecture() {
     setShowQuiz(false);
   };
 
-  // Render the Lecture-Page
   return (
-    <Container maxWidth="sm" className="container">
+    <Container className="container"
+               sx={{ textAlign: 'center',
+                     justifyContent: 'space-evenly', // 'space-between', 'space-around'
+                  }}>
+
       <Typography variant="h4" gutterBottom>
         {lecture.title}
       </Typography>
+
       {!showQuiz ? (
         <>
           <Card
@@ -103,15 +109,18 @@ export default function Lecture() {
               variant="contained"
               color="primary"
               onClick={handleStartQuiz}
-              disabled={!allCorrect}
-            >
+              disabled={!allCorrect}>
               Start Quiz
             </Button>
           </Box>
         </>
       ) : (
-        <Quiz quiz={lecture.quiz} lectureId={id} handleReviewCards={handleReviewCards} />
+        <Quiz quiz={lecture.quiz} 
+              lectureId={id} 
+              handleReviewCards={handleReviewCards} />
       )}
+
+      <Navigation />
     </Container>
   );
 }
