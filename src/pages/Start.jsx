@@ -20,7 +20,13 @@ export default function Start() {
         Learn about the health risks of climate change through interactive lectures and quizzes.
       </Typography>
       <Box mt={2}>
-        <Button variant="contained" color="primary" onClick={handleGetStarted} style={{ marginRight: '1rem' }}>
+        <Button variant="contained" color="primary" onClick={handleGetStarted} 
+        sx={{ position: 'absolute',
+          zIndex: 1,
+          bottom: 20,
+          left: 0,
+          right: 0,
+          margin: '0 auto'}}>
           Get Started
         </Button>
       </Box>

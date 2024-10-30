@@ -81,8 +81,8 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
         </RadioGroup>
         </FormControl>
 
-        <Box>
-        <Button variant="contained" 
+        <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
+        <Button variant="contained" p={2}
                 color="primary" 
                 onClick={handleNextQuestion}>
 
