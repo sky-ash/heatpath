@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "heatpath",
+			"path": "."
+		},
+		{
+			"name": "src",
+			"path": "src"
+		},
+		{
+			"name": "components",
+			"path": "src/components"
+		},
+		{
+			"name": "data",
+			"path": "src/data"
+		},
+		{
+			"name": "pages",
+			"path": "src/pages"
+		},
+		{
+			"name": "styles",
+			"path": "src/styles"
+		}
+	],
+	"settings": {}
+}
