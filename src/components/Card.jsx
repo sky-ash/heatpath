@@ -1,9 +1,12 @@
 // src/components/Card.js
 
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, TextField, Button } from '@mui/material';
+import { Box, Typography, TextField, Button, Autocomplete } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
+
+import parsedLectureContent from '../data/parsedLectureContent.json';
+
 
 export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
 
@@ -48,6 +51,8 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
 
   const allCorrect = correctness.every(c => c === true);
 
+  const allLectureWords = parsedLectureContent.lectures.flatMap(lecture => lecture.cards.flatMap(card => card.words));
+
   return (
     <Box className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
       <Typography variant="h6" gutterBottom>
@@ -59,25 +64,35 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
           const isInputField = part === '___';
           const inputFieldIndex = card.sentence.slice(0, index).filter(p => p === '___').length;
 
-          return (
+            return (
             <React.Fragment key={index}>
               {!isInputField && part}
               {isInputField && (
-                <Box display="inline-flex" alignItems="center" key={index}>
+              <Box display="inline-flex" alignItems="center" key={index}>
+                <Autocomplete
+                freeSolo
+                options={allLectureWords} // {allLectureWords}, {card.words} or: (only the words of the current card) 
+                getOptionLabel={(option) => option}
+                renderInput={(params) => (
                   <TextField
-                    variant="outlined"
-                    size="small"
-                    value={answers[inputFieldIndex] || ''}
-                    onChange={(e) => handleInputChange(inputFieldIndex, e.target.value)}
-                    error={correctness[inputFieldIndex] === false}
-                    style={{ margin: '0 0.5rem' }}
+                  {...params}
+                  variant="outlined"
+                  size="small"
+                  value={answers[inputFieldIndex] || ''}
+                  onChange={(e) => handleInputChange(inputFieldIndex, e.target.value)}
+                  error={correctness[inputFieldIndex] === false}
+                  style={{ margin: '0 0.5rem' }}
                   />
-                  {correctness[inputFieldIndex] === true && <CheckCircleIcon style={{ color: 'green' }} />}
-                  {correctness[inputFieldIndex] === false && <CancelIcon style={{ color: 'red' }} />}
-                </Box>
+                )}
+                inputValue={answers[inputFieldIndex] || ''}
+                onInputChange={(event, newInputValue) => handleInputChange(inputFieldIndex, newInputValue)}
+                />
+                {correctness[inputFieldIndex] === true && <CheckCircleIcon style={{ color: 'green' }} />}
+                {correctness[inputFieldIndex] === false && <CancelIcon style={{ color: 'red' }} />}
+              </Box>
               )}
             </React.Fragment>
-          );
+            );
         })}
       </Typography>
 
