@@ -26,5 +26,20 @@
       }
     },
     */
-    "forwardPorts": [3000]
+    "forwardPorts": [
+        3000
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.copilot",
+                "dbaeumer.vscode-eslint",
+                "github.vscode-github-actions",
+                "GitHub.vscode-pull-request-github",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "VisualStudioExptTeam.intellicode-api-usage-examples",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    }
   }
