@@ -1,20 +1,14 @@
-// src/pages/Path.js
-
-// Import necessary components
 import React, { useState, useEffect } from 'react';
-import { Container, Card, CardContent, Typography, Button } from '@mui/material';
+import { Container, Typography, IconButton, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
-
-// Import the parsed lecture content from json file
 import parsedLectureContent from '../data/parsedLectureContent.json';
 
-// The Path component
 export default function Path() {
-
-  // State to keep track of unlocked lectures
   const [unlockedLectures, setUnlockedLectures] = useState(1);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedLecture, setSelectedLecture] = useState(null);
 
   useEffect(() => {
     const storedUnlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures'));
@@ -25,45 +19,70 @@ export default function Path() {
     }
   }, []);
 
-  // useNavigate-hook from React to navigate on Button-Click
   const navigate = useNavigate();
   const handleLectureClick = (id) => {
-    // Only navigate to the lecture if it is unlocked (otherwise Button won't be clickable)
     if (id <= unlockedLectures) {
-      navigate(`/lecture/${id}`); // Redirect to the lecture page
+      navigate(`/lecture/${id}`);
     }
   };
 
-  // Render the Path-Page
-  return (
-    <Container className="container"
-               sx={{ textAlign: 'center',
-                     justifyContent: 'space-evenly', // 'space-between', 'space-around'
-                  }}>
+  const handlePopoverOpen = (event, lecture) => {
+    setAnchorEl(event.currentTarget);
+    setSelectedLecture(lecture);
+  };
 
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+    setSelectedLecture(null);
+  };
+
+  const open = Boolean(anchorEl);
+
+  return (
+    <Container className="container" sx={{ textAlign: 'center', justifyContent: 'space-evenly' }}>
       <Typography variant="h4" gutterBottom>
         Learning Path
       </Typography>
 
-      {/* Map over the lectures and render a Card for each */}
       {parsedLectureContent.lectures.map((lecture, index) => (
-        <Card key={index} className="card">
-          <CardContent>
-
-            <Typography variant="h6">
-              {lecture.title}
-            </Typography>
-
-            <Button variant="contained"
-                    color="primary"
-                    disabled={index + 1 > unlockedLectures}
-                    onClick={() => handleLectureClick(index + 1)}>
-              {index + 1 <= unlockedLectures ? 'Start Lecture' : 'Locked'}
-            </Button>
-
-          </CardContent>
-        </Card>
+        <div key={index} className="lecture-button">
+          <IconButton
+            color="primary"
+            disabled={index + 1 > unlockedLectures}
+            onClick={(event) => handlePopoverOpen(event, lecture)}
+          >
+            {index + 1}
+          </IconButton>
+        </div>
       ))}
+
+      <Popover
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handlePopoverClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <div style={{ padding: '16px', textAlign: 'center' }}>
+          <Typography variant="h6">{selectedLecture?.title}</Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              handleLectureClick(parsedLectureContent.lectures.indexOf(selectedLecture) + 1);
+              handlePopoverClose();
+            }}
+          >
+            Start Lecture
+          </Button>
+        </div>
+      </Popover>
 
       <Navigation />
     </Container>
