@@ -3,7 +3,7 @@ import { Container, Typography, Box, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
-import Sprite from '../components/Sprite';
+import Sprite, { moveSprite } from '../components/Sprite';
 import parsedLectureContent from '../data/parsedLectureContent.json';
 
 export default function Path() {
@@ -37,6 +37,14 @@ export default function Path() {
     setSelectedLecture(null);
   };
 
+  const handleButtonClick = (index) => {
+    const buttonPosition = {
+      x: (index + 1) * 20,
+      y: (index + 1) * 20,
+    };
+    moveSprite(buttonPosition.x, buttonPosition.y);
+  };
+
   const open = Boolean(anchorEl);
 
   return (
@@ -63,6 +71,7 @@ export default function Path() {
             onClick={(event) => {
               if (index + 1 <= unlockedLectures) {
                 handlePopoverOpen(event, lecture);
+                handleButtonClick(index);
               }
             }}
           >
