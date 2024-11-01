@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, IconButton, Popover, Button } from '@mui/material';
+import { Container, Typography, Box, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
@@ -9,6 +9,7 @@ export default function Path() {
   const [unlockedLectures, setUnlockedLectures] = useState(1);
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedLecture, setSelectedLecture] = useState(null);
+  const [spritePosition, setSpritePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const storedUnlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures'));
@@ -38,23 +39,57 @@ export default function Path() {
 
   const open = Boolean(anchorEl);
 
+  const moveSprite = (x, y) => {
+    setSpritePosition({ x, y });
+  };
+
   return (
     <Container className="container" sx={{ textAlign: 'center', justifyContent: 'space-evenly' }}>
       <Typography variant="h4" gutterBottom>
         Learning Path
       </Typography>
 
-      {parsedLectureContent.lectures.map((lecture, index) => (
-        <div key={index} className="lecture-button">
-          <IconButton
-            color="primary"
-            disabled={index + 1 > unlockedLectures}
-            onClick={(event) => handlePopoverOpen(event, lecture)}
+      <Box sx={{ position: 'relative', height: '400px', width: '100%', border: '1px solid #ccc' }}>
+        {parsedLectureContent.lectures.map((lecture, index) => (
+          <Box
+            key={index}
+            sx={{
+              position: 'absolute',
+              top: `${(index + 1) * 20}%`,
+              left: `${(index + 1) * 20}%`,
+              width: '50px',
+              height: '50px',
+              backgroundColor: index + 1 <= unlockedLectures ? 'blue' : 'grey',
+              transform: 'rotateY(45deg) rotateX(45deg)',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+              cursor: index + 1 <= unlockedLectures ? 'pointer' : 'default',
+            }}
+            onClick={(event) => {
+              if (index + 1 <= unlockedLectures) {
+                handlePopoverOpen(event, lecture);
+                moveSprite((index + 1) * 20, (index + 1) * 20);
+              }
+            }}
           >
-            {index + 1}
-          </IconButton>
-        </div>
-      ))}
+            <Typography variant="h6" sx={{ color: 'white', lineHeight: '50px' }}>
+              {index + 1}
+            </Typography>
+          </Box>
+        ))}
+
+        <Box
+          sx={{
+            position: 'absolute',
+            top: `${spritePosition.y}%`,
+            left: `${spritePosition.x}%`,
+            width: '30px',
+            height: '30px',
+            backgroundColor: 'red',
+            borderRadius: '50%',
+            transition: 'top 0.5s, left 0.5s',
+          }}
+        />
+      </Box>
 
       <Popover
         open={open}
