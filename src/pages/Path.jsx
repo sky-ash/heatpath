@@ -53,22 +53,24 @@ export default function Path() {
         Learning Path
       </Typography>
 
-      <Box sx={{ position: 'relative', height: '400px', width: '100%', border: '1px solid #ccc' }}>
+      <Box sx={{ position: 'relative', height: '400px', width: '100%', border: '0px solid #ccc' }}>
         {parsedLectureContent.lectures.map((lecture, index) => (
-          <Box
+          <Button
             key={index}
             className="button-3d"
+            variant='contained'
+            color='primary'
+            disabled={index + 1 > unlockedLectures}
             sx={{
               position: 'absolute',
               top: `${(index + 1) * 20}%`,
               left: `${(index + 1) * 20}%`,
-              width: '50px',
-              height: '50px',
-              backgroundColor: index + 1 <= unlockedLectures ? 'var(--colorShadeA)' : 'var(--colorShadeB)',
-              cursor: index + 1 <= unlockedLectures ? 'pointer' : 'default',
-              transform: 'perspective(500px) rotateY(45deg) rotateX(45deg)',
+              //width: '50px',
+              //height: '50px',
+              //backgroundColor: index + 1 <= unlockedLectures ? 'var(--colorShadeA)' : '',
+              //cursor: index + 1 <= unlockedLectures ? 'pointer' : 'default',
+              transform: 'perspective(800px) rotateY(10deg) rotateX(40deg) rotateZ(-15deg)',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
-              border: '1px solid #ccc',
             }}
             onClick={(event) => {
               if (index + 1 <= unlockedLectures) {
@@ -80,7 +82,7 @@ export default function Path() {
             <Typography variant="h6" sx={{ color: 'white', lineHeight: '50px' }}>
               {index + 1}
             </Typography>
-          </Box>
+          </Button>
         ))}
 
         <Sprite />

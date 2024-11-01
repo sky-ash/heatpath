@@ -59,7 +59,7 @@ body {
 .button-3d {
   transform: perspective(500px) rotateY(45deg) rotateX(45deg);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   background: var(--colorShadeE);
   border-radius: 1em;
   transform-style: preserve-3d;
@@ -84,9 +84,12 @@ body {
 
 .button-3d:hover {
   background: var(--colorShadeD);
-  transform: translate(0, 0.375em);
+  /* 
+  transform: translate(0, 0.25em);
+  */
 }
 
+/* 
 .button-3d:hover::before {
   transform: translate3d(0, 0.75em, -1em);
 }
@@ -99,7 +102,7 @@ body {
   transform: translate3d(0, 0, -1em);
   box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
 }
-
+*/
 /* Define CSS variables for colors */
 :root {
   --colorShadeA: #f44336; /* Primary color from theme.js */
