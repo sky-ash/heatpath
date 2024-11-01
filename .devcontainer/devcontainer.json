@@ -38,7 +38,13 @@
                 "GitHub.vscode-pull-request-github",
                 "VisualStudioExptTeam.vscodeintellicode",
                 "VisualStudioExptTeam.intellicode-api-usage-examples",
-                "esbenp.prettier-vscode"
+                "esbenp.prettier-vscode",
+                "naumovs.color-highlight",
+                "GitHub.github-vscode-theme",
+                "GitHub.remotehub",
+                "GitHub.codespaces",
+                "PKief.material-icon-theme",
+                "tomoki1207.pdf"
             ]
         }
     }
