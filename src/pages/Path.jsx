@@ -3,13 +3,13 @@ import { Container, Typography, Box, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
+import Sprite from '../components/Sprite';
 import parsedLectureContent from '../data/parsedLectureContent.json';
 
 export default function Path() {
   const [unlockedLectures, setUnlockedLectures] = useState(1);
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedLecture, setSelectedLecture] = useState(null);
-  const [spritePosition, setSpritePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const storedUnlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures'));
@@ -39,10 +39,6 @@ export default function Path() {
 
   const open = Boolean(anchorEl);
 
-  const moveSprite = (x, y) => {
-    setSpritePosition({ x, y });
-  };
-
   return (
     <Container className="container" sx={{ textAlign: 'center', justifyContent: 'space-evenly' }}>
       <Typography variant="h4" gutterBottom>
@@ -67,7 +63,6 @@ export default function Path() {
             onClick={(event) => {
               if (index + 1 <= unlockedLectures) {
                 handlePopoverOpen(event, lecture);
-                moveSprite((index + 1) * 20, (index + 1) * 20);
               }
             }}
           >
@@ -77,18 +72,7 @@ export default function Path() {
           </Box>
         ))}
 
-        <Box
-          sx={{
-            position: 'absolute',
-            top: `${spritePosition.y}%`,
-            left: `${spritePosition.x}%`,
-            width: '30px',
-            height: '30px',
-            backgroundColor: 'red',
-            borderRadius: '50%',
-            transition: 'top 0.5s, left 0.5s',
-          }}
-        />
+        <Sprite />
       </Box>
 
       <Popover
