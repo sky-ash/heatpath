@@ -54,3 +54,10 @@ body {
   border-radius: 50%;
   animation: moveSprite 0.5s linear;
 }
+
+/* New CSS class for 3D buttons */
+.button-3d {
+  transform: perspective(500px) rotateY(45deg) rotateX(45deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ccc;
+}
