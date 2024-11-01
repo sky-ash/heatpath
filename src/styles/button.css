@@ -1,0 +1,50 @@
+.button-container {
+    display: inline-block;
+  }
+  
+  .button-container svg {
+    cursor: pointer;
+  }
+  
+  .button-container svg:hover .glowMe {
+    opacity: 0.5;
+  }
+  
+  .button-container svg:hover .glowAll {
+    opacity: 1;
+  }
+  
+  .button-container .buttonTop {
+    transition: fill 300ms linear 0s;
+  }
+  
+  .button-container svg:hover .buttonTop {
+    fill: var(--buttonTopHoverColor);
+  }
+  
+  .button-container .buttonSides {
+    transition: fill 300ms linear 0s;
+  }
+  
+  .button-container svg:hover .buttonSides {
+    fill: var(--buttonSidesHoverColor);
+  }
+  
+  .button-container svg:focus {
+    outline: none;
+  }
+  
+  .button-container svg:focus .buttonTop,
+  .button-container svg:focus .playSides {
+    stroke: white;
+    stroke-width: 2px;
+  }
+  
+  .button-container svg:focus .playSides {
+    stroke-width: 1px;
+  }
+  
+  .button-container svg:active .buttonTop {
+    fill: #c79cff;
+  }
+  

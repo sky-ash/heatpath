@@ -69,8 +69,8 @@ export default function Path() {
               //height: '50px',
               //backgroundColor: index + 1 <= unlockedLectures ? 'var(--colorShadeA)' : '',
               //cursor: index + 1 <= unlockedLectures ? 'pointer' : 'default',
-              transform: 'perspective(800px) rotateY(10deg) rotateX(40deg) rotateZ(-15deg)',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+              transform: 'perspective(800px) rotateY(5deg) rotateX(35deg) rotateZ(-10deg)',
+              //boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
             }}
             onClick={(event) => {
               if (index + 1 <= unlockedLectures) {
