@@ -28,9 +28,29 @@ body {
   }
 }
 
-/*
-.bottom-right-button {
-  position: absolute;
-  top: 10vh; 
+/* Styles for 3D elements */
+.lecture-box {
+  transform: rotateY(45deg) rotateX(45deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-  */
+
+/* Styles for sprite animation */
+@keyframes moveSprite {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 100%;
+    left: 100%;
+  }
+}
+
+.sprite {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  animation: moveSprite 0.5s linear;
+}
