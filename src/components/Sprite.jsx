@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Box } from '@mui/material';
+
+export function moveSprite(x, y) {
+  setSpritePosition({ x, y });
+}
 
 export default function Sprite() {
   const [spritePosition, setSpritePosition] = useState({ x: 0, y: 0 });
-
-  const moveSprite = (x, y) => {
-    setSpritePosition({ x, y });
-  };
-
-  useEffect(() => {
-    // Example of moving the sprite to a new position
-    moveSprite(50, 50);
-  }, []);
 
   return (
     <Box
