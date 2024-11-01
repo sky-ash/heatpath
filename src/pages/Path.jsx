@@ -64,8 +64,9 @@ export default function Path() {
               width: '50px',
               height: '50px',
               backgroundColor: index + 1 <= unlockedLectures ? 'blue' : 'grey',
-              transform: 'rotateY(45deg) rotateX(45deg)',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+              transform: 'perspective(500px) rotateY(45deg) rotateX(45deg)',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+              border: '1px solid #ccc',
               cursor: index + 1 <= unlockedLectures ? 'pointer' : 'default',
             }}
             onClick={(event) => {
