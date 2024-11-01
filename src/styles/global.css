@@ -99,3 +99,12 @@ body {
   transform: translate3d(0, 0, -1em);
   box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
 }
+
+/* Define CSS variables for colors */
+:root {
+  --colorShadeA: #f44336; /* Primary color from theme.js */
+  --colorShadeB: #ff7961; /* Secondary color from theme.js */
+  --colorShadeC: #ffcccb;
+  --colorShadeD: #ffe4e1;
+  --colorShadeE: #fff5f5;
+}

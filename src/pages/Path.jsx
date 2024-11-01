@@ -64,8 +64,11 @@ export default function Path() {
               left: `${(index + 1) * 20}%`,
               width: '50px',
               height: '50px',
-              backgroundColor: index + 1 <= unlockedLectures ? 'blue' : 'grey',
+              backgroundColor: index + 1 <= unlockedLectures ? 'var(--colorShadeA)' : 'var(--colorShadeB)',
               cursor: index + 1 <= unlockedLectures ? 'pointer' : 'default',
+              transform: 'perspective(500px) rotateY(45deg) rotateX(45deg)',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+              border: '1px solid #ccc',
             }}
             onClick={(event) => {
               if (index + 1 <= unlockedLectures) {
