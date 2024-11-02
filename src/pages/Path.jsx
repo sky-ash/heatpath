@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, IconButton, Popover, Button } from '@mui/material';
+import { Container, Typography, Box, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { AwesomeButton } from "react-awesome-button";
 
 import Navigation from '../components/Navigation';
+import Sprite, { moveSprite } from '../components/Sprite';
 import parsedLectureContent from '../data/parsedLectureContent.json';
 
 export default function Path() {
@@ -35,6 +36,14 @@ export default function Path() {
   const handlePopoverClose = () => {
     setAnchorEl(null);
     setSelectedLecture(null);
+  };
+
+  const handleButtonClick = (index) => {
+    const buttonPosition = {
+      x: (index + 1) * 20,
+      y: (index + 1) * 20,
+    };
+    moveSprite(buttonPosition.x, buttonPosition.y);
   };
 
   const open = Boolean(anchorEl);
