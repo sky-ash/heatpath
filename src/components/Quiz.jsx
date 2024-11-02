@@ -60,12 +60,13 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
     <Box>
       {!showResult ? ( 
       <>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom mt={8} mb={4}>
           
           {quiz[currentQuestion].question}
 
         </Typography>
 
+        <Box textAlign="left">
         <FormControl component="fieldset">
         <RadioGroup value={selectedAnswers[currentQuestion] || ''} onChange={handleAnswerSelect}>
 
@@ -80,6 +81,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
 
         </RadioGroup>
         </FormControl>
+        </Box>
 
         <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
         <Button variant="contained" p={2}
@@ -93,16 +95,16 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
       </>
       ) : (
       <Box>
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h6" gutterBottom>
           Your Score: {score}%
         </Typography>
 
         {score >= 80 ? (
-        <Typography variant="h6" color="primary" gutterBottom>
+        <Typography variant="subtitle2" color="primary" gutterBottom>
           Congratulations! You passed the quiz.
         </Typography>
         ) : (
-        <Typography variant="h6" color="error" gutterBottom>
+        <Typography variant="subtitle2" color="error" gutterBottom>
           Unfortunately, you didn't pass. Please try again.
         </Typography>
         )}
@@ -113,6 +115,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
             <Box key={index} 
                  display="flex" 
                  alignItems="center"
+                 textAlign="left"
                  sx={{marginBottom: '1rem', marginTop: '1rem' }}>
 
             {selectedAnswers[index] === q.correctAnswer ? (
@@ -130,19 +133,27 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
         </Box>
 
         {score >= 80 ? (
+                  <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
+
         <Button variant="contained" 
                 color="primary" 
                 onClick={handleReturnToPath}
                 endIcon={<TurnLeft />}>
           Return to Path
         </Button>
+        </Box>
+
         ) : (
+          <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
+
         <Button variant="contained" 
                 color="primary" 
                 onClick={handleReviewCards}
                 endIcon={<Replay />}>
           Review Cards
         </Button>
+        </Box>
+
         )}
 
       </Box>

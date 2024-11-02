@@ -250,55 +250,121 @@
         "cards": [
           {
             "sentence": [
-              "Climate change leads to an increase in UV radiation exposure, raising the risk of UV-related diseases such as skin and eye cancers. In Germany, this increase is considered a high climate risk, and preventive measures against UV and heat-related illnesses are becoming more urgent."
+              "A particularly concerning effect of climate change is the steady rise in",
+              "___",
+              "radiation exposure, which increases the risk of UV-related diseases such as skin and eye",
+              "___",
+              "."
             ],
             "words": [
-              
+              "UV",
+              "cancers"
             ]
           },
           {
             "sentence": [
-             "Rising UV exposure is linked to the depletion of the stratospheric ozone layer, climate-related changes in cloud cover, pollution, and wildfire smoke. These factors allow more harmful UVB rays to reach the Earth’s surface."
+              "According to the 2021 Climate Impact and Risk Analysis for Germany, this",
+              "___",
+              "UV exposure poses a high level of climate risk,",
+              "___",
+              "the urgent need for strategies aimed at preventing UV- and heat-related illnesses."
             ],
             "words": [
-            
+              "growing",
+              "highlighting"
             ]
           },
           {
             "sentence": [
-              "Chronic UV exposure can cause DNA damage, increasing the risk of skin cancer and eye diseases such as cataracts. While UV radiation is essential for vitamin D synthesis, excessive exposure leads to harmful effects, particularly affecting skin and eye health."
+              "In particular, oncological guidelines, like the S3 guideline on skin cancer prevention, emphasize the importance of addressing this threat."
+            ],
+            "words": []
+          },
+          {
+            "sentence": [
+              "Ultraviolet (UV)",
+              "___",
+              "is intricately linked to global climate change. Factors like reduced stratospheric ozone, which allows more harmful UVB rays to reach Earth’s surface, as well as climate-related changes in cloud cover,",
+              "___",
+              ", and wildfire smoke, affect UV radiation levels."
+            ],
+            "words": [
+              "radiation",
+              "pollution"
+            ]
+          },
+          {
+            "sentence": [
+              "These shifts in UV radiation can have both harmful and",
+              "___",
+              "effects. While UV exposure is necessary for Vitamin D synthesis, which supports bone health and disease prevention, excessive UV exposure can lead to DNA",
+              "___",
+              ", increasing the risk of cancers and other health issues in both humans and ecosystems."
+            ],
+            "words": [
+              "beneficial",
+              "damage"
+            ]
+          },
+          {
+            "sentence": [
+              "Chronic exposure to UV radiation is particularly dangerous. It can cause degenerative changes in skin cells and tissues, leading to non-melanoma skin cancer over time."
+            ],
+            "words": []
+          },
+          {
+            "sentence": [
+              "Periodic high-dose UV exposure, particularly in childhood, is linked to malignant melanoma, a more serious form of skin cancer."
+            ],
+            "words": []
+          },
+          {
+            "sentence": [
+              "UV radiation also contributes to the",
+              "___",
+              "of eye diseases, like cataracts, which are a major cause of visual",
+              "___",
+              "globally."
+            ],
+            "words": [
+              "development",
+              "impairment"
+            ]
+          },
+          {
+            "sentence": [
+              "Additionally, abnormal skin reactions and sensitivity to light, such as photodermatoses and phototoxic drug reactions, are linked to prolonged UV exposure."
             ],
             "words": []
           }
-          
         ],
         "quiz": [
           {
-            "question": "How does climate change affect UV exposure?",
+            "question": "What relationship between UV radiation and climate change is mentioned in the text?",
             "options": [
-              "It decreases it",
-              "It stays the same.",
-              "It increases it."
+              "Increased cloud cover reduces UV radiation.",
+              "Decreased stratospheric ozone allows more harmful UVB rays to reach Earth.",
+              "Climate change has no impact on UV radiation."
             ],
-            "correctAnswer": "It increases it."
+            "correctAnswer": "Decreased stratospheric ozone allows more harmful UVB rays to reach Earth."
           },
           {
-            "question": "Which factor contributes to more harmful UV rays reaching the Earth’s surface?",
+            "question": "What can excessive UV exposure cause?",
             "options": [
-              "Increased cloud cover",
-              "Ozone layer depletion",
-              "Increased rainfall"
+              "Improved bone health",
+              "DNA damage",
+              "Increased immunity"
             ],
-            "correctAnswer": "Ozone layer depletion"
+            "correctAnswer": "DNA damage"
           },
           {
-            "question": "What health risk is associated with chronic UV exposure?",
+            "question": "Which eye disease is mentioned in the text?",
             "options": [
-              "Reduced vitamin D production",
-              "Increased risk of skin cancer",
-              "Increased eye moisture"
+              "Glaucoma",
+              "Age-related macular degeneration",
+              "Cataracts"
             ],
-            "correctAnswer": "Increased risk of skin cancer"
+            "correctAnswer": "Cataracts"
           }
         ]
       },
