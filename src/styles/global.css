@@ -28,188 +28,36 @@ body {
   }
 }
 
-/* Styles for sprite animation */
-@keyframes moveSprite {
-  0% {
-    top: 0;
-    left: 0;
-  }
-  100% {
-    top: 100%;
-    left: 100%;
-  }
+.aws-btn {
+  --button-default-height: 50px;
+  --button-default-font-size: 16px;
+  --button-default-border-radius: 25px;
+  --button-horizontal-padding: 26px;
+  --button-raise-level: 8px;
+  --button-hover-pressure: 2;
+  --transform-speed: 0.25s;
+  --button-primary-color: #1e88e5;
+  --button-primary-color-dark: #1360a4;
+  --button-primary-color-light: #ffffff;
+  --button-primary-color-hover: #187bd1;
+  --button-primary-color-active: #166dba;
+  --button-primary-border: none;
+  --button-secondary-color: #f2f6f9;
+  --button-secondary-color-dark: #1360a4;
+  --button-secondary-color-light: #1e88e5;
+  --button-secondary-color-hover: #e1eaf1;
+  --button-secondary-color-active: #cfdee9;
+  --button-secondary-border: 2px solid #1e88e5;
+  --button-anchor-color: #0e4f88;
+  --button-anchor-color-dark: #072743;
+  --button-anchor-color-light: #ffffff;
+  --button-anchor-color-hover: #0d4a7f;
+  --button-anchor-color-active: #0c4271;
+  --button-anchor-border: none;
+  --button-danger-color: #c42e2e;
+  --button-danger-color-dark: #861f1f;
+  --button-danger-color-light: #ffffff;
+  --button-danger-color-hover: #bc2c2c;
+  --button-danger-color-active: #af2929;
+  --button-danger-border: none;
 }
-
-.sprite {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: red;
-  border-radius: 50%;
-  animation: moveSprite 0.5s linear;
-}
-
-/* New CSS class for 3D buttons */
-.button-3d {
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transform: perspective(500px) rotateY(45deg) rotateX(45deg);
-  /* border: 1px solid #ccc; 
-  background: var(--colorShadeE);
-  border-radius: 1em;
-  transition: all 175ms cubic-bezier(0, 0, 1, 1);
-  */
-  transform-style: preserve-3d;
-
-}
-
-.button-3d::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /*
-  border-radius: inherit;
-  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
-  */
-  background: var(--colorShadeC);
-  box-shadow: -4px 8px 0px 0px #f44336;
-  transform: translate3d(0, 0.75em, -1em);
-  transition: all 175ms cubic-bezier(0, 0, 1, 1);
-}
-
-/* Define CSS variables for colors */
-:root {
-  --colorShadeA: #f44336; /* Primary color from theme.js */
-  --colorShadeB: #ff7961; /* Secondary color from theme.js */
-  --colorShadeC: #ffcccb;
-  --colorShadeD: #ffe4e1;
-  --colorShadeE: #fff5f5;
-}
-
-
-
-
-
-
-
-/* BUTTON 82 */
-
-
-/*
-
-<!-- HTML !-->
-<button class="button-82-pushable" role="button">
-  <span class="button-82-shadow"></span>
-  <span class="button-82-edge"></span>
-  <span class="button-82-front text">
-    Button 82
-  </span>
-</button>
-
-.button-82-pushable {
-  position: relative;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  outline-offset: 4px;
-  transition: filter 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-82-shadow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background: hsl(0deg 0% 0% / 0.25);
-  will-change: transform;
-  transform: translateY(2px);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-}
-
-.button-82-edge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background: linear-gradient(
-    to left,
-    hsl(340deg 100% 16%) 0%,
-    hsl(340deg 100% 32%) 8%,
-    hsl(340deg 100% 32%) 92%,
-    hsl(340deg 100% 16%) 100%
-  );
-}
-
-.button-82-front {
-  display: block;
-  position: relative;
-  padding: 12px 27px;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  color: white;
-  background: hsl(345deg 100% 47%);
-  will-change: transform;
-  transform: translateY(-4px);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-}
-
-@media (min-width: 768px) {
-  .button-82-front {
-    font-size: 1.25rem;
-    padding: 12px 42px;
-  }
-}
-
-.button-82-pushable:hover {
-  filter: brightness(110%);
-  -webkit-filter: brightness(110%);
-}
-
-.button-82-pushable:hover .button-82-front {
-  transform: translateY(-6px);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-}
-
-.button-82-pushable:active .button-82-front {
-  transform: translateY(-2px);
-  transition: transform 34ms;
-}
-
-.button-82-pushable:hover .button-82-shadow {
-  transform: translateY(4px);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-}
-
-.button-82-pushable:active .button-82-shadow {
-  transform: translateY(1px);
-  transition: transform 34ms;
-}
-
-.button-82-pushable:focus:not(:focus-visible) {
-  outline: none;
-}
-*/

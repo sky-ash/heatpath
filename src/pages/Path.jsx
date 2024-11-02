@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Box, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { AwesomeButton } from "react-awesome-button";
 
 import Navigation from '../components/Navigation';
 import Sprite, { moveSprite } from '../components/Sprite';
@@ -53,40 +54,17 @@ export default function Path() {
         Learning Path
       </Typography>
 
-      <Box sx={{ position: 'relative', height: '400px', width: '100%', border: '0px solid #ccc' }}>
-        {parsedLectureContent.lectures.map((lecture, index) => (
-          <Button
-            key={index}
-            className="button-3d"
-            variant='contained'
-            color='primary'
+      {parsedLectureContent.lectures.map((lecture, index) => (
+        <div key={index} className="lecture-button">
+          <AwesomeButton
+            type="primary"
             disabled={index + 1 > unlockedLectures}
-            sx={{
-              position: 'absolute',
-              top: `${(index + 1) * 20}%`,
-              left: `${(index + 1) * 20}%`,
-              //width: '50px',
-              //height: '50px',
-              //backgroundColor: index + 1 <= unlockedLectures ? 'var(--colorShadeA)' : '',
-              //cursor: index + 1 <= unlockedLectures ? 'pointer' : 'default',
-              transform: 'perspective(800px) rotateY(5deg) rotateX(35deg) rotateZ(-10deg)',
-              //boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
-            }}
-            onClick={(event) => {
-              if (index + 1 <= unlockedLectures) {
-                handlePopoverOpen(event, lecture);
-                handleButtonClick(index);
-              }
-            }}
+            onClick={(event) => handlePopoverOpen(event, lecture)}
           >
-            <Typography variant="h6" sx={{ color: 'white', lineHeight: '50px' }}>
-              {index + 1}
-            </Typography>
-          </Button>
-        ))}
-
-        <Sprite />
-      </Box>
+            {index + 1}
+          </AwesomeButton>
+        </div>
+      ))}
 
       <Popover
         open={open}
