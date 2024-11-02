@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
+import InfoIcon from '@mui/icons-material/Info';
 
 export default function Navigation() {
   return (

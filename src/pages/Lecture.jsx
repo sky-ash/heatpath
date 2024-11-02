@@ -12,6 +12,7 @@ import parsedLectureContent from '../data/parsedLectureContent.json';
 import Card from '../components/Card';
 import Quiz from '../components/Quiz';
 import Navigation from '../components/Navigation';
+import InfoButton from '../components/InfoButton';
 
 
 // The Lecture component
@@ -120,6 +121,7 @@ export default function Lecture() {
               handleReviewCards={handleReviewCards} />
       )}
 
+      <InfoButton />
       <Navigation />
     </Container>
   );
