@@ -59,7 +59,7 @@ export default function Path() {
           <AwesomeButton
             type="primary"
             disabled={index + 1 > unlockedLectures}
-            onClick={(event) => handlePopoverOpen(event, lecture)}
+            onPress={(event) => handlePopoverOpen(event, lecture)}
           >
             {index + 1}
           </AwesomeButton>
