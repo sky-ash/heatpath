@@ -5,9 +5,6 @@ import { Container, Typography, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
-import Button3D from '../components/Button3D';
-import { darkTheme } from '../theme';
-
 export default function Start() {
   const navigate = useNavigate();
 
@@ -21,14 +18,6 @@ export default function Start() {
                      justifyContent: 'space-evenly', // 'space-between', 'space-around'
                   }}>
       
-      <Button3D
-        //width={150}
-        //height={150}
-        buttonTopColor={darkTheme.palette.primary.main}
-        buttonSidesColor={darkTheme.palette.primary.dark}
-        buttonDepth={1}
-      />
-
       <Box>
         <Typography variant="h2" 
                     gutterBottom>

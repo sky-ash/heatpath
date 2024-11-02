@@ -74,6 +74,8 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
         {card.title}
       </Typography>
 
+
+
       <Typography variant="body1" align="center" component="div" style={{ marginBottom: '1rem', lineHeight: 2.5 }}>
         {card.sentence.map((part, index) => {
           const isInputField = part === '___';
@@ -137,7 +139,10 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
       </Typography>
       */}
 
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+
+
+      <Box p='16px' width='100%' sx={{ position: 'fixed', bottom: '32px', right: 0, marginBottom: '4rem'}}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
         <Button
           variant="contained"
           color="secondary"
@@ -150,6 +155,10 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
           Next
         </Button>
       </Box>
+      </Box>
+
+
+
     </Box>
   );
 }

@@ -85,15 +85,15 @@ export default function Lecture() {
   return (
     <Container className="container"
                sx={{ textAlign: 'center',
-                     justifyContent: 'space-evenly', // 'space-between', 'space-around'
+                     justifyContent: 'flex-start', // 'space-between', 'space-around'
                   }}>
 
-      <Typography variant="h4" gutterBottom>
-        {lecture.title}
+      <Typography variant="h4" gutterBottom mt={8}>
+        {lecture.title.split(':')[0]}
       </Typography>
 
       {!showQuiz ? (
-        <>
+        <Box mt={8}>
           <Card
             card={lecture.cards[currentCardIndex]}
             nextCard={handleNextCard}
@@ -104,8 +104,8 @@ export default function Lecture() {
             totalCards={lecture.cards.length}
             parsedLectureContent={parsedLectureContent}
           />
-          <Box mt={2}>
-            <Button
+        <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
+        <Button
               variant="contained"
               color="primary"
               onClick={handleStartQuiz}
@@ -113,7 +113,7 @@ export default function Lecture() {
               Start Quiz
             </Button>
           </Box>
-        </>
+        </Box>
       ) : (
         <Quiz quiz={lecture.quiz} 
               lectureId={id} 

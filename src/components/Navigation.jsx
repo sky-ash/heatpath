@@ -11,7 +11,6 @@ export default function Navigation() {
             sx={{ top: 'auto', 
                   bottom: 0, 
                   backgroundColor: 'background.paper', 
-                  boxShadow: 'none' // P388d
                }}>
       
       <Link to="/path">
@@ -19,9 +18,11 @@ export default function Navigation() {
              sx={{ position: 'absolute', zIndex: 1,
                    margin: '0 auto', top: -20,
                    left: 0, right: 0, 
+                   /*
                    backgroundColor: 'primary.main', // Pbfd8
                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // P1e56
                    borderRadius: '8px' // P1e56
+                   */
                  }}>
           <AppsIcon />
         </Fab>
@@ -30,11 +31,7 @@ export default function Navigation() {
       <Toolbar>
         
         <Link to="/">
-          <IconButton color="primary"
-                      sx={{ backgroundColor: 'primary.main', // Pbfd8
-                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // P1e56
-                            borderRadius: '8px' // P1e56
-                          }}>
+          <IconButton color="primary">
             <HomeIcon />
           </IconButton>
         </Link>
@@ -42,11 +39,7 @@ export default function Navigation() {
         <Box sx={{flexGrow: 1}} />
 
         <Link to="/settings">
-          <IconButton color="primary"
-                      sx={{ backgroundColor: 'primary.main', // Pbfd8
-                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // P1e56
-                            borderRadius: '8px' // P1e56
-                          }}>
+          <IconButton color="primary">
             <SettingsIcon />
           </IconButton>
         </Link>
