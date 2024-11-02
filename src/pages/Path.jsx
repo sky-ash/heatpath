@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, IconButton, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { AwesomeButton } from "react-awesome-button";
 
 import Navigation from '../components/Navigation';
 import parsedLectureContent from '../data/parsedLectureContent.json';
@@ -46,13 +47,13 @@ export default function Path() {
 
       {parsedLectureContent.lectures.map((lecture, index) => (
         <div key={index} className="lecture-button">
-          <IconButton
-            color="primary"
+          <AwesomeButton
+            type="primary"
             disabled={index + 1 > unlockedLectures}
             onClick={(event) => handlePopoverOpen(event, lecture)}
           >
             {index + 1}
-          </IconButton>
+          </AwesomeButton>
         </div>
       ))}
 
