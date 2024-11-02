@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Navigation from '../components/Navigation';
 import parsedLectureContent from '../data/parsedLectureContent.json';
+import InfoButton from '../components/InfoButton';
 
 export default function Path() {
   const [unlockedLectures, setUnlockedLectures] = useState(1);
@@ -116,6 +117,7 @@ export default function Path() {
         </div>
       </Popover>
 
+      <InfoButton />
       <Navigation />
     </Container>
   );
