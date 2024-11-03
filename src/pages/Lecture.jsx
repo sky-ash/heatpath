@@ -2,7 +2,7 @@
 
 // Import necessary components
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Typography, Box } from '@mui/material';
+import { Container, Button, Typography, Box, LinearProgress } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 
 // Import the parsed lecture content from json file
@@ -83,6 +83,9 @@ export default function Lecture() {
     setShowQuiz(false);
   };
 
+  const completedCards = viewedCards.filter(viewed => viewed).length;
+  const progress = (completedCards / lecture.cards.length) * 100;
+
   return (
     <Container className="container"
                sx={{ textAlign: 'center',
@@ -95,6 +98,7 @@ export default function Lecture() {
 
       {!showQuiz ? (
         <Box mt={8}>
+          <LinearProgress variant="determinate" value={progress} sx={{ marginBottom: '16px' }} />
           <Card
             card={lecture.cards[currentCardIndex]}
             nextCard={handleNextCard}
