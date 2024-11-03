@@ -17,7 +17,7 @@ export default function Sources() {
     return (
         <>
             {/* Page title */}
-            <Typography variant="h4" gutterBottom mt={8}>
+            <Typography variant="h3" gutterBottom mt={8} mb={8}>
                 Sources
             </Typography>
 

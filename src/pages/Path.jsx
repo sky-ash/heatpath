@@ -51,16 +51,17 @@ export default function Path() {
 
   return (
     <>
-      {/* Title of the page */}
-      <Typography variant="h4" gutterBottom mt={8}>
+      <Typography variant="h3" gutterBottom mt={8} mb={8}>
         Learning Path
       </Typography>
 
-      {/* Container for the lecture buttons */}
-      <Box sx={{ position: 'relative', height: '100%', width: '100%' }}>
+      {/* Container for the lecture buttons 
+      <Box height="100%"> */}
         {parsedLectureContent.lectures.map((lecture, index) => {
           // Calculate the left shift for the button position
-          const leftShift = [0, 25, -15, 0][index] || 0;
+          const centerAllVertically = [96, 32, -32, -96][index] || 0;
+          const leftShift = [-48, 32, -16, 64][index] + centerAllVertically;
+          const downShift = [0, 15, 30, 45][index] || 0;
 
           return (
             <Button
@@ -69,10 +70,11 @@ export default function Path() {
               color="primary"
               disabled={index + 1 > unlockedLectures}
               sx={{
-                position: 'relative',
-                top: `${(index + 0.5) * 20}%`,
-                left: `${leftShift}%`,
-                transform: 'perspective(800px) rotateY(5deg) rotateX(35deg) rotateZ(-10deg)',
+                width: '64px',
+                height: '64px',
+                top: `${downShift}%`,
+                left: `${leftShift}px`,
+                transform: 'perspective(800px) rotateY(15deg) rotateX(40deg) rotateZ(-15deg)',
               }}
               onClick={(event) => {
                 if (index + 1 <= unlockedLectures) {
@@ -80,24 +82,26 @@ export default function Path() {
                 }
               }}
             >
-              <Typography variant="h6" sx={{ color: 'white', lineHeight: '50px' }}>
+              <Typography variant="h5" sx={{ color: 'white' }}>
                 {index + 1}
               </Typography>
             </Button>
           );
         })}
-      </Box>
+      {/* </Box> */}
 
-      {/* Popover to show lecture details */}
       <Popover
         open={open}
-        anchorEl={anchorEl}
+        //anchorEl={anchorEl}
         onClose={handlePopoverClose}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <div style={{ padding: '16px', textAlign: 'center' }}>
-          <Typography variant="h6">{selectedLecture?.title}</Typography>
+        transformOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+        <Box p="16px"
+             textAlign="center"
+             //backgroundColor="#252525"
+            >
+          <Typography variant="h6" pb="8px">{selectedLecture?.title.split(':')[1]}</Typography>
           <Button
             variant="contained"
             color="primary"
@@ -108,7 +112,7 @@ export default function Path() {
           >
             Start Lecture
           </Button>
-        </div>
+        </Box>
       </Popover>
     </>
   );

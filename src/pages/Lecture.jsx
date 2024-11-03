@@ -106,13 +106,12 @@ export default function Lecture() {
 
   return (
     <>
-      {/* Title of the lecture */}
-      <Typography variant="h4" gutterBottom mt={8}>
+      <Typography variant="h3" gutterBottom mt={8} mb={8}>
         {lecture.title.split(':')[0]}
       </Typography>
 
       {!showQuiz ? (
-        <Box mt={8}>
+        <Box>
           {/* Progress bar */}
           <LinearProgress variant="determinate" value={progress} sx={{ marginBottom: '16px' }} />
           {/* Card component */}

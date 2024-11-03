@@ -15,40 +15,31 @@ export default function Start() {
 
   return (
     <>
-      {/* Container for the welcome message */}
-      <Box>
-        <Typography variant="h2" gutterBottom mt={8} mb={8}>
-          Welcome to Heat Path
-        </Typography>
-        <Typography variant="subtitle1" gutterBottom>
-          Learn about the health risks of climate change through interactive lectures and quizzes.
-        </Typography>
-        
-        {/*
-        <Typography variant="subtitle1" gutterBottom>
-          THIS IS A PROTOTYPE, CURRENTLY IN DEVELOPMENT!
-        </Typography>
-        */}
+      <Typography variant="h2" gutterBottom mt={8}>
+        Welcome to Heat Path
+      </Typography>
+      <Typography variant="subtitle1" gutterBottom mt={4}>
+        Learn about the health risks of climate change through interactive lectures and quizzes.
+      </Typography>
 
-      </Box>
-
-      {/* inserst the image from path "heatpath/public/imgs/logo.png" here, centered */}
-      <Box display="flex" justifyContent="center" mt={4} mb={8}>
+      <Box display="flex" justifyContent="center" mt={12}>
         <img src={`${import.meta.env.BASE_URL}imgs/logo.png`} alt="Heat Path Logo" style={{ maxWidth: '50%', height: 'auto' }} />
       </Box>
 
-      {/* Container for the "Start" button */}
-      <Box mt={4}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleGetStarted}
-          sx={{ width: '80%', maxWidth: '220px', height: '50px', fontWeight: 'bold', fontSize: '18px' }}
-        >
+      <Box mt={8}>
+        <Button variant="contained"
+                color="primary"
+                onClick={handleGetStarted}
+                sx={{ width: '80%', 
+                      maxWidth: '220px', 
+                      height: '50px', 
+                      fontWeight: 'bold', 
+                      fontSize: '18px'
+                   }}>
           Start
         </Button>
       </Box>
-      <Box height="150px"></Box>
+      <Box height="150px"/>
     </>
   );
 }
