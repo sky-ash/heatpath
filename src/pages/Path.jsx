@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Popover, Button } from '@mui/material';
+import { Typography, Box, Button, SwipeableDrawer } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import parsedLectureContent from '../data/parsedLectureContent.json';
@@ -8,10 +8,11 @@ export default function Path() {
   // State to keep track of the number of unlocked lectures
   const [unlockedLectures, setUnlockedLectures] = useState(1);
 
-  // State to manage the anchor element for the popover
+  // State to manage the anchor element for the drawer
   const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
 
-  // State to store the selected lecture for the popover
+  // State to store the selected lecture for the drawer
   const [selectedLecture, setSelectedLecture] = useState(null);
 
   // useEffect to load the number of unlocked lectures from localStorage
@@ -34,20 +35,17 @@ export default function Path() {
     }
   };
 
-  // Function to open the popover
-  const handlePopoverOpen = (event, lecture) => {
-    setAnchorEl(event.currentTarget);
+  // Function to open the drawer
+  const handleDrawerOpen = (event, lecture) => {
+    setOpen(true);
     setSelectedLecture(lecture);
   };
 
-  // Function to close the popover
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
+  // Function to close the drawer
+  const handleDrawerClose = () => {
+    setOpen(false);
     setSelectedLecture(null);
   };
-
-  // Boolean to check if the popover is open
-  const open = Boolean(anchorEl);
 
   return (
     <>
@@ -55,65 +53,66 @@ export default function Path() {
         Learning Path
       </Typography>
 
-      {/* Container for the lecture buttons 
-      <Box height="100%"> */}
-        {parsedLectureContent.lectures.map((lecture, index) => {
-          // Calculate the left shift for the button position
-          const centerAllVertically = [96, 32, -32, -96][index] || 0;
-          const leftShift = [-48, 32, -16, 64][index] + centerAllVertically;
-          const downShift = [0, 15, 30, 45][index] || 0;
+      {parsedLectureContent.lectures.map((lecture, index) => {
+        const centerAllVertically = [96, 32, -32, -96][index] || 0;
+        const leftShift = [-48, 32, -16, 64][index] + centerAllVertically;
+        const downShift = [0, 15, 30, 45][index] || 0;
 
-          return (
-            <Button
-              key={index}
-              variant="contained"
-              color="primary"
-              disabled={index + 1 > unlockedLectures}
-              sx={{
-                width: '64px',
-                height: '64px',
-                top: `${downShift}%`,
-                left: `${leftShift}px`,
-                transform: 'perspective(800px) rotateY(15deg) rotateX(40deg) rotateZ(-15deg)',
-              }}
-              onClick={(event) => {
-                if (index + 1 <= unlockedLectures) {
-                  handlePopoverOpen(event, lecture);
-                }
-              }}
-            >
-              <Typography variant="h5" sx={{ color: 'white' }}>
-                {index + 1}
-              </Typography>
-            </Button>
-          );
-        })}
-      {/* </Box> */}
+        return (
+          <Button
+            key={index}
+            variant="contained"
+            color="primary"
+            disabled={index + 1 > unlockedLectures}
+            sx={{
+              width: '64px',
+              height: '64px',
+              top: `${downShift}%`,
+              left: `${leftShift}px`,
+              transform: 'perspective(800px) rotateY(15deg) rotateX(40deg) rotateZ(-15deg)',
+            }}
+            onClick={(event) => {
+              if (index + 1 <= unlockedLectures) {
+                handleDrawerOpen(event, lecture);
+              }
+            }}
+          >
+            <Typography variant="h5">
+              {index + 1}
+            </Typography>
+          </Button>
+        );
+      })}
 
-      <Popover
+      <SwipeableDrawer
         open={open}
-        //anchorEl={anchorEl}
-        onClose={handlePopoverClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        transformOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchor="bottom"
+        onClose={handleDrawerClose}
         >
-        <Box p="16px"
-             textAlign="center"
-             //backgroundColor="#252525"
-            >
-          <Typography variant="h6" pb="8px">{selectedLecture?.title.split(':')[1]}</Typography>
+        <Box textAlign="center"
+             height="37vh"
+             p={4}>
+          <Typography variant="h6" gutterBottom>
+            {selectedLecture?.title.split(':')[0]}:
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            {selectedLecture?.title.split(':')[1]}
+          </Typography>
           <Button
             variant="contained"
             color="primary"
+            sx={{ position: 'fixed',  margin: 'auto', width: 'calc(100% - 64px)', 
+                  bottom: '32px', left: '0', right: '0'
+             }}
             onClick={() => {
               handleLectureClick(parsedLectureContent.lectures.indexOf(selectedLecture) + 1);
-              handlePopoverClose();
+              handleDrawerClose();
             }}
           >
             Start Lecture
           </Button>
         </Box>
-      </Popover>
+      </SwipeableDrawer>
     </>
   );
 }
