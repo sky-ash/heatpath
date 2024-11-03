@@ -12,8 +12,11 @@ const sources = [
 
 export default function Sources() {
     return (
-        <Container className="container" sx={{ textAlign: 'center' }}>
-            <Typography variant="h4" gutterBottom>
+        <Container className="container"
+        sx={{ textAlign: 'center',
+              justifyContent: 'flex-start', // 'space-between', 'space-around'
+           }}>            
+           <Typography variant="h4" gutterBottom mt={8}>
                 Sources
             </Typography>
             <List>

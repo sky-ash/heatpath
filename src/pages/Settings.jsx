@@ -13,10 +13,10 @@ export default function Settings({ darkMode, setDarkMode }) {
   return (
     <Container className="container"
                sx={{ textAlign: 'center',
-                     justifyContent: 'space-evenly', // 'space-between', 'space-around'
+                     justifyContent: 'flex-start', // 'space-between', 'space-around'
                   }}>
 
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom mt={8}>
         Settings
       </Typography>
 

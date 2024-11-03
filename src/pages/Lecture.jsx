@@ -90,7 +90,8 @@ export default function Lecture() {
     <Container className="container"
                sx={{ textAlign: 'center',
                      justifyContent: 'flex-start', // 'space-between', 'space-around'
-                  }}>
+                  }}
+                  >
 
       <Typography variant="h4" gutterBottom mt={8}>
         {lecture.title.split(':')[0]}

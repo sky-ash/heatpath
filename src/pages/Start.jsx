@@ -15,12 +15,12 @@ export default function Start() {
   return (
     <Container className="container"
                sx={{ textAlign: 'center',
-                     justifyContent: 'space-evenly', // 'space-between', 'space-around'
+                     justifyContent: 'flex-start', // 'space-between', 'space-around'
                   }}>
       
       <Box>
         <Typography variant="h2" 
-                    gutterBottom>
+                    gutterBottom mt={8}>
           Welcome to Heat Path
         </Typography>
         <Typography variant="subtitle1"
