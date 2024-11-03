@@ -19,7 +19,7 @@ export default function App() {
   // State to manage dark mode
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem('darkMode');
-    return savedMode ? JSON.parse(savedMode) : false;
+    return savedMode ? JSON.parse(savedMode) : true;
   });
 
   // useEffect to save dark mode preference to localStorage
@@ -31,22 +31,26 @@ export default function App() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <Router basename="/heatpath">
-        <Container
-          className="container"
-          maxWidth="sm"
-          sx={{ textAlign: 'center', justifyContent: 'flex-start' }}
-        >
-          <Box sx={{ position: 'relative', height: '100%', width: '100%' }}>
+        <Container className="container"
+                   maxWidth="sm"
+                   sx={{ textAlign: 'center', 
+                         justifyContent: 'flex-start' 
+                      }}>
+          <Box sx={{ position: 'relative', 
+                     height: '100%', 
+                     width: '100%' }}>
             <Routes>
               <Route path="/" element={<Start />} />
               <Route path="/path" element={<Path />} />
               <Route path="/lecture/:id" element={<Lecture />} />
               <Route path="/settings" element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />} />
               <Route path="/sources" element={<Sources />} />
-            </Routes>
-            <InfoButton />
-            <Navigation />
+            </Routes>  
           </Box>
+
+          <InfoButton />
+          <Navigation />
+
         </Container>
       </Router>
     </ThemeProvider>

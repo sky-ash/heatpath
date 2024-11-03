@@ -23,13 +23,17 @@ export default function Start() {
         <Typography variant="subtitle1" gutterBottom>
           Learn about the health risks of climate change through interactive lectures and quizzes.
         </Typography>
+        
+        {/*
         <Typography variant="subtitle1" gutterBottom>
           THIS IS A PROTOTYPE, CURRENTLY IN DEVELOPMENT!
         </Typography>
+        */}
+
       </Box>
 
       {/* inserst the image from path "heatpath/public/imgs/logo.png" here, centered */}
-      <Box display="flex" justifyContent="center" mt={4} mb={4}>
+      <Box display="flex" justifyContent="center" mt={4} mb={8}>
         <img src={`${import.meta.env.BASE_URL}imgs/logo.png`} alt="Heat Path Logo" style={{ maxWidth: '50%', height: 'auto' }} />
       </Box>
 
@@ -44,6 +48,7 @@ export default function Start() {
           Start
         </Button>
       </Box>
+      <Box height="150px"></Box>
     </>
   );
 }
