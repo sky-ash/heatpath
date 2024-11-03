@@ -17,7 +17,7 @@ export default function Start() {
     <>
       {/* Container for the welcome message */}
       <Box>
-        <Typography variant="h2" gutterBottom mt={8}>
+        <Typography variant="h2" gutterBottom mt={8} mb={8}>
           Welcome to Heat Path
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
@@ -28,8 +28,13 @@ export default function Start() {
         </Typography>
       </Box>
 
+      {/* insert the image from path "../imgs/logo.png" here, centered */}
+      <Box display="flex" justifyContent="center" mt={4} mb={4}>
+        <img src="../imgs/logo.png" alt="Heat Path Logo" style={{ maxWidth: '100%', height: 'auto' }} />
+      </Box>
+      
       {/* Container for the "Start" button */}
-      <Box>
+      <Box mt={32}>
         <Button
           variant="contained"
           color="primary"
