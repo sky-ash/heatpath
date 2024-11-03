@@ -47,7 +47,7 @@ export default function Lecture() {
     const allWordsCorrect = viewedCards.every((viewed, index) => {
       const card = lecture.cards[index];
       const savedAnswers = JSON.parse(localStorage.getItem(`answers-${card.sentence.join(' ')}`)) || [];
-      return savedAnswers.every((answer, i) => answer === card.words[i]);
+      return savedAnswers.every((answer, i) => answer.toLowerCase() === card.words[i].toLowerCase());
     });
     setAllCorrect(allViewed && allWordsCorrect);
   }, [viewedCards, lecture.cards]);
