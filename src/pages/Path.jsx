@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Box, Popover, Button } from '@mui/material';
+import { Typography, Box, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import Navigation from '../components/Navigation';
 import parsedLectureContent from '../data/parsedLectureContent.json';
-import InfoButton from '../components/InfoButton';
 
 export default function Path() {
+  // State to keep track of the number of unlocked lectures
   const [unlockedLectures, setUnlockedLectures] = useState(1);
+
+  // State to manage the anchor element for the popover
   const [anchorEl, setAnchorEl] = useState(null);
+
+  // State to store the selected lecture for the popover
   const [selectedLecture, setSelectedLecture] = useState(null);
 
+  // useEffect to load the number of unlocked lectures from localStorage
   useEffect(() => {
     const storedUnlockedLectures = JSON.parse(localStorage.getItem('unlockedLectures'));
     if (storedUnlockedLectures) {
@@ -20,52 +24,50 @@ export default function Path() {
     }
   }, []);
 
+  // Hook to navigate between routes
   const navigate = useNavigate();
+
+  // Function to handle lecture button click
   const handleLectureClick = (id) => {
     if (id <= unlockedLectures) {
       navigate(`/lecture/${id}`);
     }
   };
 
+  // Function to open the popover
   const handlePopoverOpen = (event, lecture) => {
     setAnchorEl(event.currentTarget);
     setSelectedLecture(lecture);
   };
 
+  // Function to close the popover
   const handlePopoverClose = () => {
     setAnchorEl(null);
     setSelectedLecture(null);
   };
 
-  const handleButtonClick = (index) => {
-    const buttonPosition = {
-      x: (index + 1) * 20,
-      y: (index + 1) * 20,
-    };
-  };
-
+  // Boolean to check if the popover is open
   const open = Boolean(anchorEl);
 
   return (
-    <Container className="container" sx={{ textAlign: 'center', justifyContent: 'flex-start' }}>
+    <>
+      {/* Title of the page */}
       <Typography variant="h4" gutterBottom mt={8}>
         Learning Path
       </Typography>
 
+      {/* Container for the lecture buttons */}
       <Box sx={{ position: 'relative', height: '100%', width: '100%' }}>
         {parsedLectureContent.lectures.map((lecture, index) => {
-          let leftShift = 0;
-          if (index === 0) leftShift = 0;
-          else if (index === 1) leftShift = 25;
-          else if (index === 2) leftShift = -15;
-          else if (index === 3) leftShift = 0;
+          // Calculate the left shift for the button position
+          const leftShift = [0, 25, -15, 0][index] || 0;
 
           return (
             <Button
               key={index}
               className="button-3d"
-              variant='contained'
-              color='primary'
+              variant="contained"
+              color="primary"
               disabled={index + 1 > unlockedLectures}
               sx={{
                 position: 'relative',
@@ -76,7 +78,6 @@ export default function Path() {
               onClick={(event) => {
                 if (index + 1 <= unlockedLectures) {
                   handlePopoverOpen(event, lecture);
-                  handleButtonClick(index);
                 }
               }}
             >
@@ -86,21 +87,15 @@ export default function Path() {
             </Button>
           );
         })}
-
       </Box>
 
+      {/* Popover to show lecture details */}
       <Popover
         open={open}
         anchorEl={anchorEl}
         onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
         <div style={{ padding: '16px', textAlign: 'center' }}>
           <Typography variant="h6">{selectedLecture?.title}</Typography>
@@ -116,9 +111,6 @@ export default function Path() {
           </Button>
         </div>
       </Popover>
-
-      <InfoButton />
-      <Navigation />
-    </Container>
+    </>
   );
 }
