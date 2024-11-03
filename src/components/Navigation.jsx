@@ -1,45 +1,205 @@
-import React from 'react';
-import { Box, Fab, IconButton, AppBar, Toolbar } from '@mui/material';
-import { Link } from 'react-router-dom';
+// src/components/Navigation.jsx
 
+import React from 'react';
+import { Box, Fab, Button, IconButton, AppBar, Toolbar, Typography } from '@mui/material';
+import { useLocation, Link } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import { Apps } from '@mui/icons-material';
+import InfoIcon from '@mui/icons-material/Info';
+import { Replay, TurnLeft } from '@mui/icons-material';
+
 
 export default function Navigation() {
-  return (
-    <AppBar
-      position="fixed"
-      sx={{ top: 'auto', bottom: 0, backgroundColor: 'background.paper' }}
-    >
-      {/* Link to the learning path */}
-      <Link to="/path">
-        <Fab
-          color="primary"
-          sx={{ position: 'absolute', zIndex: 1, margin: '0 auto', top: -20, left: 0, right: 0 }}
-        >
-          <AppsIcon />
-        </Fab>
-      </Link>
-
-      <Toolbar>
-        {/* Link to the home page */}
-        <Link to="/">
-          <IconButton color="primary">
-            <HomeIcon />
-          </IconButton>
+  
+  const location = useLocation();
+  if (location.pathname === '/') {
+    return (
+        <Link to="/path">
+          <Fab color="primary"
+               variant='extended'
+               sx={{ position: 'fixed', zIndex: 1,
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
+            <Typography display='flex'
+                        p={2}
+                        alignItems='center'
+                        variant='h6'
+                        fontWeight='bold'
+                        >
+              <NavigationIcon sx={{mr: 1}} />
+              START
+            </Typography>
+          </Fab>
         </Link>
-
-        {/* Spacer to push the settings icon to the right */}
-        <Box sx={{ flexGrow: 1 }} />
-
-        {/* Link to the settings page */}
+    );
+  }
+  
+  else if (location.pathname === '/path') {
+    return (
+      <AppBar position="fixed"
+              bgcolor="background.paper"
+              p={2}
+              sx={{ top: 'auto', 
+                    bottom: 0, 
+                }}>
+        
         <Link to="/settings">
-          <IconButton color="primary">
+          <Fab color="primary"
+              sx={{ position: 'absolute', zIndex: 1,
+                    margin: '0 auto', top: -20,
+                    left: 0, right: 0, }}>
             <SettingsIcon />
-          </IconButton>
+          </Fab>
         </Link>
-      </Toolbar>
-    </AppBar>
-  );
+
+        <Toolbar>
+          
+          <Link to="/" sx={{alignItems: 'flex-start'}}>
+            <IconButton color="primary">
+              <HomeIcon />
+            </IconButton>
+          </Link>
+
+          <Box sx={{flexGrow: 1}} />
+
+          <Link to="/sources">
+            <IconButton
+              color="primary"
+            >
+              <InfoIcon />
+            </IconButton>
+          </Link>
+
+        </Toolbar>
+
+      </AppBar>
+    );
+  }
+
+  else if (location.pathname === '/settings') {
+    return (
+      <AppBar position="fixed"
+              bgcolor="background.paper"
+              p={2}
+              sx={{ top: 'auto', 
+                    bottom: 0, 
+                }}>
+        
+        <Link to="/path">
+          <Fab color="primary"
+              sx={{ position: 'absolute', zIndex: 1,
+                    margin: '0 auto', top: -20,
+                    left: 0, right: 0, }}>
+            <NavigationIcon />
+          </Fab>
+        </Link>
+
+        <Toolbar>
+          
+          <Link to="/" sx={{alignItems: 'flex-start'}}>
+            <IconButton color="primary">
+              <HomeIcon />
+            </IconButton>
+          </Link>
+
+          <Box sx={{flexGrow: 1}} />
+
+          <Link to="/sources">
+            <IconButton
+              color="primary"
+            >
+              <InfoIcon />
+            </IconButton>
+          </Link>
+
+        </Toolbar>
+
+      </AppBar>
+    );
+  }
+  else if (location.pathname === '/sources') {
+    return (
+      <AppBar position="fixed"
+              bgcolor="background.paper"
+              p={2}
+              sx={{ top: 'auto', 
+                    bottom: 0, 
+                }}>
+        
+        <Link to="/settings">
+          <Fab color="primary"
+              sx={{ position: 'absolute', zIndex: 1,
+                    margin: '0 auto', top: -20,
+                    left: 0, right: 0, }}>
+            <SettingsIcon />
+          </Fab>
+        </Link>
+
+        <Toolbar>
+          
+          <Link to="/" sx={{alignItems: 'flex-start'}}>
+            <IconButton color="primary">
+              <HomeIcon />
+            </IconButton>
+          </Link>
+
+          <Box sx={{flexGrow: 1}} />
+
+          <Link to="/path">
+            <IconButton
+              color="primary"
+            >
+              <TurnLeft />
+            </IconButton>
+          </Link>
+
+        </Toolbar>
+
+      </AppBar>
+    );
+  }
+  else if (location.pathname.startsWith('/lecture/')) {
+    return (
+      <AppBar position="fixed"
+              bgcolor="background.paper"
+              p={2}
+              sx={{ top: 'auto', 
+                    bottom: 0
+                }}>
+  
+        <Link to="/path">
+          <Fab color="primary"
+              sx={{ position: 'absolute', zIndex: 1,
+                    margin: '0 auto', top: -20,
+                    left: 0, right: 0, }}>
+            <NavigationIcon />
+          </Fab>
+        </Link>
+
+        <Toolbar>
+          <Link to="/" sx={{alignItems: 'flex-start'}}>
+            <IconButton color="primary">
+              <HomeIcon />
+            </IconButton>
+          </Link>
+  
+          <Box sx={{flexGrow: 1}} />
+  
+          <Link to="/path" sx={{alignItems: 'flex-end'}}>
+            <IconButton color="primary">
+              <TurnLeft />
+            </IconButton>
+          </Link>
+  
+        </Toolbar>
+      </AppBar>
+    );
+  }
+  else {
+    return null
+  }
+  
 }

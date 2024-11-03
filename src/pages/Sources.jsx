@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import Navigation from '../components/Navigation';
+
 // Material-UI components
 import { Typography, List, ListItem, ListItemText } from '@mui/material';
 
@@ -29,6 +31,7 @@ export default function Sources() {
                     </ListItem>
                 ))}
             </List>
+            <Navigation />
         </>
     );
 }
