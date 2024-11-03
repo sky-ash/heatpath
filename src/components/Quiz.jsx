@@ -79,11 +79,16 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
     <Box>
       {!showResult ? ( 
       <>
-        {/* Display the current question */}
-        <Typography variant="h6" gutterBottom mt={8} mb={4}>
-          {quiz[currentQuestion].question}
-        </Typography>
-
+        <Box display="flex" alignItems="center" textAlign="left" >
+          <Box p="16px" top="16px" position="relative"> {/* left={0} position="fixed">   */}
+            <img src={`${import.meta.env.BASE_URL}imgs/handup.png`} alt="Heat Path Mascot" style={{ maxWidth: '100px', height: 'auto' }} />
+          </Box>
+          
+          {/* Display the current question */}
+          <Typography variant="h6" gutterBottom mt={8} mb={4}>
+            {quiz[currentQuestion].question}
+          </Typography>
+        </Box>
         {/* Display the options for the current question */}
         <Box textAlign="left">
           <FormControl component="fieldset">
@@ -99,6 +104,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
             </RadioGroup>
           </FormControl>
         </Box>
+
 
         {/* Button to navigate to the next question or submit the quiz */}
         <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>

@@ -1,13 +1,38 @@
 [
     {
         "store": "Local",
-        "key": "answers-Increased ozone concentrations exacerbate ___ conditions like asthma and chronic obstructive ___ disease (COPD).",
-        "value": "[\n \"respiratory\",\n \"pulmonary\"\n]"
+        "key": "quizScore-1",
+        "value": "100"
     },
     {
         "store": "Local",
-        "key": "answers- ___ policies and targeted ___ are essential to manage emissions and reduce the health risks associated with climate change and ___ pollution.",
-        "value": "[\n \"Comprehensive\",\n \"interventions\",\n \"air\"\n]"
+        "key": "answers-Climate change-related events, such as ___ , release substantial amounts of PM2.5 and NOx, contributing to the formation of secondary ___ like ozone.",
+        "value": "[\n \"wildfires\",\n \"pollutants\"\n]"
+    },
+    {
+        "store": "Local",
+        "key": "answers-In low- and middle-income countries, the impact of climate change and air pollution is more severe due to high population ___ and the reliance on ___ for cooking and heating.",
+        "value": "[\n \"densities\",\n \"biomass\"\n]"
+    },
+    {
+        "store": "Local",
+        "key": "answers-PM2.5 can penetrate deep into the respiratory ___ , causing inflammation, oxidative stress, and systemic effects on cardiovascular, neurological, and metabolic ___ .",
+        "value": "[\n \"system\",\n \"health\"\n]"
+    },
+    {
+        "store": "Local",
+        "key": "unlockedLectures",
+        "value": "2"
+    },
+    {
+        "store": "Local",
+        "key": "darkMode",
+        "value": "true"
+    },
+    {
+        "store": "Local",
+        "key": "unlockedCards-1",
+        "value": "[\n 0,\n 1,\n 2,\n 3,\n 4,\n 5,\n 6\n]"
     },
     {
         "store": "Local",
@@ -21,22 +46,17 @@
     },
     {
         "store": "Local",
-        "key": "answers-PM2.5 can penetrate deep into the respiratory ___ , causing inflammation, oxidative stress, and systemic effects on cardiovascular, neurological, and metabolic ___ .",
-        "value": "[\n \"system\",\n \"health\"\n]"
+        "key": "answers- ___ policies and targeted ___ are essential to manage emissions and reduce the health risks associated with climate change and ___ pollution.",
+        "value": "[\n \"comprehensive\",\n \"interventions\",\n \"air\"\n]"
     },
     {
         "store": "Local",
-        "key": "answers-In low- and middle-income countries, the impact of climate change and air pollution is more severe due to high population ___ and the reliance on ___ for cooking and heating.",
-        "value": "[\n \"densities\",\n \"biomass\"\n]"
+        "key": "viewedCards-1",
+        "value": "[\n true,\n true,\n true,\n true,\n true,\n true,\n true\n]"
     },
     {
         "store": "Local",
-        "key": "answers-Climate change-related events, such as ___ , release substantial amounts of PM2.5 and NOx, contributing to the formation of secondary ___ like ozone.",
-        "value": "[\n \"wildfires\",\n \"pollutants\"\n]"
-    },
-    {
-        "store": "Local",
-        "key": "unlockedCards-1",
-        "value": "[\n 0,\n 1,\n 2,\n 3,\n 4,\n 5,\n 6\n]"
+        "key": "answers-Increased ozone concentrations exacerbate ___ conditions like asthma and chronic obstructive ___ disease (COPD).",
+        "value": "[\n \"respiratory\",\n \"pulmonary\"\n]"
     }
 ]
