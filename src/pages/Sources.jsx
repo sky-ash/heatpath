@@ -1,8 +1,7 @@
 // src/pages/Sources.jsx
 
 import React from 'react';
-import { Container, Typography, List, ListItem, ListItemText } from '@mui/material';
-import Navigation from '../components/Navigation';
+import { Typography, List, ListItem, ListItemText } from '@mui/material';
 
 const sources = [
     { title: 'Source 1', description: 'Description of source 1' },
@@ -12,11 +11,8 @@ const sources = [
 
 export default function Sources() {
     return (
-        <Container className="container"
-        sx={{ textAlign: 'center',
-              justifyContent: 'flex-start', // 'space-between', 'space-around'
-           }}>            
-           <Typography variant="h4" gutterBottom mt={8}>
+        <>
+            <Typography variant="h4" gutterBottom mt={8}>
                 Sources
             </Typography>
             <List>
@@ -26,7 +22,6 @@ export default function Sources() {
                     </ListItem>
                 ))}
             </List>
-            <Navigation />
-        </Container>
+        </>
     );
 }

@@ -2,8 +2,8 @@
 
 // Import necessary components
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Typography, Box, LinearProgress } from '@mui/material';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Button, Typography, Box, LinearProgress } from '@mui/material';
+import { useParams } from 'react-router-dom';
 
 // Import the parsed lecture content from json file
 import parsedLectureContent from '../data/parsedLectureContent.json';
@@ -11,9 +11,6 @@ import parsedLectureContent from '../data/parsedLectureContent.json';
 // Import the Card and Quiz components
 import Card from '../components/Card';
 import Quiz from '../components/Quiz';
-import Navigation from '../components/Navigation';
-import InfoButton from '../components/InfoButton';
-
 
 // The Lecture component
 export default function Lecture() {
@@ -87,12 +84,7 @@ export default function Lecture() {
   const progress = (completedCards / lecture.cards.length) * 100;
 
   return (
-    <Container className="container"
-               sx={{ textAlign: 'center',
-                     justifyContent: 'flex-start', // 'space-between', 'space-around'
-                  }}
-                  >
-
+    <>
       <Typography variant="h4" gutterBottom mt={8}>
         {lecture.title.split(':')[0]}
       </Typography>
@@ -110,24 +102,15 @@ export default function Lecture() {
             totalCards={lecture.cards.length}
             parsedLectureContent={parsedLectureContent}
           />
-        <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
-        <Button
-              variant="contained"
-              color="primary"
-              onClick={handleStartQuiz}
-              disabled={!allCorrect}>
+          <Box p="16px" sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem' }}>
+            <Button variant="contained" color="primary" onClick={handleStartQuiz} disabled={!allCorrect}>
               Start Quiz
             </Button>
           </Box>
         </Box>
       ) : (
-        <Quiz quiz={lecture.quiz} 
-              lectureId={id} 
-              handleReviewCards={handleReviewCards} />
+        <Quiz quiz={lecture.quiz} lectureId={id} handleReviewCards={handleReviewCards} />
       )}
-
-      <InfoButton />
-      <Navigation />
-    </Container>
+    </>
   );
 }

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Box, Popover, Button } from '@mui/material';
+import { Typography, Box, Popover, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
-import Navigation from '../components/Navigation';
 import parsedLectureContent from '../data/parsedLectureContent.json';
-import InfoButton from '../components/InfoButton';
 
 export default function Path() {
   const [unlockedLectures, setUnlockedLectures] = useState(1);
@@ -21,6 +18,7 @@ export default function Path() {
   }, []);
 
   const navigate = useNavigate();
+
   const handleLectureClick = (id) => {
     if (id <= unlockedLectures) {
       navigate(`/lecture/${id}`);
@@ -37,35 +35,24 @@ export default function Path() {
     setSelectedLecture(null);
   };
 
-  const handleButtonClick = (index) => {
-    const buttonPosition = {
-      x: (index + 1) * 20,
-      y: (index + 1) * 20,
-    };
-  };
-
   const open = Boolean(anchorEl);
 
   return (
-    <Container className="container" sx={{ textAlign: 'center', justifyContent: 'flex-start' }}>
+    <>
       <Typography variant="h4" gutterBottom mt={8}>
         Learning Path
       </Typography>
 
       <Box sx={{ position: 'relative', height: '100%', width: '100%' }}>
         {parsedLectureContent.lectures.map((lecture, index) => {
-          let leftShift = 0;
-          if (index === 0) leftShift = 0;
-          else if (index === 1) leftShift = 25;
-          else if (index === 2) leftShift = -15;
-          else if (index === 3) leftShift = 0;
+          const leftShift = [0, 25, -15, 0][index] || 0;
 
           return (
             <Button
               key={index}
               className="button-3d"
-              variant='contained'
-              color='primary'
+              variant="contained"
+              color="primary"
               disabled={index + 1 > unlockedLectures}
               sx={{
                 position: 'relative',
@@ -76,7 +63,6 @@ export default function Path() {
               onClick={(event) => {
                 if (index + 1 <= unlockedLectures) {
                   handlePopoverOpen(event, lecture);
-                  handleButtonClick(index);
                 }
               }}
             >
@@ -86,21 +72,14 @@ export default function Path() {
             </Button>
           );
         })}
-
       </Box>
 
       <Popover
         open={open}
         anchorEl={anchorEl}
         onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
         <div style={{ padding: '16px', textAlign: 'center' }}>
           <Typography variant="h6">{selectedLecture?.title}</Typography>
@@ -116,9 +95,6 @@ export default function Path() {
           </Button>
         </div>
       </Popover>
-
-      <InfoButton />
-      <Navigation />
-    </Container>
+    </>
   );
 }
