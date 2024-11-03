@@ -5,14 +5,17 @@ import { Typography, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 export default function Start() {
+  // Hook to navigate between routes
   const navigate = useNavigate();
 
+  // Function to handle the "Get Started" button click
   const handleGetStarted = () => {
     navigate('/path');
   };
 
   return (
     <>
+      {/* Container for the welcome message */}
       <Box>
         <Typography variant="h2" gutterBottom mt={8}>
           Welcome to Heat Path
@@ -25,6 +28,7 @@ export default function Start() {
         </Typography>
       </Box>
 
+      {/* Container for the "Start" button */}
       <Box>
         <Button
           variant="contained"
