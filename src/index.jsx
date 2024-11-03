@@ -11,13 +11,18 @@ import '@fontsource/roboto';
 
 import './styles/global.css'; // Import the global CSS file
 
-// Render the app
+// Get the root container element
 const container = document.getElementById('root');
+
+// Create a root for React
 const root = createRoot(container);
 
+// Render the app within the root element
 root.render(
   <React.StrictMode>
+    {/* CssBaseline to provide a consistent baseline for styles */}
     <CssBaseline />
+    {/* Main App component */}
     <App />
   </React.StrictMode>
 );

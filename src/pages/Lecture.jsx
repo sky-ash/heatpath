@@ -14,20 +14,34 @@ import Quiz from '../components/Quiz';
 
 // The Lecture component
 export default function Lecture() {
-  const { id } = useParams(); // Get lecture ID from the URL
+  // Get lecture ID from the URL
+  const { id } = useParams();
+
+  // Get the lecture data based on the ID
   const lecture = parsedLectureContent.lectures[id - 1];
+
+  // State to keep track of the current card index
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  // State to determine whether to show the quiz
   const [showQuiz, setShowQuiz] = useState(false);
+
+  // State to keep track of viewed cards
   const [viewedCards, setViewedCards] = useState(() => {
     const savedViewedCards = JSON.parse(localStorage.getItem(`viewedCards-${id}`));
     return savedViewedCards || Array(lecture.cards.length).fill(false);
   });
+
+  // State to keep track of unlocked cards
   const [unlockedCards, setUnlockedCards] = useState(() => {
     const savedUnlockedCards = JSON.parse(localStorage.getItem(`unlockedCards-${id}`));
     return savedUnlockedCards || [0]; // Initially, only the first card is unlocked
   });
+
+  // State to check if all cards are correct
   const [allCorrect, setAllCorrect] = useState(false);
 
+  // useEffect to check if all cards are viewed and correct
   useEffect(() => {
     const allViewed = viewedCards.every(viewed => viewed);
     const allWordsCorrect = viewedCards.every((viewed, index) => {
@@ -38,14 +52,17 @@ export default function Lecture() {
     setAllCorrect(allViewed && allWordsCorrect);
   }, [viewedCards, lecture.cards]);
 
+  // useEffect to save viewed cards to localStorage
   useEffect(() => {
     localStorage.setItem(`viewedCards-${id}`, JSON.stringify(viewedCards));
   }, [viewedCards, id]);
 
+  // useEffect to save unlocked cards to localStorage
   useEffect(() => {
     localStorage.setItem(`unlockedCards-${id}`, JSON.stringify(unlockedCards));
   }, [unlockedCards, id]);
 
+  // Function to handle moving to the next card
   const handleNextCard = () => {
     const nextIndex = (currentCardIndex + 1) % lecture.cards.length;
     if (unlockedCards.includes(nextIndex) || currentCardIndex === lecture.cards.length - 1) {
@@ -56,6 +73,7 @@ export default function Lecture() {
     }
   };
 
+  // Function to handle moving to the previous card
   const handlePrevCard = () => {
     const prevIndex = (currentCardIndex - 1 + lecture.cards.length) % lecture.cards.length;
     if (currentCardIndex === 0 && !unlockedCards.includes(lecture.cards.length - 1)) {
@@ -64,33 +82,40 @@ export default function Lecture() {
     setCurrentCardIndex(prevIndex);
   };
 
+  // Function to handle card completion
   const handleCardCompletion = (index) => {
     if (!unlockedCards.includes(index + 1) && index < lecture.cards.length - 1) {
       setUnlockedCards([...unlockedCards, index + 1]);
     }
   };
 
+  // Function to start the quiz
   const handleStartQuiz = () => {
     setShowQuiz(true);
   };
 
+  // Function to review cards
   const handleReviewCards = () => {
     setCurrentCardIndex(0);
     setShowQuiz(false);
   };
 
+  // Calculate the progress of viewed cards
   const completedCards = viewedCards.filter(viewed => viewed).length;
   const progress = (completedCards / lecture.cards.length) * 100;
 
   return (
     <>
+      {/* Title of the lecture */}
       <Typography variant="h4" gutterBottom mt={8}>
         {lecture.title.split(':')[0]}
       </Typography>
 
       {!showQuiz ? (
         <Box mt={8}>
+          {/* Progress bar */}
           <LinearProgress variant="determinate" value={progress} sx={{ marginBottom: '16px' }} />
+          {/* Card component */}
           <Card
             card={lecture.cards[currentCardIndex]}
             nextCard={handleNextCard}
@@ -101,6 +126,7 @@ export default function Lecture() {
             totalCards={lecture.cards.length}
             parsedLectureContent={parsedLectureContent}
           />
+          {/* Button to start the quiz */}
           <Box p="16px" sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem' }}>
             <Button variant="contained" color="primary" onClick={handleStartQuiz} disabled={!allCorrect}>
               Start Quiz
@@ -108,6 +134,7 @@ export default function Lecture() {
           </Box>
         </Box>
       ) : (
+        // Quiz component
         <Quiz quiz={lecture.quiz} lectureId={id} handleReviewCards={handleReviewCards} />
       )}
     </>
