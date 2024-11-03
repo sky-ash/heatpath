@@ -28,7 +28,7 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
 
     savedAnswers.forEach((answer, index) => {
       initialAnswers[index] = answer;
-      initialCorrectness[index] = answer === card.words[index];
+      initialCorrectness[index] = answer.toLowerCase() === card.words[index].toLowerCase();
     });
 
     if (initialCorrectness.every(c => c === true)) {
