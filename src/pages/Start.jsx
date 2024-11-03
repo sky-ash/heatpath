@@ -3,6 +3,7 @@
 import React from 'react';
 import { Typography, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
 export default function Start() {
   // Hook to navigate between routes
@@ -26,6 +27,7 @@ export default function Start() {
         <img src={`${import.meta.env.BASE_URL}imgs/logo.png`} alt="Heat Path Logo" style={{ maxWidth: '50%', height: 'auto' }} />
       </Box>
 
+      {/*
       <Box mt={8}>
         <Button variant="contained"
                 color="primary"
@@ -40,6 +42,8 @@ export default function Start() {
         </Button>
       </Box>
       <Box height="150px"/>
+      */}
+      <Navigation />
     </>
   );
 }
