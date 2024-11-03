@@ -116,23 +116,14 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
       ) : (
       <Box>
         {/* Display the score */}
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom mt={2}>
           Your Score: {score}%
         </Typography>
 
-        {/* Display pass/fail message based on the score */}
-        {score >= 80 ? (
-        <Typography variant="subtitle2" color="primary" gutterBottom>
-          Congratulations! You passed the quiz.
-        </Typography>
-        ) : (
-        <Typography variant="subtitle2" color="error" gutterBottom>
-          Unfortunately, you didn't pass. Please try again.
-        </Typography>
-        )}
+
         
         {/* Display the questions and selected answers with correctness icons */}
-        <Box mt={2} className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
+        <Box mt={4} mb={2} className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
           {quiz.map((q, index) => (
             <Box key={index} display="flex" alignItems="center" textAlign="left" sx={{marginBottom: '1rem', marginTop: '1rem' }}>
               {selectedAnswers[index] === q.correctAnswer ? (
@@ -141,11 +132,32 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
                 <CancelIcon style={{ color: 'red', marginLeft: '1rem', marginRight: '1.5rem' }} />
               )}
               <Typography variant="body1">
-                {q.question}: {selectedAnswers[index]}
+                {/*{q.question}: */} {selectedAnswers[index]}
               </Typography>
             </Box>
           ))}
         </Box>
+
+        {/* Display pass/fail message based on the score */}
+        {score >= 80 ? (
+        <Box display="flex" alignItems="center" textAlign="left" width="80%" margin="auto">
+          <Box p="16px" position="relative"> 
+            <img src={`${import.meta.env.BASE_URL}imgs/success.png`} alt="Heat Path Mascot" style={{ maxWidth: '75px', height: 'auto' }} />
+          </Box>
+          <Typography variant="h7" color="primary" gutterBottom>
+            Congratulations! You passed the quiz.
+          </Typography>
+        </Box>
+        ) : (
+        <Box display="flex" alignItems="center" textAlign="left" width="80%" margin="auto">
+          <Box p="16px" position="relative"> 
+            <img src={`${import.meta.env.BASE_URL}imgs/failure.png`} alt="Heat Path Mascot" style={{ maxWidth: '75px', height: 'auto' }} />
+          </Box>
+          <Typography variant="h7" color="error" gutterBottom>
+            Unfortunately, you didn't pass. Please try again.
+          </Typography>
+        </Box>
+        )}
 
         {/* Button to return to the path or review cards based on the score */}
         {score >= 80 ? (
