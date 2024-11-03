@@ -31,20 +31,3 @@ body {
     margin-bottom: 8px;
   }
 }
-
-/* AWS button styles */
-.aws-btn {
-  --button-default-height: 50px;
-  --button-default-font-size: 16px;
-  --button-default-border-radius: 25px;
-  --button-horizontal-padding: 50px;
-  --button-raise-level: 10px;
-  --button-hover-pressure: 2;
-  --transform-speed: 0.25s;
-  --button-primary-color: #f44336;
-  --button-primary-color-dark: #aa2e25;
-  --button-primary-color-light: #ffffff;
-  --button-primary-color-hover: #b62015;
-  --button-primary-color-active: #ba1616;
-  --button-primary-border: none;
-}

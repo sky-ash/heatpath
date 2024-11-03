@@ -65,7 +65,6 @@ export default function Path() {
           return (
             <Button
               key={index}
-              className="button-3d"
               variant="contained"
               color="primary"
               disabled={index + 1 > unlockedLectures}
