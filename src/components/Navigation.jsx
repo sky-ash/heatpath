@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
-import InfoIcon from '@mui/icons-material/Info';
 
 export default function Navigation() {
   return (
@@ -19,11 +18,6 @@ export default function Navigation() {
              sx={{ position: 'absolute', zIndex: 1,
                    margin: '0 auto', top: -20,
                    left: 0, right: 0, 
-                   /*
-                   backgroundColor: 'primary.main', // Pbfd8
-                   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // P1e56
-                   borderRadius: '8px' // P1e56
-                   */
                  }}>
           <AppsIcon />
         </Fab>

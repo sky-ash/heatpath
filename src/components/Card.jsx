@@ -1,6 +1,6 @@
 // src/components/Card.js
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, TextField, Button, Autocomplete, InputAdornment } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -12,7 +12,6 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
 
   const [answers, setAnswers] = useState([]);
   const [correctness, setCorrectness] = useState([]);
-  const inputRefs = useRef([]);
 
   useEffect(() => {
     const savedAnswers = JSON.parse(localStorage.getItem(`answers-${card.sentence.join(' ')}`)) || [];
@@ -24,7 +23,6 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
       initialCorrectness[index] = answer === card.words[index];
     });
 
-    // Check if all answers are correct and call onCardCompletion
     if (initialCorrectness.every(c => c === true)) {
       onCardCompletion();
     }
@@ -44,26 +42,10 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
 
     localStorage.setItem(`answers-${card.sentence.join(' ')}`, JSON.stringify(newAnswers));
 
-    // Check if all answers are correct and call onCardCompletion
     if (newCorrectness.every(c => c === true)) {
       onCardCompletion();
     }
-
-    //adjustWidth(index);
   };
-
-  /*
-  const adjustWidth = (index) => {
-    const input = inputRefs.current[index];
-    if (input) {
-      input.style.width = `${input.scrollWidth}px`;
-    }
-  };
-
-  useEffect(() => {
-    answers.forEach((_, index) => adjustWidth(index));
-  }, [answers]);
-  */
 
   const allCorrect = correctness.every(c => c === true);
   const allLectureWords = [...new Set(parsedLectureContent.lectures.flatMap(lecture => lecture.cards.flatMap(card => card.words.map(word => word.toLowerCase()))))].sort();
@@ -97,34 +79,24 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
                 <Autocomplete
                 freeSolo
                 disableClearable
-                sx={{ /*  minWidth: 80, maxWidth: 200,  */ width: 150, marginRight: '1rem' }}
-                options={allLectureWords} // {allLectureWords}, {card.words} or: (only the words of the current card) 
+                sx={{ width: 150, marginRight: '1rem' }}
+                options={allLectureWords}
                 getOptionLabel={(option) => option}
                 renderInput={(params) => (
                   <TextField
                   {...params}
                   variant="outlined"
                   size="small"
-                  //label="Enter missing word"
                   value={answers[inputFieldIndex] || ''}
                   onChange={(e) => handleInputChange(inputFieldIndex, e.target.value)}
                   error={correctness[inputFieldIndex] === false}
                   style={{ margin: '0 0.5rem', padding: '0' }}
 
-                  /*
-                  inputRef={(el) => (inputRefs.current[inputFieldIndex] = el)}
-                  onInput={(e) => adjustWidth(inputFieldIndex)}
-                  */
                   />
                 )}
                 inputValue={answers[inputFieldIndex] || ''}
                 onInputChange={(event, newInputValue) => handleInputChange(inputFieldIndex, newInputValue)}
                 />
-
-                {/*
-                {correctness[inputFieldIndex] === true && <CheckCircleIcon style={{ color: 'green', marginRight: '0.75rem' }} />}
-                {correctness[inputFieldIndex] === false && <CancelIcon style={{ color: 'red', marginRight: '0.75rem' }} />}
-                */}
 
               </Box>
               )}
@@ -132,14 +104,6 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
             );
         })}
       </Typography>
-
-      {/*
-      <Typography variant="body2" style={{ marginBottom: '1rem' }}>
-        Fill out the following words in the empty fields: {card.words.join(', ')}
-      </Typography>
-      */}
-
-
 
       <Box p='16px' width='100%' sx={{ position: 'fixed', bottom: '32px', right: 0, marginBottom: '4rem'}}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>

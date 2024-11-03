@@ -11,11 +11,6 @@ export default function InfoButton() {
        sx={{ position: 'absolute', zIndex: 1,
              top: 16,
              right: 16, 
-             /*
-             backgroundColor: 'primary.main', // Pbfd8
-             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // P1e56
-             borderRadius: '8px' // P1e56
-             */
            }}>
     <InfoIcon />
   </IconButton>

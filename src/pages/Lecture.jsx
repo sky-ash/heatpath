@@ -29,7 +29,6 @@ export default function Lecture() {
   const [allCorrect, setAllCorrect] = useState(false);
 
   useEffect(() => {
-    // Check if all cards have been viewed and all words are correct
     const allViewed = viewedCards.every(viewed => viewed);
     const allWordsCorrect = viewedCards.every((viewed, index) => {
       const card = lecture.cards[index];

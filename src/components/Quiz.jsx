@@ -5,7 +5,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useNavigate } from 'react-router-dom';
 import { Replay, TurnLeft } from '@mui/icons-material';
-import { right, bottom, left, top, position, display } from '@mui/system';
 
 export default function Quiz({ quiz, lectureId, handleReviewCards }) {
   const [selectedAnswers, setSelectedAnswers] = useState(Array(quiz.length).fill(null));
@@ -38,7 +37,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       calculateScore();
-      setShowResult(true); // Show results after the last question
+      setShowResult(true); 
     }
   };
 
