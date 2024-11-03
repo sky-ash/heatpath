@@ -30,7 +30,7 @@ export default function Start() {
 
       {/* insert the image from path "heatpath/public/imgs/logo.png" here, centered */}
       <Box display="flex" justifyContent="center" mt={4} mb={4}>
-        <img src="/imgs/logo.png" alt="Heat Path Logo" style={{ maxWidth: '50%', height: 'auto' }} />
+        <img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="Heat Path Logo" style={{ maxWidth: '50%', height: 'auto' }} />
       </Box>
       
       {/* Container for the "Start" button */}
