@@ -86,7 +86,7 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
                     freeSolo
                     disableClearable
                     sx={{ width: 150, marginRight: '1rem' }}
-                    options={card.words} // to instead use a list of all words: {allLectureWords}
+                    options={card.words.toLowerCase().sort()} // to instead use a list of all words: {allLectureWords}
                     getOptionLabel={(option) => option}
                     renderInput={(params) => (
                       <TextField
