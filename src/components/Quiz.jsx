@@ -117,7 +117,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
                         variant='h6'
                         fontWeight='bold'
                         >
-              {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit Quiz'}
+              {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit'}
             </Typography>
           </Fab>
       </>

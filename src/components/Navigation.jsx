@@ -20,7 +20,7 @@ export default function Navigation() {
         <Link to="/path">
           <Fab color="primary"
                variant='extended'
-               sx={{ position: 'fixed', zIndex: 1,
+               sx={{ position: 'fixed', zIndex: 'tooltip',
                      left: '50%', transform: 'translateX(-50%)',
                      bottom: 32, }}>
             <Typography display='flex'
@@ -48,15 +48,14 @@ export default function Navigation() {
         
         <Link to="/settings">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
+               sx={{ position: 'fixed', zIndex: 'tooltip',
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
             <SettingsIcon />
           </Fab>
         </Link>
 
         <Toolbar>
-          
           <Link to="/" sx={{alignItems: 'flex-start'}}>
             <IconButton color="primary">
               <HomeIcon />
@@ -74,12 +73,9 @@ export default function Navigation() {
           </Link>
 
         </Toolbar>
-
       </AppBar>
     );
-  }
-
-  else if (location.pathname === '/settings') {
+  } else if (location.pathname === '/settings' || location.pathname === '/sources') {
     return (
       <AppBar position="fixed"
               bgcolor="background.paper"
@@ -88,58 +84,26 @@ export default function Navigation() {
                     bottom: 0, 
                 }}>
         
-        <Link to="/path">
+        {/*
+        <Link to="/sources">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
-            <NavigationIcon />
+               sx={{ position: 'fixed', zIndex: 'tooltip',
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
+            <InfoIcon />
           </Fab>
         </Link>
-
-        <Toolbar>
-          
-          <Link to="/" sx={{alignItems: 'flex-start'}}>
-            <IconButton color="primary">
-              <HomeIcon />
-            </IconButton>
-          </Link>
-
-          <Box sx={{flexGrow: 1}} />
-
-          <Link to="/sources">
-            <IconButton
-              color="primary"
-            >
-              <InfoIcon />
-            </IconButton>
-          </Link>
-
-        </Toolbar>
-
-      </AppBar>
-    );
-  }
-  else if (location.pathname === '/sources') {
-    return (
-      <AppBar position="fixed"
-              bgcolor="background.paper"
-              p={2}
-              sx={{ top: 'auto', 
-                    bottom: 0, 
-                }}>
-        
         <Link to="/settings">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
+               sx={{ position: 'fixed', zIndex: 'tooltip',
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
             <SettingsIcon />
           </Fab>
         </Link>
+        */}
 
         <Toolbar>
-          
           <Link to="/" sx={{alignItems: 'flex-start'}}>
             <IconButton color="primary">
               <HomeIcon />
@@ -157,10 +121,39 @@ export default function Navigation() {
           </Link>
 
         </Toolbar>
-
       </AppBar>
     );
-  }
+  } /*
+  else if (location.pathname === '/sources') {
+    return (
+      <AppBar position="fixed"
+              bgcolor="background.paper"
+              p={2}
+              sx={{ top: 'auto', 
+                    bottom: 0, 
+                }}>
+        
+        <Toolbar>
+          <Link to="/" sx={{alignItems: 'flex-start'}}>
+            <IconButton color="primary">
+              <HomeIcon />
+            </IconButton>
+          </Link>
+
+          <Box sx={{flexGrow: 1}} />
+
+          <Link to="/path">
+            <IconButton
+              color="primary"
+            >
+              <TurnLeft />
+            </IconButton>
+          </Link>
+
+        </Toolbar>
+      </AppBar>
+    );
+  } */
   else if (location.pathname.startsWith('/lecture/')) {
     return (
       <AppBar position="fixed"
@@ -172,9 +165,9 @@ export default function Navigation() {
   
         <Link to="/path">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
+               sx={{ position: 'fixed', zIndex: 'tooltip',
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
             <NavigationIcon />
           </Fab>
         </Link>
