@@ -1,11 +1,10 @@
-// src/pages/Sources.jsx
-
 import React from 'react';
 
 import Navigation from '../components/Navigation';
 
 // Material-UI components
-import { Typography, List, ListItem, ListItemText } from '@mui/material';
+import { Typography, List, ListItem, ListItemText, Fab, Link } from '@mui/material';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 // Sample data for sources
 const sources = [

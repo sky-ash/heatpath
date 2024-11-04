@@ -1,10 +1,9 @@
-// src/pages/Settings.jsx
-
 import React from 'react';
 
 // Material-UI components
-import { Typography, Switch, Button, Box } from '@mui/material';
+import { Typography, Switch, Button, Box, Fab, Link } from '@mui/material';
 import Navigation from '../components/Navigation';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 // Settings component
 export default function Settings({ darkMode, setDarkMode }) {
