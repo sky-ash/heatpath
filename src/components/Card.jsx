@@ -133,7 +133,7 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
   
           <Fab color="primary"
                onClick={handleReturnToPath}
-               sx={{ position: 'fixed', zIndex: 'toolbar',
+               sx={{ position: 'fixed', zIndex: 'tooltip',
                      top: 32, right: 32, }}>
             <TurnLeft />
           </Fab>

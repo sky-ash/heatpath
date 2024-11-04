@@ -144,7 +144,7 @@ export default function Lecture() {
           variant='extended'
           onClick={handleStartQuiz}
           disabled={!allCorrect}
-          sx={{ position: 'fixed', zIndex: 'toolbar',
+          sx={{ position: 'fixed', zIndex: 'tooltip',
                 left: '50%', transform: 'translateX(-50%)',
                 bottom: 32, }}>
        <Typography display='flex'
