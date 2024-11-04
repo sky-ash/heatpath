@@ -1,443 +1,460 @@
 {
-    "lectures": [
-      {
-        "title": "Lecture 1: Airborne Pollutants",
-        "cards": [
-          {
-            "sentence": [
-              "Climate change significantly influences",
-              "___",
-              "pollution levels, directly impacting human",
-              "___",
-              "through increased exposure to harmful pollutants like nitrogen oxides (NOx), ozone (O3), and particulate matter (PM2.5)."
-            ],
-            "words": [
-              "air",
-              "health"
-            ]
-          },
-          {
-            "sentence": [
-              "Rising temperatures can extend the",
-              "___",
-              "season and intensify episodes of elevated ozone levels, especially in urban areas with high",
-              "___",
-              "emissions."
-            ],
-            "words": [
-              "ozone",
-              "traffic"
-            ]
-          },
-          {
-            "sentence": [
-              "Increased ozone concentrations exacerbate",
-              "___",
-              "conditions like asthma and chronic obstructive",
-              "___",
-              "disease (COPD)."
-            ],
-            "words": [
-              "respiratory",
-              "pulmonary"
-            ]
-          },
-          {
-            "sentence": [
-              "Climate change-related events, such as",
-              "___",
-              ", release substantial amounts of PM2.5 and NOx, contributing to the formation of secondary",
-              "___",
-              "like ozone."
-            ],
-            "words": [
-              "wildfires",
-              "pollutants"
-            ]
-          },
-          {
-            "sentence": [
-              "PM2.5 can penetrate deep into the respiratory",
-              "___",
-              ", causing inflammation, oxidative stress, and systemic effects on cardiovascular, neurological, and metabolic",
-              "___",
-              "."
-            ],
-            "words": [
-              "system",
-              "health"
-            ]
-          },
-          {
-            "sentence": [
-              "In low- and middle-income countries, the impact of climate change and air pollution is more severe due to high population",
-              "___",
-              "and the reliance on",
-              "___",
-              "for cooking and heating."
-            ],
-            "words": [
-              "densities",
-              "biomass"
-            ]
-          },
-          {
-            "sentence": [
-              "",
-              "___",
-              "policies and targeted",
-              "___",
-              "are essential to manage emissions and reduce the health risks associated with climate change and",
-              "___",
-              "pollution."
-            ],
-            "words": [
-              "Comprehensive",
-              "interventions",
-              "air"
-            ]
-          }
-        ],
-        "quiz": [
-          {
-            "question": "Which pollutants are mentioned in the text as harmful to human health?",
-            "options": [
-              "Carbon dioxide (CO2)",
-              "Nitrogen oxides (NOx), ozone (O3), and particulate matter (PM2.5)",
-              "Sulfur dioxide (SO2)"
-            ],
-            "correctAnswer": "Nitrogen oxides (NOx), ozone (O3), and particulate matter (PM2.5)"
-          },
-          {
-            "question": "How does climate change impact the ozone levels, particularly in urban areas?",
-            "options": [
-              "It decreases ozone levels.",
-              "It extends the ozone season and intensifies elevated ozone episodes.",
-              "It has no effect on ozone levels."
-            ],
-            "correctAnswer": "It extends the ozone season and intensifies elevated ozone episodes."
-          },
-          {
-            "question": "Why is the impact of air pollution more severe in low- and middle-income countries?",
-            "options": [
-              "Higher pollution regulations",
-              "High population densities and reliance on biomass for cooking and heating",
-              "Low population density"
-            ],
-            "correctAnswer": "High population densities and reliance on biomass for cooking and heating"
-          }
-        ]
-      },
-      {
-        "title": "Lecture 2: Rising Parasitic Risks and Health Consequences for Recreational Waters",
-        "cards": [
-          {
-            "sentence": [
-              "Climate change is significantly altering the conditions of",
-              "___",
-              "bodies, including lakes, rivers, and coastal ecosystems, leading to an increased risk of parasitic infections and",
-              "___",
-              "conditions for humans."
-            ],
-            "words": [
-              "water",
-              "skin"
-            ]
-          },
-          {
-            "sentence": [
-              "Rising",
-              "___",
-              "and changing precipitation patterns create favorable environments for parasites such as *Cryptosporidium*, *Giardia*, and *Schistosoma*, which thrive in warmer",
-              "___",
-              "and proliferate more rapidly."
-            ],
-            "words": [
-              "temperatures",
-              "waters"
-            ]
-          },
-          {
-            "sentence": [
-              "These parasites can contaminate recreational waters, leading to outbreaks that affect swimmers and people who come into contact with these lakes."
-            ],
-            "words": []
-          },
-          {
-            "sentence": [
-              "In addition to parasitic infections, exposure to harmful",
-              "___",
-              "blooms, which are becoming more frequent due to nutrient runoff and higher",
-              "___",
-              ", can cause skin irritations and rashes."
-            ],
-            "words": [
-              "algae",
-              "temperatures"
-            ]
-          },
-          {
-            "sentence": [
-              "Algae produce",
-              "___",
-              "that can affect the skin directly or cause systemic health issues if ingested or inhaled during recreational activities. Such indirect effects of climate change are also compounded by extreme weather events, which can wash pollutants and",
-              "___",
-              "into lakes, further contaminating these environments."
-            ],
-            "words": [
-              "toxins",
-              "pathogens"
-            ]
-          },
-          {
-            "sentence": [
-              "The health impacts of these altered conditions include gastrointestinal illnesses, respiratory",
-              "___",
-              ", and dermatological issues such as",
-              "___",
-              "and itching."
-            ],
-            "words": [
-              "infections",
-              "rashes"
-            ]
-          },
-          {
-            "sentence": [
-              "The increase in temperature and pollutants also affects the natural balance of aquatic ecosystems, reducing the resilience of water bodies to disease outbreaks and impacting human health."
-            ],
-            "words": []
-          },
-          {
-            "sentence": [
-              "Consequently, better monitoring and mitigation strategies are essential to protect public health and adapt to these climate-induced challenges."
-            ],
-            "words": []
-          }
-        ],
-        "quiz": [
-          {
-            "question": "Which parasites are mentioned in the text that thrive in warmer waters?",
-            "options": [
-              "Escherichia coli",
-              "Giardia",
-              "Streptococcus"
-            ],
-            "correctAnswer": "Giardia"
-          },
-          {
-            "question": "What can be caused by harmful algae blooms?",
-            "options": [
-              "Muscle cramps",
-              "Skin irritations and rashes",
-              "Heatstroke"
-            ],
-            "correctAnswer": "Skin irritations and rashes"
-          },
-          {
-            "question": "Which health impacts are mentioned in the text?",
-            "options": [
-              "Only respiratory diseases",
-              "Gastrointestinal illnesses, respiratory infections, and dermatological issues",
-              "Cardiovascular diseases"
-            ],
-            "correctAnswer": "Gastrointestinal illnesses, respiratory infections, and dermatological issues"
-          }
-        ]
-      },
-      {
-        "title": "Lecture 3: UV-Strahlung",
-        "cards": [
-          {
-            "sentence": [
-              "Climate change leads to an increase in UV radiation exposure, raising the risk of UV-related diseases such as skin and eye cancers. In Germany, this increase is considered a high climate risk, and preventive measures against UV and heat-related illnesses are becoming more urgent."
-            ],
-            "words": [
-              
-            ]
-          },
-          {
-            "sentence": [
-             "Rising UV exposure is linked to the depletion of the stratospheric ozone layer, climate-related changes in cloud cover, pollution, and wildfire smoke. These factors allow more harmful UVB rays to reach the Earth’s surface."
-            ],
-            "words": [
-            
-            ]
-          },
-          {
-            "sentence": [
-              "Chronic UV exposure can cause DNA damage, increasing the risk of skin cancer and eye diseases such as cataracts. While UV radiation is essential for vitamin D synthesis, excessive exposure leads to harmful effects, particularly affecting skin and eye health."
-            ],
-            "words": []
-          }
-          
-        ],
-        "quiz": [
-          {
-            "question": "How does climate change affect UV exposure?",
-            "options": [
-              "It decreases it",
-              "It stays the same.",
-              "It increases it."
-            ],
-            "correctAnswer": "It increases it."
-          },
-          {
-            "question": "Which factor contributes to more harmful UV rays reaching the Earth’s surface?",
-            "options": [
-              "Increased cloud cover",
-              "Ozone layer depletion",
-              "Increased rainfall"
-            ],
-            "correctAnswer": "Ozone layer depletion"
-          },
-          {
-            "question": "What health risk is associated with chronic UV exposure?",
-            "options": [
-              "Reduced vitamin D production",
-              "Increased risk of skin cancer",
-              "Increased eye moisture"
-            ],
-            "correctAnswer": "Increased risk of skin cancer"
-          }
-        ]
-      },
-      {
-        "title": "Lecture 4: Heatwaves",
-        "cards": [
-          {
-            "sentence": [
-              "Heatwaves, defined as prolonged periods of extremely hot weather, have profound societal impacts, including a significant increase in heat-related deaths."
-            ],
-            "words": []
-          },
-          {
-            "sentence": [
-              "Climate change is driving a sharp",
-              "___",
-              "in the number of people exposed to extreme heat across all world regions. Among vulnerable populations, particularly those over 65, heat-related mortality",
-              "___",
-              "by approximately 85% between 2000–2004 and 2017–2021."
-            ],
-            "words": [
-              "rise",
-              "surged"
-            ]
-          },
-          {
-            "sentence": [
-              "This trend highlights the escalating public health risks associated with global",
-              "___",
-              ". Heat stress exacerbates a wide range of preexisting health",
-              "___",
-              ", including cardiovascular disease, diabetes, mental health disorders, and asthma."
-            ],
-            "words": [
-              "warming",
-              "conditions"
-            ]
-          },
-          {
-            "sentence": [
-              "It can also increase the",
-              "___",
-              "of accidents and elevate the risk of transmitting infectious diseases. In severe cases, heatstroke—a life-threatening condition with a high",
-              "___",
-              "rate—can occur."
-            ],
-            "words": [
-              "likelihood",
-              "fatality"
-            ]
-          },
-          {
-            "sentence": [
-              "While individual",
-              "___",
-              "to heat is well documented, especially in adults with underlying health issues, less research has been conducted on the effects of chronic exposure to sustained high temperatures and",
-              "___",
-              ", which may also have serious health implications."
-            ],
-            "words": [
-              "vulnerability",
-              "humidity"
-            ]
-          },
-          {
-            "sentence": [
-              "Certain groups are disproportionately vulnerable to heat stress due to their occupation or living",
-              "___",
-              ". Outdoor and manual laborers, athletes, and civil protection workers face high risks of exertional heat stress because of their direct exposure to extreme temperatures during",
-              "___",
-              "."
-            ],
-            "words": [
-              "conditions",
-              "work"
-            ]
-          },
-          {
-            "sentence": [
-              "Additionally, the urban and rural poor often suffer from",
-              "___",
-              "due to substandard housing, with informal settlements in some cities being especially",
-              "___",
-              "to higher temperatures."
-            ],
-            "words": [
-              "overheating",
-              "prone"
-            ]
-          },
-          {
-            "sentence": [
-              "Gender roles can also influence heat exposure, as",
-              "___",
-              "in many cultures are more likely to spend time cooking indoors, increasing their exposure to",
-              "___",
-              "during hot weather."
-            ],
-            "words": [
-              "women",
-              "heat"
-            ]
-          },
-          {
-            "sentence": [
-              "As the impacts of climate change intensify, addressing the diverse and growing risks associated with heatwaves is becoming increasingly urgent for public health."
-            ],
-            "words": []
-          }
-        ],
-        "quiz": [
-          {
-            "question": "By what percentage did heat-related mortality among those over 65 increase between 2000–2004 and 2017–2021?",
-            "options": [
-              "50%",
-              "85%",
-              "30%"
-            ],
-            "correctAnswer": "85%"
-          },
-          {
-            "question": "What are some health conditions exacerbated by heat stress?",
-            "options": [
-              "Only skin conditions",
-              "Cardiovascular disease, diabetes, and asthma",
-              "Only mental health disorders"
-            ],
-            "correctAnswer": "Cardiovascular disease, diabetes, and asthma"
-          },
-          {
-            "question": "Who is particularly vulnerable to heat stress?",
-            "options": [
-              "Only older adults",
-              "Outdoor workers, athletes, and civil protection workers",
-              "Only office workers"
-            ],
-            "correctAnswer": "Outdoor workers, athletes, and civil protection workers"
-          }
-        ]
-      }
-    ]
-  }
+  "lectures": [
+    {
+      "title": "Lecture 1: Airborne Pollutants",
+      "sources": [
+        {
+          "type": "journal",
+          "author": "Jack T. Pryor, Lachlan O. Cowley, Stephanie E. Simonds",
+          "title": "The Physiological Effects of Air Pollution: Particulate Matter, Physiology and Disease",
+          "year": 2022,
+          "journal": "Frontiers in Public Health",
+          "url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.882569/full",
+          "citation": "Pryor, J. T., Cowley, L. O., & Simonds, S. E. (2022). The physiological effects of air pollution: Particulate matter, physiology and disease. Frontiers in Public Health. https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.882569/full"
+        },
+        {
+          "type": "journal",
+          "author": "Peel, J.L., Haeuber, R., Garcia, V. et al.",
+          "title": "Impact of nitrogen and climate change interactions on ambient air pollution and human health",
+          "year": 2013,
+          "journal": "Biogeochemistry",
+          "volume": 114,
+          "pages": "121–134",
+          "url": "https://doi.org/10.1007/s10533-012-9782-4",
+          "citation": "Peel, J. L., Haeuber, R., & Garcia, V. (2013). Impact of nitrogen and climate change interactions on ambient air pollution and human health. Biogeochemistry, 114, 121–134. https://doi.org/10.1007/s10533-012-9782-4"
+        }
+      ],
+      "cards": [
+        {
+          "sentence": [
+            "Climate change significantly influences",
+            "___",
+            "pollution levels, directly impacting human",
+            "___",
+            "through increased exposure to harmful pollutants like nitrogen oxides (NOx), ozone (O3), and particulate matter (PM2.5)."
+          ],
+          "words": ["air", "health"]
+        },
+        {
+          "sentence": [
+            "Rising temperatures can extend the",
+            "___",
+            "season and intensify episodes of elevated ozone levels, especially in urban areas with high",
+            "___",
+            "emissions."
+          ],
+          "words": ["ozone", "traffic"]
+        },
+        {
+          "sentence": [
+            "Increased ozone concentrations exacerbate",
+            "___",
+            "conditions like asthma and chronic obstructive",
+            "___",
+            "disease (COPD)."
+          ],
+          "words": ["respiratory", "pulmonary"]
+        },
+        {
+          "sentence": [
+            "Climate change-related events, such as",
+            "___",
+            ", release substantial amounts of PM2.5 and NOx, contributing to the formation of secondary",
+            "___",
+            "like ozone."
+          ],
+          "words": ["wildfires", "pollutants"]
+        },
+        {
+          "sentence": [
+            "PM2.5 can penetrate deep into the respiratory",
+            "___",
+            ", causing inflammation, oxidative stress, and systemic effects on cardiovascular, neurological, and metabolic",
+            "___",
+            "."
+          ],
+          "words": ["system", "health"]
+        },
+        {
+          "sentence": [
+            "In low- and middle-income countries, the impact of climate change and air pollution is more severe due to high population",
+            "___",
+            "and the reliance on",
+            "___",
+            "for cooking and heating."
+          ],
+          "words": ["densities", "biomass"]
+        },
+        {
+          "sentence": [
+            "",
+            "___",
+            "policies and targeted",
+            "___",
+            "are essential to manage emissions and reduce the health risks associated with climate change and",
+            "___",
+            "pollution."
+          ],
+          "words": ["Comprehensive", "interventions", "air"]
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which pollutants are mentioned in the text as harmful to human health?",
+          "options": [
+            "Carbon dioxide (CO2)",
+            "Nitrogen oxides (NOx), ozone (O3), and particulate matter (PM2.5)",
+            "Sulfur dioxide (SO2)"
+          ],
+          "correctAnswer": "Nitrogen oxides (NOx), ozone (O3), and particulate matter (PM2.5)"
+        },
+        {
+          "question": "How does climate change impact the ozone levels, particularly in urban areas?",
+          "options": [
+            "It decreases ozone levels.",
+            "It extends the ozone season and intensifies elevated ozone episodes.",
+            "It has no effect on ozone levels."
+          ],
+          "correctAnswer": "It extends the ozone season and intensifies elevated ozone episodes."
+        },
+        {
+          "question": "Why is the impact of air pollution more severe in low- and middle-income countries?",
+          "options": [
+            "Higher pollution regulations",
+            "High population densities and reliance on biomass for cooking and heating",
+            "Low population density"
+          ],
+          "correctAnswer": "High population densities and reliance on biomass for cooking and heating"
+        }
+      ]
+    },
+    {
+      "title": "Lecture 2: Rising Parasitic Risks and Health Consequences for Recreational Waters",
+      "sources": [
+        {
+          "type": "journal",
+          "author": "David J. Marcogliese",
+          "title": "The Distribution and Abundance of Parasites in Aquatic Ecosystems in a Changing Climate: More than Just Temperature",
+          "year": 2016,
+          "journal": "Integrative and Comparative Biology",
+          "volume": 56,
+          "issue": 4,
+          "pages": "611–619",
+          "url": "https://academic.oup.com/icb/article/56/4/611/2198262",
+          "citation": "Marcogliese, D. J. (2016). The distribution and abundance of parasites in aquatic ecosystems in a changing climate: More than just temperature. Integrative and Comparative Biology, 56(4), 611–619. https://academic.oup.com/icb/article/56/4/611/2198262"
+        },
+        {
+          "type": "journal",
+          "author": "Ana E. Ahuir-Baraja, Aigües Repulles",
+          "title": "Impact of Climate Change on Aquatic Parasite-Host Dynamics",
+          "year": 2024,
+          "url": "https://www.frontiersin.org/research-topics/65110/impact-of-climate-change-on-aquatic-parasite-host-dynamics/overview",
+          "citation": "Ahuir-Baraja, A. E., & Repulles, A. (2024). Impact of climate change on aquatic parasite-host dynamics. https://www.frontiersin.org/research-topics/65110/impact-of-climate-change-on-aquatic-parasite-host-dynamics/overview"
+        }
+      ],
+      "cards": [
+        {
+          "sentence": [
+            "Climate change is significantly altering the conditions of",
+            "___",
+            "bodies, including lakes, rivers, and coastal ecosystems, leading to an increased risk of parasitic infections and",
+            "___",
+            "conditions for humans."
+          ],
+          "words": ["water", "skin"]
+        },
+        {
+          "sentence": [
+            "Rising",
+            "___",
+            "and changing precipitation patterns create favorable environments for parasites such as *Cryptosporidium*, *Giardia*, and *Schistosoma*, which thrive in warmer",
+            "___",
+            "and proliferate more rapidly."
+          ],
+          "words": ["temperatures", "waters"]
+        },
+        {
+          "sentence": [
+            "These parasites can contaminate recreational waters, leading to outbreaks that affect swimmers and people who come into contact with these lakes."
+          ],
+          "words": []
+        },
+        {
+          "sentence": [
+            "In addition to parasitic infections, exposure to harmful",
+            "___",
+            "blooms, which are becoming more frequent due to nutrient runoff and higher",
+            "___",
+            ", can cause skin irritations and rashes."
+          ],
+          "words": ["algae", "temperatures"]
+        },
+        {
+          "sentence": [
+            "Algae produce",
+            "___",
+            "that can affect the skin directly or cause systemic health issues if ingested or inhaled during recreational activities. Such indirect effects of climate change are also compounded by extreme weather events, which can wash pollutants and",
+            "___",
+            "into lakes, further contaminating these environments."
+          ],
+          "words": ["toxins", "pathogens"]
+        },
+        {
+          "sentence": [
+            "The health impacts of these altered conditions include gastrointestinal illnesses, respiratory",
+            "___",
+            ", and dermatological issues such as",
+            "___",
+            "and itching."
+          ],
+          "words": ["infections", "rashes"]
+        },
+        {
+          "sentence": [
+            "The increase in temperature and pollutants also affects the natural balance of aquatic ecosystems, reducing the resilience of water bodies to disease outbreaks and impacting human health."
+          ],
+          "words": []
+        },
+        {
+          "sentence": [
+            "Consequently, better monitoring and mitigation strategies are essential to protect public health and adapt to these climate-induced challenges."
+          ],
+          "words": []
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which parasites are mentioned in the text that thrive in warmer waters?",
+          "options": ["Escherichia coli", "Giardia", "Streptococcus"],
+          "correctAnswer": "Giardia"
+        },
+        {
+          "question": "What can be caused by harmful algae blooms?",
+          "options": [
+            "Muscle cramps",
+            "Skin irritations and rashes",
+            "Heatstroke"
+          ],
+          "correctAnswer": "Skin irritations and rashes"
+        },
+        {
+          "question": "Which health impacts are mentioned in the text?",
+          "options": [
+            "Only respiratory diseases",
+            "Gastrointestinal illnesses, respiratory infections, and dermatological issues",
+            "Cardiovascular diseases"
+          ],
+          "correctAnswer": "Gastrointestinal illnesses, respiratory infections, and dermatological issues"
+        }
+      ]
+    },
+    {
+      "title": "Lecture 3: UV Radiation",
+      "sources": [
+        {
+          "type": "web",
+          "author": "Bundesamt für Strahlenschutz",
+          "title": "Climate change and UV radiation",
+          "year": 2021,
+          "url": "https://www.bfs.de/EN/topics/opt/uv/climate-change/climate-change-uv_node.html",
+          "citation": "Bundesamt für Strahlenschutz. (2021). Climate change and UV radiation. https://www.bfs.de/EN/topics/opt/uv/climate-change/climate-change-uv_node.html"
+        },
+        {
+          "type": "web",
+          "author": "Smithsonian Environmental Research Center",
+          "title": "Changes in Ultraviolet Radiation",
+          "url": "https://serc.si.edu/research/research-topics/global-change/changes-ultraviolet-radiation",
+          "citation": "Smithsonian Environmental Research Center. Changes in ultraviolet radiation. https://serc.si.edu/research/research-topics/global-change/changes-ultraviolet-radiation"
+        },
+        {
+          "type": "web",
+          "author": "European Climate and Health Observatory",
+          "title": "Ultraviolet (UV) radiation’s effects on human health under the changing climate",
+          "year": 2024,
+          "url": "https://climate-adapt.eea.europa.eu/en/observatory/evidence/health-effects/uv-radiation/UV-radiation",
+          "citation": "European Climate and Health Observatory. (2024). Ultraviolet (UV) radiation’s effects on human health under the changing climate. https://climate-adapt.eea.europa.eu/en/observatory/evidence/health-effects/uv-radiation/UV-radiation"
+        }
+      ],
+      "cards": [
+        {
+          "sentence": [
+            "Climate change leads to an increase in UV radiation exposure, raising the risk of UV-related diseases such as skin and eye cancers. In Germany, this increase is considered a high climate risk, and preventive measures against UV and heat-related illnesses are becoming more urgent."
+          ],
+          "words": []
+        },
+        {
+          "sentence": [
+            "Rising UV exposure is linked to the depletion of the stratospheric ozone layer, climate-related changes in cloud cover, pollution, and wildfire smoke. These factors allow more harmful UVB rays to reach the Earth’s surface."
+          ],
+          "words": []
+        },
+        {
+          "sentence": [
+            "Chronic UV exposure can cause DNA damage, increasing the risk of skin cancer and eye diseases such as cataracts. While UV radiation is essential for vitamin D synthesis, excessive exposure leads to harmful effects, particularly affecting skin and eye health."
+          ],
+          "words": []
+        }
+      ],
+      "quiz": [
+        {
+          "question": "How does climate change affect UV exposure?",
+          "options": [
+            "It decreases it",
+            "It stays the same.",
+            "It increases it."
+          ],
+          "correctAnswer": "It increases it."
+        },
+        {
+          "question": "Which factor contributes to more harmful UV rays reaching the Earth’s surface?",
+          "options": [
+            "Increased cloud cover",
+            "Ozone layer depletion",
+            "Increased rainfall"
+          ],
+          "correctAnswer": "Ozone layer depletion"
+        },
+        {
+          "question": "What health risk is associated with chronic UV exposure?",
+          "options": [
+            "Reduced vitamin D production",
+            "Increased risk of skin cancer",
+            "Increased eye moisture"
+          ],
+          "correctAnswer": "Increased risk of skin cancer"
+        }
+      ]
+    },
+    {
+      "title": "Lecture 4: Heatwaves",
+      "sources": [
+        {
+          "type": "web",
+          "author": "World Health Organization",
+          "title": "Heat and health",
+          "year": 2024,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+          "citation": "World Health Organization. (2024). Heat and health. https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health"
+        },
+        {
+          "type": "journal",
+          "author": "Prof Qi Zhao, PhD, Prof Yuming Gut, PhD and others",
+          "title": "Global, regional, and national burden of mortality associated with non-optimal ambient temperatures from 2000 to 2019: a three-stage modelling study",
+          "year": 2021,
+          "journal": "The Lancet",
+          "url": "https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(21)00081-4/fulltext",
+          "citation": "Zhao, Q., Gut, Y., & others. (2021). Global, regional, and national burden of mortality associated with non-optimal ambient temperatures from 2000 to 2019: a three-stage modelling study. The Lancet. https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(21)00081-4/fulltext"
+        }
+      ],
+      "cards": [
+        {
+          "sentence": [
+            "Heatwaves, defined as prolonged periods of extremely hot weather, have profound societal impacts, including a significant increase in heat-related deaths."
+          ],
+          "words": []
+        },
+        {
+          "sentence": [
+            "Climate change is driving a sharp",
+            "___",
+            "in the number of people exposed to extreme heat across all world regions. Among vulnerable populations, particularly those over 65, heat-related mortality",
+            "___",
+            "by approximately 85% between 2000–2004 and 2017–2021."
+          ],
+          "words": ["rise", "surged"]
+        },
+        {
+          "sentence": [
+            "This trend highlights the escalating public health risks associated with global",
+            "___",
+            ". Heat stress exacerbates a wide range of preexisting health",
+            "___",
+            ", including cardiovascular disease, diabetes, mental health disorders, and asthma."
+          ],
+          "words": ["warming", "conditions"]
+        },
+        {
+          "sentence": [
+            "It can also increase the",
+            "___",
+            "of accidents and elevate the risk of transmitting infectious diseases. In severe cases, heatstroke—a life-threatening condition with a high",
+            "___",
+            "rate—can occur."
+          ],
+          "words": ["likelihood", "fatality"]
+        },
+        {
+          "sentence": [
+            "While individual",
+            "___",
+            "to heat is well documented, especially in adults with underlying health issues, less research has been conducted on the effects of chronic exposure to sustained high temperatures and",
+            "___",
+            ", which may also have serious health implications."
+          ],
+          "words": ["vulnerability", "humidity"]
+        },
+        {
+          "sentence": [
+            "Certain groups are disproportionately vulnerable to heat stress due to their occupation or living",
+            "___",
+            ". Outdoor and manual laborers, athletes, and civil protection workers face high risks of exertional heat stress because of their direct exposure to extreme temperatures during",
+            "___",
+            "."
+          ],
+          "words": ["conditions", "work"]
+        },
+        {
+          "sentence": [
+            "Additionally, the urban and rural poor often suffer from",
+            "___",
+            "due to substandard housing, with informal settlements in some cities being especially",
+            "___",
+            "to higher temperatures."
+          ],
+          "words": ["overheating", "prone"]
+        },
+        {
+          "sentence": [
+            "Gender roles can also influence heat exposure, as",
+            "___",
+            "in many cultures are more likely to spend time cooking indoors, increasing their exposure to",
+            "___",
+            "during hot weather."
+          ],
+          "words": ["women", "heat"]
+        },
+        {
+          "sentence": [
+            "As the impacts of climate change intensify, addressing the diverse and growing risks associated with heatwaves is becoming increasingly urgent for public health."
+          ],
+          "words": []
+        }
+      ],
+      "quiz": [
+        {
+          "question": "By what percentage did heat-related mortality among those over 65 increase between 2000–2004 and 2017–2021?",
+          "options": ["50%", "85%", "30%"],
+          "correctAnswer": "85%"
+        },
+        {
+          "question": "What are some health conditions exacerbated by heat stress?",
+          "options": [
+            "Only skin conditions",
+            "Cardiovascular disease, diabetes, and asthma",
+            "Only mental health disorders"
+          ],
+          "correctAnswer": "Cardiovascular disease, diabetes, and asthma"
+        },
+        {
+          "question": "Who is particularly vulnerable to heat stress?",
+          "options": [
+            "Only older adults",
+            "Outdoor workers, athletes, and civil protection workers",
+            "Only office workers"
+          ],
+          "correctAnswer": "Outdoor workers, athletes, and civil protection workers"
+        }
+      ]
+    }
+  ]
+}

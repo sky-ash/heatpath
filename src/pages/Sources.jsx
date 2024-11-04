@@ -1,24 +1,25 @@
-// src/pages/Sources.jsx
-
-import React from 'react';
-
+import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
-
-// Material-UI components
-import { Typography, List, ListItem, ListItemText, Fab, Link, Box } from '@mui/material';
+import { Typography, List, ListItem, ListItemText, Fab, Link, Box, IconButton, Collapse, Grid } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { useNavigate } from 'react-router-dom';
-
-// Sample data for sources
-const sources = [
-    { title: 'Source 1', description: 'Description of source 1' },
-    { title: 'Source 2', description: 'Description of source 2' },
-    { title: 'Source 3', description: 'Description of source 3' },
-];
+import parsedLectureContent from '../data/parsedLectureContent.json';
 
 // Sources component
 export default function Sources() {
     const navigate = useNavigate();
+    const [expanded, setExpanded] = useState({});
+
+    const handleExpandClick = (index) => {
+        setExpanded((prevExpanded) => ({
+            ...prevExpanded,
+            [index]: !prevExpanded[index],
+        }));
+    };
+
     return (
         <>
             {/* Page title */}
@@ -26,7 +27,7 @@ export default function Sources() {
                 Sources
             </Typography>
 
-            <Box mb={12} px={2}
+            <Box mb={12} px={1}
                  sx={{ height: '100%',
                        width: '100%',
                        display: 'flex',
@@ -34,15 +35,61 @@ export default function Sources() {
                        justifyContent: 'flex-start',
                        alignItems: 'left',
                  }}>
-            {/* List of sources */}
-            <List>
-                {sources.map((source, index) => (
-                    <ListItem key={index}>
-                        <ListItemText primary={source.title} secondary={source.description} />
-                    </ListItem>
+                {parsedLectureContent.lectures.map((lecture, lectureIndex) => (
+                    <Box key={lectureIndex} mb={4}>
+                        <Typography variant="h5" my={2} align='left'>
+                            {lecture.title.split(":")[1]}
+                        </Typography>
+                        <List>
+                            {lecture.sources.map((source, sourceIndex) => (
+                                <ListItem key={sourceIndex}>
+                                    <Grid container spacing={1}>
+                                        <Grid item>
+                                            <IconButton
+                                                component={Link}
+                                                href={source.url}
+                                                target="_blank"
+                                                rel="noopener"
+                                            >
+                                                <OpenInNewIcon />
+                                            </IconButton>
+                                        </Grid>
+                                        <Grid item xs>
+                                            <Typography variant="h7" fontStyle="bold">
+                                                {source.title} {source.year && `(${source.year})`}
+                                            </Typography>
+                                            <Grid container alignItems="center">
+                                                <Grid item xs>
+                                                    <Typography component="span" variant="body2" color="textPrimary">
+                                                        {source.author}
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid item>
+                                                    <IconButton
+                                                        size="small"
+                                                        onClick={() => handleExpandClick(`${lectureIndex}-${sourceIndex}`)}
+                                                    >
+                                                        {expanded[`${lectureIndex}-${sourceIndex}`] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                                                    </IconButton>
+                                                </Grid>
+                                            </Grid>
+                                            <Collapse in={expanded[`${lectureIndex}-${sourceIndex}`]} timeout="auto" unmountOnExit>
+                                                <Typography variant="body2" color="textSecondary" mt={1}>
+                                                    {source.citation}
+                                                </Typography>
+                                            </Collapse>
+                                        </Grid>
+                                    </Grid>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Box>
                 ))}
-            </List>
+                <Box mt={8} textAlign='bottom'>
+                    .
+                </Box>
             </Box>
+            
 
             {/* Navigation component */}
             <Navigation />
@@ -53,6 +100,7 @@ export default function Sources() {
                        bottom: 32, }}>
                 <SettingsIcon />
             </Fab>
+
         </>
     );
 }

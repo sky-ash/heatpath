@@ -169,7 +169,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
         </Box>
 
         <Typography variant="h6">
-          Your Score: {score}%
+          Your Score: {score.toFixed(2)}%
         </Typography>
         
 
