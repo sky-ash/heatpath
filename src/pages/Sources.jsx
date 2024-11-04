@@ -5,7 +5,9 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 
 // Material-UI components
-import { Typography, List, ListItem, ListItemText } from '@mui/material';
+import { Typography, List, ListItem, ListItemText, Fab, Link } from '@mui/material';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { useNavigate } from 'react-router-dom';
 
 // Sample data for sources
 const sources = [
@@ -16,6 +18,7 @@ const sources = [
 
 // Sources component
 export default function Sources() {
+    const navigate = useNavigate();
     return (
         <>
             {/* Page title */}
@@ -32,6 +35,13 @@ export default function Sources() {
                 ))}
             </List>
             <Navigation />
+            <Fab color="primary"
+                 onClick={() => navigate('/settings')}
+                 sx={{ position: 'fixed', zIndex: 'tooltip',
+                       left: '50%', transform: 'translateX(-50%)',
+                       bottom: 32, }}>
+                <SettingsIcon />
+            </Fab>
         </>
     );
 }

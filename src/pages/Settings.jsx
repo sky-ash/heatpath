@@ -3,8 +3,10 @@
 import React from 'react';
 
 // Material-UI components
-import { Typography, Switch, Button, Box } from '@mui/material';
+import { Typography, Switch, Button, Box, Fab, Link } from '@mui/material';
 import Navigation from '../components/Navigation';
+import InfoIcon from '@mui/icons-material/Info';
+import { useNavigate } from 'react-router-dom';
 
 // Settings component
 export default function Settings({ darkMode, setDarkMode }) {
@@ -13,6 +15,7 @@ export default function Settings({ darkMode, setDarkMode }) {
     localStorage.clear();
     alert('Cached data deleted');
   };
+  const navigate = useNavigate(); 
 
   return (
     <>
@@ -32,6 +35,13 @@ export default function Settings({ darkMode, setDarkMode }) {
         Delete Cached Data
       </Button>
       <Navigation />
+      <Fab color="primary"
+           onClick={() => navigate('/sources')}
+           sx={{ position: 'fixed', zIndex: 'tooltip',
+                 left: '50%', transform: 'translateX(-50%)',
+                 bottom: 32, }}>
+        <InfoIcon />
+      </Fab>
     </>
   );
 }
