@@ -32,6 +32,14 @@ export default function Sources() {
                 ))}
             </List>
             <Navigation />
+                    <Link to="/settings">
+          <Fab color="primary"
+              sx={{ position: 'absolute', zIndex: 1,
+                    margin: '0 auto', top: -20,
+                    left: 0, right: 0, }}>
+            <SettingsIcon />
+          </Fab>
+        </Link>
         </>
     );
 }
