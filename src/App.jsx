@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ThemeProvider, CssBaseline, Container, Box } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box } from '@mui/material';
 
 import Start from './pages/Start';
 import Path from './pages/Path';
@@ -30,23 +30,13 @@ export default function App() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <Router basename="/heatpath">
-        <Container className="container"
-                   maxWidth="sm"
-                   sx={{ textAlign: 'center', 
-                         justifyContent: 'flex-start' 
-                      }}>
-          <Box sx={{ position: 'relative', 
-                     height: '100vh', 
-                     width: '100%' }}>
-            <Routes>
-              <Route path="/" element={<Start />} />
-              <Route path="/path" element={<Path />} />
-              <Route path="/lecture/:id" element={<Lecture />} />
-              <Route path="/settings" element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />} />
-              <Route path="/sources" element={<Sources />} />
-            </Routes>  
-          </Box>
-        </Container>
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/path" element={<Path />} />
+          <Route path="/lecture/:id" element={<Lecture />} />
+          <Route path="/settings" element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />} />
+          <Route path="/sources" element={<Sources />} />
+        </Routes>  
       </Router>
     </ThemeProvider>
   );
