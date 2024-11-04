@@ -87,15 +87,6 @@ export default function Navigation() {
               sx={{ top: 'auto', 
                     bottom: 0, 
                 }}>
-        
-        <Link to="/path">
-          <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
-            <NavigationIcon />
-          </Fab>
-        </Link>
 
         <Toolbar>
           
@@ -107,11 +98,11 @@ export default function Navigation() {
 
           <Box sx={{flexGrow: 1}} />
 
-          <Link to="/sources">
+          <Link to="/path">
             <IconButton
               color="primary"
             >
-              <InfoIcon />
+              <TurnLeft />
             </IconButton>
           </Link>
 
