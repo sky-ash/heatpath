@@ -108,9 +108,9 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
         <Fab color="primary"
                variant='extended'
                onClick={handleNextQuestion}
-               sx={{ position: 'fixed', zIndex: 'tooltip',
-                     left: '50%', transform: 'translateX(-50%)',
-                     bottom: 32, }}>
+               sx={{ position: 'fixed', zIndex: 1,
+                left: '50%', transform: 'translateX(-50%)',
+                bottom: 32, }}>
             <Typography display='flex'
                         p={2}
                         alignItems='center'
@@ -172,7 +172,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
           <Fab color="primary"
                variant='extended'
                onClick={handleReturnToPath}
-               sx={{ position: 'fixed', zIndex: 'tooltip',
+               sx={{ position: 'fixed', zIndex: 1,
                      left: '50%', transform: 'translateX(-50%)',
                      bottom: 32, }}>
             <Typography display='flex'

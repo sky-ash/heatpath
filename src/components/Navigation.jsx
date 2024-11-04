@@ -48,9 +48,9 @@ export default function Navigation() {
         
         <Link to="/settings">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
+               sx={{ position: 'fixed', zIndex: 1,
+                left: '50%', transform: 'translateX(-50%)',
+                bottom: 32, }}>
             <SettingsIcon />
           </Fab>
         </Link>
@@ -88,12 +88,12 @@ export default function Navigation() {
                     bottom: 0, 
                 }}>
         
-        <Link to="/path">
+        <Link to="/sources">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
-            <NavigationIcon />
+               sx={{ position: 'fixed', zIndex: 1,
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
+            <InfoIcon />
           </Fab>
         </Link>
 
@@ -107,11 +107,11 @@ export default function Navigation() {
 
           <Box sx={{flexGrow: 1}} />
 
-          <Link to="/sources">
+          <Link to="/path">
             <IconButton
               color="primary"
             >
-              <InfoIcon />
+              <TurnLeft />
             </IconButton>
           </Link>
 
@@ -131,9 +131,9 @@ export default function Navigation() {
         
         <Link to="/settings">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
+               sx={{ position: 'fixed', zIndex: 1,
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
             <SettingsIcon />
           </Fab>
         </Link>
@@ -172,9 +172,9 @@ export default function Navigation() {
   
         <Link to="/path">
           <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
+               sx={{ position: 'fixed', zIndex: 1,
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
             <NavigationIcon />
           </Fab>
         </Link>
