@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Material-UI components
-import { Typography, Button, Box, Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
+import { Typography, Button, Box, Radio, RadioGroup, FormControlLabel, FormControl, Fab } from '@mui/material';
 
 // Material-UI icons
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -105,13 +105,21 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
           </FormControl>
         </Box>
 
-
-        {/* Button to navigate to the next question or submit the quiz */}
-        <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
-          <Button variant="contained" p={2} color="primary" onClick={handleNextQuestion}>
-            {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit Quiz'}
-          </Button>
-        </Box> 
+        <Fab color="primary"
+               variant='extended'
+               onClick={handleNextQuestion}
+               sx={{ position: 'fixed', zIndex: 'tooltip',
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
+            <Typography display='flex'
+                        p={2}
+                        alignItems='center'
+                        variant='h6'
+                        fontWeight='bold'
+                        >
+              {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit Quiz'}
+            </Typography>
+          </Fab>
       </>
       ) : (
       <Box>
@@ -161,17 +169,39 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
 
         {/* Button to return to the path or review cards based on the score */}
         {score >= 80 ? (
-          <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
-            <Button variant="contained" color="primary" onClick={handleReturnToPath} endIcon={<TurnLeft />}>
-              Return to Path
-            </Button>
-          </Box>
+          <Fab color="primary"
+               variant='extended'
+               onClick={handleReturnToPath}
+               sx={{ position: 'fixed', zIndex: 'tooltip',
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
+            <Typography display='flex'
+                        p={2}
+                        alignItems='center'
+                        variant='h6'
+                        fontWeight='bold'
+                        >
+              <TurnLeft sx={{mr: 1}} />
+              to Path
+            </Typography>
+          </Fab>        
         ) : (
-          <Box p='16px' sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem'}}>
-            <Button variant="contained" color="primary" onClick={handleReviewCards} endIcon={<Replay />}>
-              Review Cards
-            </Button>
-          </Box>
+          <Fab color="primary"
+               variant='extended'
+               onClick={handleReviewCards}
+               sx={{ position: 'fixed', zIndex: 'tooltip',
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
+            <Typography display='flex'
+                        p={2}
+                        alignItems='center'
+                        variant='h6'
+                        fontWeight='bold'
+                        >
+              <Replay sx={{mr: 1}} />
+              Review
+            </Typography>
+          </Fab>
         )}
       </Box>
     )}

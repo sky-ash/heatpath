@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Box, Button, SwipeableDrawer } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
+import Navigation from '../components/Navigation';
+
 import parsedLectureContent from '../data/parsedLectureContent.json';
 
 export default function Path() {
@@ -113,6 +115,7 @@ export default function Path() {
           </Button>
         </Box>
       </SwipeableDrawer>
+      <Navigation />
     </>
   );
 }

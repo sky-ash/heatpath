@@ -4,6 +4,7 @@ import React from 'react';
 
 // Material-UI components
 import { Typography, Switch, Button, Box } from '@mui/material';
+import Navigation from '../components/Navigation';
 
 // Settings component
 export default function Settings({ darkMode, setDarkMode }) {
@@ -30,6 +31,7 @@ export default function Settings({ darkMode, setDarkMode }) {
       <Button variant="contained" color="secondary" onClick={handleDeleteCachedData}>
         Delete Cached Data
       </Button>
+      <Navigation />
     </>
   );
 }

@@ -11,7 +11,6 @@ import Settings from './pages/Settings';
 import Sources from './pages/Sources';
 
 import Navigation from './components/Navigation';
-import InfoButton from './components/InfoButton';
 
 import { lightTheme, darkTheme } from './theme';
 
@@ -47,10 +46,7 @@ export default function App() {
               <Route path="/sources" element={<Sources />} />
             </Routes>  
           </Box>
-
-          <InfoButton />
-          <Navigation />
-
+          
         </Container>
       </Router>
     </ThemeProvider>

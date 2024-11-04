@@ -2,8 +2,13 @@
 
 // Import necessary components
 import React, { useState, useEffect } from 'react';
-import { Button, Typography, Box, LinearProgress } from '@mui/material';
+import { Button, Typography, Box, LinearProgress, Fab, IconButton, AppBar, Toolbar, Link } from '@mui/material';
 import { useParams } from 'react-router-dom';
+
+import { useNavigate } from 'react-router-dom';
+
+import HomeIcon from '@mui/icons-material/Home';
+import NavigationIcon from '@mui/icons-material/Navigation';
 
 // Import the parsed lecture content from json file
 import parsedLectureContent from '../data/parsedLectureContent.json';
@@ -11,11 +16,13 @@ import parsedLectureContent from '../data/parsedLectureContent.json';
 // Import the Card and Quiz components
 import Card from '../components/Card';
 import Quiz from '../components/Quiz';
+import Navigation from '../components/Navigation';
 
 // The Lecture component
 export default function Lecture() {
   // Get lecture ID from the URL
   const { id } = useParams();
+  const navigate = useNavigate();
 
   // Get the lecture data based on the ID
   const lecture = parsedLectureContent.lectures[id - 1];
@@ -125,13 +132,32 @@ export default function Lecture() {
             totalCards={lecture.cards.length}
             parsedLectureContent={parsedLectureContent}
           />
-          {/* Button to start the quiz */}
+          {/*
           <Box p="16px" sx={{ position: 'fixed', bottom: 0, right: 0, marginBottom: '4rem' }}>
             <Button variant="contained" color="primary" onClick={handleStartQuiz} disabled={!allCorrect}>
               Start Quiz
             </Button>
           </Box>
-        </Box>
+          */}
+        
+          <Fab color="primary"
+          variant='extended'
+          onClick={handleStartQuiz}
+          disabled={!allCorrect}
+          sx={{ position: 'fixed', zIndex: 'tooltip',
+                left: '50%', transform: 'translateX(-50%)',
+                bottom: 32, }}>
+       <Typography display='flex'
+                   p={2}
+                   alignItems='center'
+                   variant='h6'
+                   fontWeight='bold'
+                   >
+         Start Quiz
+       </Typography>
+     </Fab>   
+
+     </Box>
       ) : (
         // Quiz component
         <Quiz quiz={lecture.quiz} lectureId={id} handleReviewCards={handleReviewCards} />

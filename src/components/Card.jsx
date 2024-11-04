@@ -3,20 +3,31 @@
 import React, { useState, useEffect } from 'react';
 
 // Material-UI components
-import { Box, Typography, TextField, Button, Autocomplete } from '@mui/material';
+import { Box, Typography, TextField, Button, Autocomplete, Icon } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Fab } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Material-UI icons
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import HomeIcon from '@mui/icons-material/Home';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 
 // Import parsed lecture content data
 import parsedLectureContent from '../data/parsedLectureContent.json';
+import { TurnLeft } from '@mui/icons-material';
+
 
 // Card component
 export default function Card({ card, nextCard, prevCard, onCardCompletion, currentCardIndex, unlockedCards, totalCards }) {
   // State to manage answers
   const [answers, setAnswers] = useState([]);
 
+  const navigate = useNavigate();
   // State to manage correctness of answers
   const [correctness, setCorrectness] = useState([]);
 
@@ -54,6 +65,11 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
     if (newCorrectness.every(c => c === true)) {
       onCardCompletion();
     }
+  };
+
+  // Function to handle navigation back to the path
+  const handleReturnToPath = () => {
+    navigate('/path');
   };
 
   // Check if all answers are correct
@@ -108,23 +124,31 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
           );
         })}
       </Typography>
+      <AppBar position="fixed"
+              bgcolor="background.paper"
+              p={2}
+              sx={{ top: 'auto', 
+                    bottom: 0
+                }}>
+  
+          <Fab color="primary"
+               onClick={handleReturnToPath}
+               sx={{ position: 'fixed', zIndex: 1,
+                     top: 32, right: 32, }}>
+            <TurnLeft />
+          </Fab>
 
-      {/* Navigation buttons */}
-      <Box p='16px' width='100%' sx={{ position: 'fixed', bottom: '32px', right: 0, marginBottom: '4rem'}}>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={prevCard}
-            disabled={currentCardIndex === 0 && !unlockedCards.includes(totalCards - 1)}
-          >
-            Previous
-          </Button>
-          <Button variant="contained" color="primary" onClick={nextCard} disabled={!allCorrect}>
-            Next
-          </Button>
-        </Box>
-      </Box>
+        <Toolbar>
+          <IconButton color="primary" onClick={prevCard}
+                      disabled={currentCardIndex === 0 && !unlockedCards.includes(totalCards - 1)}>
+            <ArrowBackIosIcon />
+          </IconButton>
+          <Box sx={{flexGrow: 1}} />
+          <IconButton color="primary" onClick={nextCard} disabled={!allCorrect}>
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
     </Box>
   );
 }
