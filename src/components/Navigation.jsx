@@ -20,7 +20,7 @@ export default function Navigation() {
         <Link to="/path">
           <Fab color="primary"
                variant='extended'
-               sx={{ position: 'fixed', zIndex: 1,
+               sx={{ position: 'fixed', zIndex: 'toolbar',
                      left: '50%', transform: 'translateX(-50%)',
                      bottom: 32, }}>
             <Typography display='flex'
@@ -48,7 +48,7 @@ export default function Navigation() {
         
         <Link to="/settings">
           <Fab color="primary"
-               sx={{ position: 'fixed', zIndex: 1,
+               sx={{ position: 'fixed', zIndex: 'toolbar',
                 left: '50%', transform: 'translateX(-50%)',
                 bottom: 32, }}>
             <SettingsIcon />
@@ -90,7 +90,7 @@ export default function Navigation() {
         
         <Link to="/sources">
           <Fab color="primary"
-               sx={{ position: 'fixed', zIndex: 1,
+               sx={{ position: 'fixed', zIndex: 'toolbar',
                      left: '50%', transform: 'translateX(-50%)',
                      bottom: 32, }}>
             <InfoIcon />
@@ -131,7 +131,7 @@ export default function Navigation() {
         
         <Link to="/settings">
           <Fab color="primary"
-               sx={{ position: 'fixed', zIndex: 1,
+               sx={{ position: 'fixed', zIndex: 'toolbar',
                      left: '50%', transform: 'translateX(-50%)',
                      bottom: 32, }}>
             <SettingsIcon />
@@ -172,7 +172,7 @@ export default function Navigation() {
   
         <Link to="/path">
           <Fab color="primary"
-               sx={{ position: 'fixed', zIndex: 1,
+               sx={{ position: 'fixed', zIndex: 'toolbar',
                      left: '50%', transform: 'translateX(-50%)',
                      bottom: 32, }}>
             <NavigationIcon />
