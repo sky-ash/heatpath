@@ -69,7 +69,7 @@ export default function Path() {
             sx={{
               width: '64px',
               height: '64px',
-              top: `${downShift}%`,
+              top: `${(downShift) * 10}px`,
               left: `${leftShift}px`,
               transform: 'perspective(800px) rotateY(15deg) rotateX(40deg) rotateZ(-15deg)',
             }}
