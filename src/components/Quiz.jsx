@@ -109,15 +109,15 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
                variant='extended'
                onClick={handleNextQuestion}
                sx={{ position: 'fixed', zIndex: 1,
-                left: '50%', transform: 'translateX(-50%)',
-                bottom: 32, }}>
+                     left: '50%', transform: 'translateX(-50%)',
+                     bottom: 32, }}>
             <Typography display='flex'
                         p={2}
                         alignItems='center'
                         variant='h6'
                         fontWeight='bold'
                         >
-              {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit Quiz'}
+              {currentQuestion < quiz.length - 1 ? 'Next' : 'Submit'}
             </Typography>
           </Fab>
       </>
