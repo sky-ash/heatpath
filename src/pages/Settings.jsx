@@ -32,6 +32,15 @@ export default function Settings({ darkMode, setDarkMode }) {
         Delete Cached Data
       </Button>
       <Navigation />
+              <Link to="/sources">
+          <Fab color="primary"
+              sx={{ position: 'absolute', zIndex: 1,
+                    margin: '0 auto', top: -20,
+                    left: 0, right: 0, }}>
+            <SettingsIcon />
+          </Fab>
+        </Link>
+
     </>
   );
 }
