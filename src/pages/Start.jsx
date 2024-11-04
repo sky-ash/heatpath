@@ -23,26 +23,9 @@ export default function Start() {
         Learn about the health risks of climate change through interactive lectures and quizzes.
       </Typography>
 
-      <Box display="flex" justifyContent="center" mt={12}>
+      <Box justifyContent="center" pt={12} pb={12}>
         <img src={`${import.meta.env.BASE_URL}imgs/logo.png`} alt="Heat Path Logo" style={{ maxWidth: '50%', height: 'auto' }} />
       </Box>
-
-      {/*
-      <Box mt={8}>
-        <Button variant="contained"
-                color="primary"
-                onClick={handleGetStarted}
-                sx={{ width: '80%', 
-                      maxWidth: '220px', 
-                      height: '50px', 
-                      fontWeight: 'bold', 
-                      fontSize: '18px'
-                   }}>
-          Start
-        </Button>
-      </Box>
-      <Box height="150px"/>
-      */}
       <Navigation />
     </>
   );

@@ -36,7 +36,7 @@ export default function App() {
                          justifyContent: 'flex-start' 
                       }}>
           <Box sx={{ position: 'relative', 
-                     height: '100%', 
+                     height: '100vh', 
                      width: '100%' }}>
             <Routes>
               <Route path="/" element={<Start />} />
@@ -46,7 +46,6 @@ export default function App() {
               <Route path="/sources" element={<Sources />} />
             </Routes>  
           </Box>
-          
         </Container>
       </Router>
     </ThemeProvider>
