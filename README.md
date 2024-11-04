@@ -3,7 +3,7 @@
 ### Development
 - [ ] Card-Text align center or align left?
 - [ ] Tighter Layout?
-- [ ] More context-dependent Nav-Bar
+- [x] More context-dependent Nav-Bar
 - [ ] Insert Sources
 - [ ] Other Fonts?
 
