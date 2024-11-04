@@ -79,22 +79,36 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
     <Box>
       {!showResult ? ( 
       <>
-        <Box display="flex" alignItems="center" textAlign="left" >
-          <Box p="16px" top="16px" position="relative"> {/* left={0} position="fixed">   */}
+        <Box mb={2}
+             sx={{ 
+                 display: 'flex',
+                 flexDirection: 'row',
+                 justifyContent: 'center',
+                 textAlign: 'left',
+                 alignItems: 'center',
+           }}>
+          <Box ml={2}> {/* left={0} position="fixed">   */}
             <img src={`${import.meta.env.BASE_URL}imgs/handup.png`} alt="Heat Path Mascot" style={{ maxWidth: '100px', height: 'auto' }} />
           </Box>
           
           {/* Display the current question */}
-          <Typography variant="h6" gutterBottom mt={8} mb={4}>
+          <Typography variant="h6" mx={2}>
             {quiz[currentQuestion].question}
           </Typography>
         </Box>
-        {/* Display the options for the current question */}
-        <Box textAlign="left">
+
+        <Box mx={4}
+             sx={{ height: '100%',
+                 display: 'flex',
+                 flexDirection: 'row',
+                 justifyContent: 'center',
+                 textAlign: 'left',
+                 alignItems: 'center',
+           }}>          
           <FormControl component="fieldset">
             <RadioGroup value={selectedAnswers[currentQuestion] || ''} onChange={handleAnswerSelect}>
               {quiz[currentQuestion].options.map((option, i) => (
-                <FormControlLabel
+                <FormControlLabel 
                   key={i}
                   value={option}
                   control={<Radio />}
@@ -122,16 +136,24 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
           </Fab>
       </>
       ) : (
-      <Box>
-        {/* Display the score */}
-        <Typography variant="h6" gutterBottom mt={2}>
-          Your Score: {score}%
-        </Typography>
+      <>
 
-
+        <Box mx={6}
+             sx={{ 
+                 display: 'flex',
+                 flexDirection: 'row',
+                 justifyContent: 'center',
+                 textAlign: 'left',
+                 alignItems: 'center',
+           }}>
+          <img src={`${import.meta.env.BASE_URL}imgs/${score >= 80 ? 'success' : 'failure'}.png`} alt="Heat Path Mascot" style={{ maxWidth: '75px', height: 'auto' }} />
+          <Typography variant="h7" color={score >= 80 ? "primary" : "error"} mx={2}>
+            {score >= 80 ? 'Congratulations! You passed the quiz.' : "Unfortunately, you didn't pass. Please try again."}
+          </Typography>
+        </Box>
         
         {/* Display the questions and selected answers with correctness icons */}
-        <Box mt={4} mb={2} className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
+        <Box my={2} mx={1} className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
           {quiz.map((q, index) => (
             <Box key={index} display="flex" alignItems="center" textAlign="left" sx={{marginBottom: '1rem', marginTop: '1rem' }}>
               {selectedAnswers[index] === q.correctAnswer ? (
@@ -146,26 +168,11 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
           ))}
         </Box>
 
-        {/* Display pass/fail message based on the score */}
-        {score >= 80 ? (
-        <Box display="flex" alignItems="center" textAlign="left" width="80%" margin="auto">
-          <Box p="16px" position="relative"> 
-            <img src={`${import.meta.env.BASE_URL}imgs/success.png`} alt="Heat Path Mascot" style={{ maxWidth: '75px', height: 'auto' }} />
-          </Box>
-          <Typography variant="h7" color="primary" gutterBottom>
-            Congratulations! You passed the quiz.
-          </Typography>
-        </Box>
-        ) : (
-        <Box display="flex" alignItems="center" textAlign="left" width="80%" margin="auto">
-          <Box p="16px" position="relative"> 
-            <img src={`${import.meta.env.BASE_URL}imgs/failure.png`} alt="Heat Path Mascot" style={{ maxWidth: '75px', height: 'auto' }} />
-          </Box>
-          <Typography variant="h7" color="error" gutterBottom>
-            Unfortunately, you didn't pass. Please try again.
-          </Typography>
-        </Box>
-        )}
+        <Typography variant="h6">
+          Your Score: {score}%
+        </Typography>
+        
+
 
         {/* Button to return to the path or review cards based on the score */}
         {score >= 80 ? (
@@ -203,7 +210,7 @@ export default function Quiz({ quiz, lectureId, handleReviewCards }) {
             </Typography>
           </Fab>
         )}
-      </Box>
+      </>
     )}
   </Box>
   );
