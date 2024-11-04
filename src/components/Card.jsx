@@ -79,13 +79,9 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
   const allLectureWords = [...new Set(parsedLectureContent.lectures.flatMap(lecture => lecture.cards.flatMap(card => card.words.map(word => word.toLowerCase()))))].sort();
 
   return (
-    <Box className="card" p={2} boxShadow={3} borderRadius={2} bgcolor="background.paper">
-      {/* Card title */}
-      <Typography variant="h6" gutterBottom>
-        {card.title}
-      </Typography>
+    <Box className="card" px={4} py={2} my={2}
+    boxShadow={3} borderRadius={2} bgcolor="background.paper">
 
-      {/* Card sentence with input fields */}
       <Typography variant="body1" align="center" component="div" style={{ marginBottom: '1rem', lineHeight: 2.5 }}>
         {card.sentence.map((part, index) => {
           const isInputField = part === '___';
@@ -124,27 +120,32 @@ export default function Card({ card, nextCard, prevCard, onCardCompletion, curre
           );
         })}
       </Typography>
+
+      <Fab color="primary"
+           onClick={handleReturnToPath}
+           sx={{ position: 'fixed', zIndex: 'tooltip',
+                 top: 32, right: 32, }}>
+        <TurnLeft />
+      </Fab>
+
       <AppBar position="fixed"
               bgcolor="background.paper"
-              p={2}
               sx={{ top: 'auto', 
                     bottom: 0
-                }}>
+              }}>
   
-          <Fab color="primary"
-               onClick={handleReturnToPath}
-               sx={{ position: 'fixed', zIndex: 'tooltip',
-                     top: 32, right: 32, }}>
-            <TurnLeft />
-          </Fab>
-
         <Toolbar>
-          <IconButton color="primary" onClick={prevCard}
+          <IconButton sx={{ml: 2}}
+                      color="primary" onClick={prevCard}
                       disabled={currentCardIndex === 0 && !unlockedCards.includes(totalCards - 1)}>
             <ArrowBackIosIcon />
           </IconButton>
+
           <Box sx={{flexGrow: 1}} />
-          <IconButton color="primary" onClick={nextCard} disabled={!allCorrect}>
+
+          <IconButton sx={{mr: 2}}
+                      color="primary" onClick={nextCard} 
+                      disabled={!allCorrect}>
             <ArrowForwardIosIcon />
           </IconButton>
         </Toolbar>

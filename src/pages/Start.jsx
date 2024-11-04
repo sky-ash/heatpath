@@ -16,22 +16,17 @@ export default function Start() {
   };
 
   return (
-    <Container className="container" 
-               maxWidth="sm"
-               height="100vh"
-               sx={{ textAlign: 'center',
-                     alignItems: 'center',
-               }}>
-
-      <Typography my={4} height="144px" variant="h2">
+    <>
+      <Typography mt={8} variant="h2">
         Welcome to Heat Path
       </Typography>
 
-      <Typography variant="subtitle1">
+      <Typography my={4} variant="subtitle1">
         Learn about the health risks of climate change through interactive lectures and quizzes.
       </Typography>
 
-      <Box sx={{ height: '100%',
+      <Box mb={12}
+           sx={{ height: '100%',
                  display: 'flex',
                  flexDirection: 'column',
                  justifyContent: 'center',
@@ -41,6 +36,6 @@ export default function Start() {
       </Box>
 
       <Navigation />
-    </Container>
+    </>
   );
 }

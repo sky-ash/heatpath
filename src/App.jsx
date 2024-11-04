@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ThemeProvider, CssBaseline, Box } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box, Container } from '@mui/material';
 
 import Start from './pages/Start';
 import Path from './pages/Path';
@@ -29,6 +29,12 @@ export default function App() {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
+      <Container className="container" 
+               maxWidth="sm"
+               height="100vh"
+               sx={{ textAlign: 'center',
+                     alignItems: 'center',
+               }}>
       <Router basename="/heatpath">
         <Routes>
           <Route path="/" element={<Start />} />
@@ -38,6 +44,7 @@ export default function App() {
           <Route path="/sources" element={<Sources />} />
         </Routes>  
       </Router>
+      </Container>
     </ThemeProvider>
   );
 }

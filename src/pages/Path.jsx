@@ -51,15 +51,20 @@ export default function Path() {
 
   return (
     <>
-      <Typography variant="h3" gutterBottom mt={8} mb={8}>
+      <Typography variant="h3" my={8}>
         Learning Path
       </Typography>
 
-      <Box display="flex" justifyContent="center" position="relative" height="100vh">
+      <Box mb={12}
+           sx={{ height: '100%',
+                 display: 'flex',
+                 flexDirection: 'column',
+                 justifyContent: 'center',
+           }}>
+      <Box display="flex" justifyContent="center" position="relative" height="100%">
       {parsedLectureContent.lectures.map((lecture, index) => {
         const centerAllVertically = [96, 32, -32, -96][index] || 0;
         const leftShift = [-48, 32, -16, 64][index] + centerAllVertically;
-        const downShift = [0, 15, 30, 45][index] || 0;
 
         return (
           <Button
@@ -70,7 +75,7 @@ export default function Path() {
             sx={{
               width: '64px',
               height: '64px',
-              top: `${downShift}%`,
+              top: `${(index) * 25}%`,
               left: `${leftShift}px`,
               transform: 'perspective(800px) rotateY(15deg) rotateX(40deg) rotateZ(-15deg)',
             }}
@@ -87,6 +92,7 @@ export default function Path() {
         );
       })}
       </Box>
+      </Box>
 
       <SwipeableDrawer
         open={open}
@@ -94,14 +100,17 @@ export default function Path() {
         onClose={handleDrawerClose}
         >
         <Box textAlign="center"
-             height="37vh"
+             height="66vh"
              p={4}>
+
           <Typography variant="h6" gutterBottom>
             {selectedLecture?.title.split(':')[0]}:
           </Typography>
           <Typography variant="h5" gutterBottom>
             {selectedLecture?.title.split(':')[1]}
           </Typography>
+
+
           <Button
             variant="contained"
             color="primary"
@@ -117,6 +126,7 @@ export default function Path() {
           </Button>
         </Box>
       </SwipeableDrawer>
+
       <Navigation />
     </>
   );
