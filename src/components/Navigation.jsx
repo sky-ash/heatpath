@@ -119,16 +119,6 @@ export default function Navigation() {
               sx={{ top: 'auto', 
                     bottom: 0, 
                 }}>
-        
-        <Link to="/settings">
-          <Fab color="primary"
-              sx={{ position: 'absolute', zIndex: 1,
-                    margin: '0 auto', top: -20,
-                    left: 0, right: 0, }}>
-            <SettingsIcon />
-          </Fab>
-        </Link>
-
         <Toolbar>
           
           <Link to="/" sx={{alignItems: 'flex-start'}}>
