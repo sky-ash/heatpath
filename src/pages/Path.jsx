@@ -55,6 +55,7 @@ export default function Path() {
         Learning Path
       </Typography>
 
+      <Box display="flex" justifyContent="center" position="relative" height="100vh">
       {parsedLectureContent.lectures.map((lecture, index) => {
         const centerAllVertically = [96, 32, -32, -96][index] || 0;
         const leftShift = [-48, 32, -16, 64][index] + centerAllVertically;
@@ -69,7 +70,7 @@ export default function Path() {
             sx={{
               width: '64px',
               height: '64px',
-              top: `${(downShift) * 10}px`,
+              top: `${downShift}%`,
               left: `${leftShift}px`,
               transform: 'perspective(800px) rotateY(15deg) rotateX(40deg) rotateZ(-15deg)',
             }}
@@ -85,6 +86,7 @@ export default function Path() {
           </Button>
         );
       })}
+      </Box>
 
       <SwipeableDrawer
         open={open}
