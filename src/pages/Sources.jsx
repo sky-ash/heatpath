@@ -46,7 +46,6 @@ export default function Sources() {
                                     <Grid container spacing={1}>
                                         <Grid item>
                                             <IconButton
-                                                //size="small"
                                                 component={Link}
                                                 href={source.url}
                                                 target="_blank"
@@ -86,7 +85,7 @@ export default function Sources() {
                         </List>
                     </Box>
                 ))}
-                <Box m={8}>
+                <Box mt={8} textAlign='bottom'>
                     .
                 </Box>
             </Box>
@@ -101,6 +100,7 @@ export default function Sources() {
                        bottom: 32, }}>
                 <SettingsIcon />
             </Fab>
+
         </>
     );
 }
