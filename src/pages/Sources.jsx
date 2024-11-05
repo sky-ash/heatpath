@@ -85,7 +85,7 @@ export default function Sources() {
                         </List>
                     </Box>
                 ))}
-                <Box m={8} textAlign='bottom'>
+                <Box mt={8} textAlign='bottom'>
                     .
                 </Box>
             </Box>

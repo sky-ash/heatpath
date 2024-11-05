@@ -100,23 +100,19 @@ export default function Path() {
         onClose={handleDrawerClose}
         >
         <Box textAlign="center"
-             height="66vh"
              p={4}>
 
           <Typography variant="h6" gutterBottom>
             {selectedLecture?.title.split(':')[0]}:
           </Typography>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" gutterBottom mb={6}>
             {selectedLecture?.title.split(':')[1]}
           </Typography>
-
 
           <Button
             variant="contained"
             color="primary"
-            sx={{ position: 'fixed',  margin: 'auto', width: 'calc(100% - 64px)', 
-                  bottom: '32px', left: '0', right: '0'
-             }}
+            sx={{ width: 'calc(100% - 64px)'}}
             onClick={() => {
               handleLectureClick(parsedLectureContent.lectures.indexOf(selectedLecture) + 1);
               handleDrawerClose();
