@@ -1,0 +1,95 @@
+
+{
+    "lectures": [
+        {
+            "title": "Lecture 1: Airborne Pollutants",
+            "sources": [
+                {
+                    "citation": "Jack T. Pryor, Lachlan O. Cowley, Stephanie E. Simonds, The Physiological Effects of Air Pollution: Particulate Matter, Physiology and Disease (2022). https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.882569/full",
+                    "author": "Jack T. Pryor, Lachlan O. Cowley, Stephanie E. Simonds",
+                    "title": "The Physiological Effects of Air Pollution: Particulate Matter, Physiology and Disease",
+                    "year": 2022,
+                    "url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.882569/full"
+                },
+                {
+                    "citation": "Peel, J.L., Haeuber, R., Garcia, V. et al. Impact of nitrogen and climate change interactions on ambient air pollution and human health. Biogeochemistry 114, 121–134 (2013). https://doi.org/10.1007/s10533-012-9782-4",
+                    "author": "Peel, J.L., Haeuber, R., Garcia, V. et al.",
+                    "title": "Impact of nitrogen and climate change interactions on ambient air pollution and human health",
+                    "year": 2013,
+                    "journal": "Biogeochemistry",
+                    "volume": 114,
+                    "pages": "121–134",
+                    "url": "https://doi.org/10.1007/s10533-012-9782-4"
+                }
+            ]
+        },
+        {
+            "title": "Lecture 2: Rising Parasitic Risks and Health Consequences for Recreational Waters",
+            "sources": [
+                {
+                    "citation": "David J. Marcogliese, The Distribution and Abundance of Parasites in Aquatic Ecosystems in a Changing Climate: More than Just Temperature, Integrative and Comparative Biology , Volume 56, Issue 4 (2016), Pages 611–619. https://academic.oup.com/icb/article/56/4/611/2198262",
+                    "author": "David J. Marcogliese",
+                    "title": "The Distribution and Abundance of Parasites in Aquatic Ecosystems in a Changing Climate: More than Just Temperature",
+                    "year": 2016,
+                    "journal": "Integrative and Comparative Biology",
+                    "volume": 56,
+                    "issue": 4,
+                    "pages": "611–619",
+                    "url": "https://academic.oup.com/icb/article/56/4/611/2198262"
+                },
+                {
+                    "citation": "Ana E. Ahuir-Baraja, Aigües Repulles, Impact of Climate Change on Aquatic Parasite-Host Dynamics (2024). https://www.frontiersin.org/research-topics/65110/impact-of-climate-change-on-aquatic-parasite-host-dynamics/overview",
+                    "author": "Ana E. Ahuir-Baraja, Aigües Repulles",
+                    "title": "Impact of Climate Change on Aquatic Parasite-Host Dynamics",
+                    "year": 2024,
+                    "url": "https://www.frontiersin.org/research-topics/65110/impact-of-climate-change-on-aquatic-parasite-host-dynamics/overview"
+                }
+            ]
+        },
+        {
+            "title": "Lecture 3: UV-Strahlung",
+            "sources": [
+                {
+                    "citation": "Bundesamt für Strahlenschutz, Climate change and UV radiation (2021). https://www.bfs.de/EN/topics/opt/uv/climate-change/climate-change-uv_node.html",
+                    "author": "Bundesamt für Strahlenschutz",
+                    "title": "Climate change and UV radiation",
+                    "year": 2021,
+                    "url": "https://www.bfs.de/EN/topics/opt/uv/climate-change/climate-change-uv_node.html"
+                },
+                {
+                    "citation": "Smithsonian Environmental Research Center, Changes in Ultraviolet Radiation. https://serc.si.edu/research/research-topics/global-change/changes-ultraviolet-radiation",
+                    "author": "Smithsonian Environmental Research Center",
+                    "title": "Changes in Ultraviolet Radiation",
+                    "url": "https://serc.si.edu/research/research-topics/global-change/changes-ultraviolet-radiation"
+                },
+                {
+                    "citation": "European Climate and Health Observatory, Ultraviolet (UV) radiation’s effects on human health under the changing climate (2024). https://climate-adapt.eea.europa.eu/en/observatory/evidence/health-effects/uv-radiation/UV-radiation",
+                    "author": "European Climate and Health Observatory",
+                    "title": "Ultraviolet (UV) radiation’s effects on human health under the changing climate",
+                    "year": 2024,
+                    "url": "https://climate-adapt.eea.europa.eu/en/observatory/evidence/health-effects/uv-radiation/UV-radiation"
+                }
+            ]
+        },
+        {
+            "title": "Lecture 4: Heatwaves",
+            "sources": [
+                {
+                    "citation": "World Health Organization, Heat and health (2024). https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+                    "author": "World Health Organization",
+                    "title": "Heat and health",
+                    "year": 2024,
+                    "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health"
+                },
+                {
+                    "citation": "Prof Qi Zhao, PhD, Prof Yuming Gut, PhD and others, Global, regional, and national burden of mortality associated with non-optimal ambient temperatures from 2000 to 2019: a three-stage modelling study (2021). https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(21)00081-4/fulltext",
+                    "author": "Prof Qi Zhao, PhD, Prof Yuming Gut, PhD and others",
+                    "title": "Global, regional, and national burden of mortality associated with non-optimal ambient temperatures from 2000 to 2019: a three-stage modelling study",
+                    "year": 2021,
+                    "journal": "The Lancet",
+                    "url": "https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(21)00081-4/fulltext"
+                }
+            ]
+        }
+    ]
+}
