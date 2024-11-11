@@ -6,7 +6,7 @@ Heat Path is an educational web application designed to teach users about the he
 
 ## Purpose
 
-The purpose of Heat Path is to raise awareness about the health risks associated with climate change and to provide users with the knowledge and tools to mitigate these risks. By educating users about the impacts of climate change on health, Heat Path aims to promote healthier lifestyles and encourage actions to reduce climate change.
+The purpose of Heat Path is to raise awareness about the health risks associated with climate change and to provide users with the knowledge and tools to mitigate these risks. 
 
 ## How to Use
 
